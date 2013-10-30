@@ -40,12 +40,12 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[PCXView drawRect:]"
                   moduleName = "Lr1_MM"
-                  urlString = "file:///Users/limestore/Documents/MM/LR1/Lr1_MM/Lr1_MM/Code/Views/PCXView/PCXView.m"
-                  timestampString = "404864492.248925"
+                  urlString = "file:///Users/limestore/Maks-Jago/PCXDecoder/Lr1_MM/Code/Views/PCXView/PCXView.m"
+                  timestampString = "404867975.485539"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
                   offsetFromSymbolStart = "106">
                </Location>
                <Location
@@ -54,13 +54,13 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[PCXView drawRect:]"
                   moduleName = "Lr1_MM"
-                  urlString = "file:///Users/limestore/Documents/MM/LR1/Lr1_MM/Lr1_MM/Code/Views/PCXView/PCXView.m"
-                  timestampString = "404864492.24923"
+                  urlString = "file:///Users/limestore/Maks-Jago/PCXDecoder/Lr1_MM/Code/Views/PCXView/PCXView.m"
+                  timestampString = "404867975.486956"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "1373">
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "1668">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -119,22 +119,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lr1_MM/Code/Domain/PCXHeader/PCXHeader.m"
-            timestampString = "404862372.254343"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-decodeInformationProperties"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/PCXContent/PCXContent.m"
             timestampString = "404863861.424594"
             startingColumnNumber = "9223372036854775807"
@@ -143,36 +127,6 @@
             endingLineNumber = "237"
             landmarkName = "-startDecoding"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PCXContent startDecoding]"
-                  moduleName = "Lr1_MM"
-                  urlString = "file:///Users/limestore/Documents/MM/LR1/Lr1_MM/Lr1_MM/Code/Domain/PCXContent/PCXContent.m"
-                  timestampString = "404864492.251846"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "237"
-                  endingLineNumber = "237"
-                  offsetFromSymbolStart = "758">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PCXContent startDecoding]"
-                  moduleName = "Lr1_MM"
-                  urlString = "file:///Users/limestore/Documents/MM/LR1/Lr1_MM/Lr1_MM/Code/Domain/PCXContent/PCXContent.m"
-                  timestampString = "404864492.25213"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "237"
-                  endingLineNumber = "237"
-                  offsetFromSymbolStart = "1501">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

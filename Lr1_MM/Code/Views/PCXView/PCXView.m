@@ -36,8 +36,8 @@
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
         for (int j = 0; j < self.pcxFile.pcxHeader.totalBytes / 3; j++) {
             CGFloat red = [linePallete[j] floatValue];
-            CGFloat green = [linePallete[j+2] floatValue];
-            CGFloat blue = [linePallete[j+4] floatValue];
+            CGFloat green = [linePallete[j + self.pcxFile.pcxHeader.bytesPerLine] floatValue];
+            CGFloat blue = [linePallete[j + (self.pcxFile.pcxHeader.bytesPerLine << 1)] floatValue];
 
             UIColor *color = [UIColor colorWithRed:red / 255.0f
                                              green:green / 255.0f

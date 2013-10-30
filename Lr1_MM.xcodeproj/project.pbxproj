@@ -21,6 +21,7 @@
 		2D9162411821BECE001EE321 /* 4x4.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D9162401821BECE001EE321 /* 4x4.pcx */; };
 		2D9162431821BFE6001EE321 /* image.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D9162421821BFE6001EE321 /* image.pcx */; };
 		2D9162461821C491001EE321 /* 10x10.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D9162451821C491001EE321 /* 10x10.pcx */; };
+		2D9162481821C95D001EE321 /* lines.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D9162471821C95D001EE321 /* lines.pcx */; };
 		2DB5A516180ADD6B009CC3E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A515180ADD6B009CC3E2 /* Foundation.framework */; };
 		2DB5A518180ADD6B009CC3E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */; };
 		2DB5A51A180ADD6B009CC3E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A519180ADD6B009CC3E2 /* UIKit.framework */; };
@@ -76,6 +77,7 @@
 		2D9162401821BECE001EE321 /* 4x4.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4x4.pcx; sourceTree = "<group>"; };
 		2D9162421821BFE6001EE321 /* image.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = image.pcx; sourceTree = "<group>"; };
 		2D9162451821C491001EE321 /* 10x10.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10.pcx; sourceTree = "<group>"; };
+		2D9162471821C95D001EE321 /* lines.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = lines.pcx; sourceTree = "<group>"; };
 		2DB5A512180ADD6B009CC3E2 /* Lr1_MM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lr1_MM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB5A515180ADD6B009CC3E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -317,6 +319,7 @@
 		2DB5A554180AE3B8009CC3E2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2D9162471821C95D001EE321 /* lines.pcx */,
 				2D9162451821C491001EE321 /* 10x10.pcx */,
 				2D9162421821BFE6001EE321 /* image.pcx */,
 				2D9162401821BECE001EE321 /* 4x4.pcx */,
@@ -431,6 +434,7 @@
 				2D9162411821BECE001EE321 /* 4x4.pcx in Resources */,
 				2D91623B18218D49001EE321 /* 1BlackPixel.pcx in Resources */,
 				2DEF7A44181E50F1000A20F6 /* 8x8.pcx in Resources */,
+				2D9162481821C95D001EE321 /* lines.pcx in Resources */,
 				2D24D1E5180D4B2800C00E09 /* this.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
 				2DEF7A46181E51DC000A20F6 /* arc.pcx in Resources */,
