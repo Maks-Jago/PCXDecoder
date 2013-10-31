@@ -17,6 +17,6 @@
 
 - (id)initWithData:(NSData *)data;
 
-- (void)saveFileWithName:(NSString *)newFileName;
+- (void)saveFileByPath:(NSString *)filePath;
 
 @end

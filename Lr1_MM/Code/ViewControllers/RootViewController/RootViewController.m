@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"10x10" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"10x10_" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     
     PCXFile *pcxFile = [[PCXFile alloc] initWithData:data];
@@ -33,6 +33,11 @@
     [self.view addSubview:pcxView];
     self.view.backgroundColor = [UIColor lightGrayColor];
     [pcxView setNeedsDisplay];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSMutableString *pathForSave = [NSMutableString stringWithString:[paths lastObject]];
+    [pathForSave appendString:@"//savedPcxFile.pcx"];
+    [pcxFile saveFileByPath:pathForSave];
 }
 
 @end

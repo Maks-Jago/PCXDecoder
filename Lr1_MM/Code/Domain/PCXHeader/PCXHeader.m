@@ -75,6 +75,11 @@ typedef enum {
     return self;
 }
 
+- (void)dealloc
+{
+    free(self.headerBytes);
+}
+
 - (void)decodeHeader
 {
     [self decodeInformationProperties];

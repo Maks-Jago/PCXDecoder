@@ -15,4 +15,6 @@
 
 - (id)initWithBytes:(Byte *)bytes length:(NSUInteger)length pcxHeader:(PCXHeader *)pcxHeader;
 
+- (NSArray *)encode;
+
 @end

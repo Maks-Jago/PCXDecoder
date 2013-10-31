@@ -11,9 +11,9 @@
 		2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24D1E8180D58F600C00E09 /* PCXFile.m */; };
 		2D28334B1815D9F8006216EB /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28334A1815D9F8006216EB /* Defines.m */; };
 		2D38D96E180AF7AF002D0E95 /* MARBLES.PCX in Resources */ = {isa = PBXBuildFile; fileRef = 2D38D96D180AF7AF002D0E95 /* MARBLES.PCX */; };
-		2D4FC60B1818E7F400EB827A /* asd.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FC6081818E7F400EB827A /* asd.c */; };
-		2D4FC60C1818E7F400EB827A /* endianio.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FC6091818E7F400EB827A /* endianio.c */; };
 		2D676159180AFCA3008518F7 /* PCXContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D676158180AFCA3008518F7 /* PCXContent.m */; };
+		2D72FA9E1822E0A6001160BD /* D.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D72FA9D1822E0A5001160BD /* D.pcx */; };
+		2D72FAA01822E593001160BD /* 2x2_colors.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D72FA9F1822E593001160BD /* 2x2_colors.pcx */; };
 		2D91623918218B86001EE321 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D91623818218B86001EE321 /* Security.framework */; };
 		2D91623B18218D49001EE321 /* 1BlackPixel.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D91623A18218D04001EE321 /* 1BlackPixel.pcx */; };
 		2D91623D1821B412001EE321 /* 2x2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D91623C1821B412001EE321 /* 2x2.pcx */; };
@@ -38,6 +38,7 @@
 		2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5A552180AE337009CC3E2 /* PCXView.m */; };
 		2DB5A556180AE3C8009CC3E2 /* Lr1_MM.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DB5A555180AE3C8009CC3E2 /* Lr1_MM.pcx */; };
 		2DC42421181D9C7500F10CF4 /* test.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC42420181D9C7500F10CF4 /* test.pcx */; };
+		2DC4C13518223FE6007BF9E0 /* 10x10_.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4C13418223FE6007BF9E0 /* 10x10_.pcx */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
 		2DEF7A40181E4E62000A20F6 /* qwqwe.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF7A3F181E4E62000A20F6 /* qwqwe.pcx */; };
 		2DEF7A42181E50D3000A20F6 /* sample.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF7A41181E50D3000A20F6 /* sample.pcx */; };
@@ -63,13 +64,10 @@
 		2D2833491815D9F8006216EB /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		2D28334A1815D9F8006216EB /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		2D38D96D180AF7AF002D0E95 /* MARBLES.PCX */ = {isa = PBXFileReference; lastKnownFileType = file; path = MARBLES.PCX; sourceTree = "<group>"; };
-		2D4FC6081818E7F400EB827A /* asd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = asd.c; sourceTree = "<group>"; };
-		2D4FC6091818E7F400EB827A /* endianio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = endianio.c; sourceTree = "<group>"; };
-		2D4FC60A1818E7F400EB827A /* endianio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = endianio.h; sourceTree = "<group>"; };
-		2D4FC60D1818E80500EB827A /* datatype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datatype.h; sourceTree = "<group>"; };
-		2D4FC60E1818E81500EB827A /* pcx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pcx.h; sourceTree = "<group>"; };
 		2D676157180AFCA3008518F7 /* PCXContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXContent.h; sourceTree = "<group>"; };
 		2D676158180AFCA3008518F7 /* PCXContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXContent.m; sourceTree = "<group>"; };
+		2D72FA9D1822E0A5001160BD /* D.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = D.pcx; sourceTree = "<group>"; };
+		2D72FA9F1822E593001160BD /* 2x2_colors.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2x2_colors.pcx; sourceTree = "<group>"; };
 		2D91623818218B86001EE321 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2D91623A18218D04001EE321 /* 1BlackPixel.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1BlackPixel.pcx; sourceTree = "<group>"; };
 		2D91623C1821B412001EE321 /* 2x2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2x2.pcx; sourceTree = "<group>"; };
@@ -103,6 +101,7 @@
 		2DC42422181DA40000F10CF4 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "usr/lib/libc++.1.dylib"; sourceTree = SDKROOT; };
 		2DC42423181DA40000F10CF4 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		2DC42424181DA40000F10CF4 /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
+		2DC4C13418223FE6007BF9E0 /* 10x10_.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10_.pcx; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
 		2DE5F22D180BCDCB006133B4 /* PCXHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXHeader.m; sourceTree = "<group>"; };
 		2DEF7A3F181E4E62000A20F6 /* qwqwe.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = qwqwe.pcx; sourceTree = "<group>"; };
@@ -269,11 +268,6 @@
 		2DB5A549180AE246009CC3E2 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				2D4FC60E1818E81500EB827A /* pcx.h */,
-				2D4FC60D1818E80500EB827A /* datatype.h */,
-				2D4FC6081818E7F400EB827A /* asd.c */,
-				2D4FC6091818E7F400EB827A /* endianio.c */,
-				2D4FC60A1818E7F400EB827A /* endianio.h */,
 				2D2833461815D9BA006216EB /* Common */,
 				2D676155180AFC8B008518F7 /* Domain */,
 				2DB5A54F180AE328009CC3E2 /* Views */,
@@ -319,6 +313,9 @@
 		2DB5A554180AE3B8009CC3E2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2D72FA9F1822E593001160BD /* 2x2_colors.pcx */,
+				2D72FA9D1822E0A5001160BD /* D.pcx */,
+				2DC4C13418223FE6007BF9E0 /* 10x10_.pcx */,
 				2D9162471821C95D001EE321 /* lines.pcx */,
 				2D9162451821C491001EE321 /* 10x10.pcx */,
 				2D9162421821BFE6001EE321 /* image.pcx */,
@@ -429,14 +426,17 @@
 				2DEF7A40181E4E62000A20F6 /* qwqwe.pcx in Resources */,
 				2D9162461821C491001EE321 /* 10x10.pcx in Resources */,
 				2DC42421181D9C7500F10CF4 /* test.pcx in Resources */,
+				2D72FA9E1822E0A6001160BD /* D.pcx in Resources */,
 				2D9162431821BFE6001EE321 /* image.pcx in Resources */,
 				2D91623F1821B758001EE321 /* gmarbles-2.pcx in Resources */,
 				2D9162411821BECE001EE321 /* 4x4.pcx in Resources */,
 				2D91623B18218D49001EE321 /* 1BlackPixel.pcx in Resources */,
+				2DC4C13518223FE6007BF9E0 /* 10x10_.pcx in Resources */,
 				2DEF7A44181E50F1000A20F6 /* 8x8.pcx in Resources */,
 				2D9162481821C95D001EE321 /* lines.pcx in Resources */,
 				2D24D1E5180D4B2800C00E09 /* this.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
+				2D72FAA01822E593001160BD /* 2x2_colors.pcx in Resources */,
 				2DEF7A46181E51DC000A20F6 /* arc.pcx in Resources */,
 				2DEF7A42181E50D3000A20F6 /* sample.pcx in Resources */,
 				2D38D96E180AF7AF002D0E95 /* MARBLES.PCX in Resources */,
@@ -459,13 +459,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D4FC60B1818E7F400EB827A /* asd.c in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2D28334B1815D9F8006216EB /* Defines.m in Sources */,
 				2D676159180AFCA3008518F7 /* PCXContent.m in Sources */,
 				2DB5A526180ADD6B009CC3E2 /* AppDelegate.m in Sources */,
-				2D4FC60C1818E7F400EB827A /* endianio.c in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
 				2DB5A54E180AE261009CC3E2 /* RootViewController.m in Sources */,

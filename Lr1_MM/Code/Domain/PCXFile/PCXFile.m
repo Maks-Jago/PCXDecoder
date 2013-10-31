@@ -40,11 +40,31 @@
     
     self.pcxHeader = [[PCXHeader alloc] initWithBytes:headerBytes];    
     self.pcxContent = [[PCXContent alloc] initWithBytes:bytes length:length pcxHeader:self.pcxHeader];
+    
+    free(headerBytes);
 }
 
-- (void)saveFileWithName:(NSString *)newFileName
+- (void)saveFileByPath:(NSString *)filePath
 {
-    NSAssert(nil, @"Not implemented yet");
+    NSArray *encodedContent = [self.pcxContent encode];
+    Byte *dataToSave = malloc(kHeaderSize * [encodedContent count]);
+    memcpy(dataToSave, [self.data bytes], kHeaderSize);
+    
+    for (int i = 0; i < [encodedContent count]; i++) {
+        dataToSave[i + kHeaderSize] = [encodedContent[i] integerValue];
+    }
+    
+//    for (int j = 0; j < kHeaderSize + [encodedContent count]; j++) {
+//        Byte b = dataToSave[j];
+//        NSLog(@"d = %d, c = %02x, i = %d", b, b, j);
+//    }
+    
+    NSData *contentData = [NSData dataWithBytes:dataToSave length:kHeaderSize + [encodedContent count]];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+    }
+    
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:contentData attributes:nil];
 }
 
 @end
