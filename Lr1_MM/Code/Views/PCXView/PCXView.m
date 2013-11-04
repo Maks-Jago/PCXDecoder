@@ -9,6 +9,8 @@
 #import "PCXView.h"
 #import "PCXFile.h"
 
+#import <QuartzCore/CoreAnimation.h>
+
 @interface PCXView ()
 
 @property (nonatomic, strong) PCXFile *pcxFile;
@@ -16,6 +18,25 @@
 @end
 
 @implementation PCXView
+
++ (Class)layerClass
+{
+    return [CATiledLayer class];
+}
+
+#pragma mark -
+#pragma mark Initializations
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+	if (self) {
+		CATiledLayer *animLayer = (CATiledLayer *)self.layer;
+		animLayer.levelsOfDetailBias = 4;
+		animLayer.levelsOfDetail = 4;
+	}
+	return self;
+}
 
 - (id)initWithPCXFile:(PCXFile *)pcxFile
 {
@@ -26,55 +47,80 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark View Managment
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     for (int i = 0; i < self.pcxFile.pcxHeader.imageSize.height; i++) {
         CGContextMoveToPoint(context, 0, i);
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
         for (int j = 0; j < self.pcxFile.pcxHeader.bytesPerLine; j++) {
-            CGFloat red = [linePallete[0][j] floatValue];
-            CGFloat green = [linePallete[1][j] floatValue];
-            CGFloat blue = [linePallete[2][j] floatValue];
-            
-//            NSLog(@"red = %f, green = %f, blue = %f", red, green, blue);
-            UIColor *color = [UIColor colorWithRed:red / 255.0f
-                                             green:green / 255.0f
-                                              blue:blue / 255.0f
-                                             alpha:1.0f];
+            UIColor *color = [self colorFromLinePallete:linePallete withIndex:j alpha:1.0f];
             [color setFill];
             CGContextFillRect(context, CGRectMake(j, i, 1, 1));
         }
     }
 }
 
-/*- (void)drawRect:(CGRect)rect
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [super drawRect:rect];
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    NSUInteger total = 0;
-    for (int i = 0; i < self.pcxFile.pcxHeader.imageSize.height; i++) {
-        CGContextMoveToPoint(context, 0, i);
-//        NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
-        for (int j = 0; j < self.pcxFile.pcxHeader.totalBytes; j+= 3) {
-            CGFloat red = self.pcxFile.pcxContent.decodedBytes[total + j];//[linePallete[j] floatValue];
-            CGFloat green = self.pcxFile.pcxContent.decodedBytes[total + j + 1];//[linePallete[j + self.pcxFile.pcxHeader.bytesPerLine] floatValue];
-            CGFloat blue = self.pcxFile.pcxContent.decodedBytes[total + j + 2];//[linePallete[j + (self.pcxFile.pcxHeader.bytesPerLine << 1)] floatValue];
+    NSArray *touchesArray = [touches allObjects];
+    if ([touchesArray count] && !self.tag) {
+        UITouch *touch = [touches allObjects][0];
+        if (touch.tapCount == 1) {
+            CGPoint location = [touch locationInView:self];
+            NSUInteger roundedX = RoundFloat(location.x);
+            NSUInteger roundedY = RoundFloat(location.y);
 
-            NSLog(@"red = %f, green = %f, blue = %f", red, green, blue);
-            UIColor *color = [UIColor colorWithRed:red / 255.0f
-                                             green:green / 255.0f
-                                              blue:blue / 255.0f
-                                             alpha:1.0f];
-            [color setFill];
-            CGContextFillRect(context, CGRectMake(j / 3, i, 1, 1));
+            if ((NSUInteger)location.x >= [self.pcxFile.pcxContent.pallete count]) {
+                return;
+            }
+            NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
+            for (int index = 0; index < [mutArray count]; index ++) {
+                NSMutableArray *array = mutArray[index];
+                [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:0]];
+            }
+            [self setNeedsDisplay];
         }
-        total += self.pcxFile.pcxHeader.totalBytes;
     }
-}*/
+}
+
+#pragma mark -
+#pragma mark Help Methods
+
+- (UIColor *)colorFromLinePallete:(NSArray *)linePallete withIndex:(NSUInteger)index alpha:(CGFloat)alpha
+{
+    UIColor *color = nil;
+    NSUInteger linePalleteCount = [linePallete count];
+    switch (linePalleteCount) {
+        case 1: {
+            CGFloat grayScaleValue = [linePallete[index] floatValue];
+#ifdef DEBUG_MOD
+            NSLog(@"gray scale = %f", grayScaleValue);
+#endif
+            color = [UIColor colorWithWhite:grayScaleValue alpha:alpha];
+        }
+            break;
+        case 3: {
+            CGFloat red = [linePallete[0][index] floatValue];
+            CGFloat green = [linePallete[1][index] floatValue];
+            CGFloat blue = [linePallete[2][index] floatValue];
+
+#ifdef DEBUG_MOD
+            NSLog(@"red = %f, green = %f, blue = %f", red, green, blue);
+#endif
+            color = RGBA(red, green, blue, alpha);
+        }
+            break;
+        default:
+            NSAssert(nil, @"not supported this channel bits");
+            break;
+    }
+    return color;
+}
 
 @end

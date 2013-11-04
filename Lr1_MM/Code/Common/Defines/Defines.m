@@ -12,3 +12,12 @@ NSUInteger UIIntegerFromBytes(Byte firstByte, Byte secondByte)
 {
     return [[NSString stringWithFormat:@"%d%d", secondByte, firstByte] integerValue];
 }
+
+NSUInteger RoundFloat(CGFloat floatValue)
+{
+    NSUInteger roundedValue = (NSUInteger)floatValue;
+    if ((CGFloat)roundedValue - floatValue >= 0.7) {
+        roundedValue++;
+    }
+    return roundedValue;
+}

@@ -94,7 +94,9 @@ typedef enum {
     
     self.palleteInfo = UIIntegerFromBytes(self.headerBytes[PCXHeaderContentPalleteInfoOffsets],
                                           self.headerBytes[PCXHeaderContentPalleteInfoOffsets + 1]);
+#ifdef DEBUG_MOD
     [self logHeader];
+#endif
 }
 
 #pragma mark -

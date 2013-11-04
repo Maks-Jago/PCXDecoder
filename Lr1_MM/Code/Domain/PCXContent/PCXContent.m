@@ -11,7 +11,6 @@
 
 @interface PCXContent ()
 
-@property (nonatomic, strong) NSMutableArray *mutablePallete;
 @property (nonatomic, assign) Byte* bytes;
 @property (nonatomic, assign) NSUInteger length;
 
@@ -36,22 +35,23 @@
     return self;
 }
 
-- (NSArray *)pallete
-{
-    return (NSArray *)self.mutablePallete;
-}
-
 - (void)decode
 {
-    self.mutablePallete = [NSMutableArray new];
+    if (self.pcxHeader.planesCount != 1 && self.pcxHeader.planesCount != 3) {
+        NSAssert(nil, @"not supported current planes count");
+        return;
+    }
+    
+    self.pallete = [NSMutableArray new];
     self.totalBytes = self.pcxHeader.planesCount * self.pcxHeader.bytesPerLine;
     
-    NSUInteger indexByte = 128;
-//    for (int i = 128; i < self.length; i++) {
-//        Byte b = self.bytes[i];
-//        NSLog(@"d = %d, c = %02x, i = %d", b, b, i);
-//    }
-    
+    NSUInteger indexByte = kHeaderSize;
+#ifdef DEBUG_MOD
+    for (int i = indexByte; i < self.length; i++) {
+        Byte b = self.bytes[i];
+        NSLog(@"d = %d, c = %02x, i = %d", b, b, i);
+    }
+#endif
     for (int rowIndex = 0; rowIndex < self.pcxHeader.imageSize.height; rowIndex ++) {
         NSMutableArray *row = [NSMutableArray new];
         for (int pixelIndex = 0; pixelIndex < self.totalBytes; pixelIndex++) {
@@ -68,52 +68,32 @@
             }
         }
         
-        NSMutableArray *red = [NSMutableArray new];
-        NSMutableArray *green = [NSMutableArray new];
-        NSMutableArray *blue = [NSMutableArray new];
-        for (int colorIndex = 0; colorIndex < self.totalBytes; colorIndex++) {
-            NSNumber *value = row[colorIndex];
-            if (colorIndex < self.pcxHeader.bytesPerLine) {
-                [red addObject:value];
-            } else if (colorIndex < self.pcxHeader.bytesPerLine * 2) {
-                [green addObject:value];
-            } else {
-                [blue addObject:value];
+        NSMutableArray *colorValues = [NSMutableArray new];
+        NSMutableArray *pixels = [NSMutableArray new];
+        for (int chanelIndex = 0, index = 0; chanelIndex < self.pcxHeader.planesCount; chanelIndex++, index += self.pcxHeader.bytesPerLine) {
+            [pixels removeAllObjects];
+            for (int colorIndex = 0; colorIndex < self.pcxHeader.bytesPerLine; colorIndex++) {
+                NSNumber *value = row[colorIndex + index];
+                [pixels addObject:value];
             }
+            [colorValues addObject:pixels];
         }
         
-        [self.mutablePallete addObject:@[red, green,blue]];
+        [self.pallete addObject:colorValues];
     }
-    NSLog(@"");
 }
 
 - (NSArray *)encode
 {
-//    for (int i = 128; i < self.length; i++) {
-//        Byte b = self.bytes[i];
-//        NSLog(@"d = %d, c = %02x, i = %d", b, b, i);
-//    }
-    NSParameterAssert(self.mutablePallete);
-    NSParameterAssert(self.mutablePallete.count);
+    NSParameterAssert(self.pallete);
+    NSParameterAssert(self.pallete.count);
     
     NSMutableArray *encodedArray = [NSMutableArray new];
     
-//    NSUInteger len = [self.mutablePallete[0] count] * [self.mutablePallete[0][0] count] * [self.mutablePallete count];
-//    Byte *encodedData = malloc(len * 2);
-//    __block NSUInteger encodedIndex = 0;
-    
-    for (NSArray *row in self.mutablePallete) {
+    for (NSArray *row in self.pallete) {
         [encodedArray addObjectsFromArray:[self encodeArray:row[0]]];
         [encodedArray addObjectsFromArray:[self encodeArray:row[1]]];
         [encodedArray addObjectsFromArray:[self encodeArray:row[2]]];
-    }
-    
-    for (int i = 0; i < [encodedArray count]; i++) {
-        Byte b = [encodedArray[i] integerValue];
-        NSLog(@"new d = %d, old d = %d", b, self.bytes[i + 128]);
-        if (!((i+1) % self.pcxHeader.bytesPerLine)) {
-            NSLog(@"end of line");
-        }
     }
     return (NSArray *)encodedArray;
 }
@@ -175,24 +155,24 @@
     NSLog(@"");
 }*/
 
-- (NSArray *)decodeLineWithIndexByte:(int )indexByte
-{
-    NSMutableArray *row = [NSMutableArray new];
-    for (int pixelIndex = 0; pixelIndex < self.totalBytes; pixelIndex++) {
-        Byte value = self.bytes[indexByte++];
-        if ((value & 192) == 192) { //0xC0 == 192
-            NSUInteger repeatCount = value & 63; // 0x3F == 63
-            value = self.bytes[indexByte++];
-            while (repeatCount > 0) {
-                [row addObject:[NSNumber numberWithInteger:value]];
-                repeatCount--;
-            }
-        } else {
-            [row addObject:[NSNumber numberWithInteger:value]];
-        }
-    }
-    return (NSArray *)row;
-}
+//- (NSArray *)decodeLineWithIndexByte:(int )indexByte
+//{
+//    NSMutableArray *row = [NSMutableArray new];
+//    for (int pixelIndex = 0; pixelIndex < self.totalBytes; pixelIndex++) {
+//        Byte value = self.bytes[indexByte++];
+//        if ((value & 192) == 192) { //0xC0 == 192
+//            NSUInteger repeatCount = value & 63; // 0x3F == 63
+//            value = self.bytes[indexByte++];
+//            while (repeatCount > 0) {
+//                [row addObject:[NSNumber numberWithInteger:value]];
+//                repeatCount--;
+//            }
+//        } else {
+//            [row addObject:[NSNumber numberWithInteger:value]];
+//        }
+//    }
+//    return (NSArray *)row;
+//}
 
 #pragma mark -
 #pragma mark Help Methods

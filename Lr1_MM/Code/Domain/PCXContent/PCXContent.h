@@ -11,7 +11,7 @@
 
 @interface PCXContent : NSObject
 
-@property (nonatomic, readonly, strong) NSArray *pallete;
+@property (nonatomic, strong) NSMutableArray *pallete;
 
 - (id)initWithBytes:(Byte *)bytes length:(NSUInteger)length pcxHeader:(PCXHeader *)pcxHeader;
 
