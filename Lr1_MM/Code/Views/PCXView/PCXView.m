@@ -43,6 +43,7 @@
     self = [super init];
     if (self) {
         self.pcxFile = pcxFile;
+        self.editedColor = [UIColor blackColor];
     }
     return self;
 }
@@ -79,12 +80,14 @@
             if ((NSUInteger)location.x >= [self.pcxFile.pcxContent.pallete count]) {
                 return;
             }
+            
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
                 NSMutableArray *array = mutArray[index];
                 [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:0]];
             }
-            [self setNeedsDisplay];
+            [self setNeedsDisplayInRect:CGRectMake(roundedX, roundedY, 1, 1)];
+//            [self setNeedsDisplay];
         }
     }
 }
@@ -98,7 +101,7 @@
     NSUInteger linePalleteCount = [linePallete count];
     switch (linePalleteCount) {
         case 1: {
-            CGFloat grayScaleValue = [linePallete[index] floatValue];
+            CGFloat grayScaleValue = [linePallete[0][index] floatValue];
 #ifdef DEBUG_MOD
             NSLog(@"gray scale = %f", grayScaleValue);
 #endif
@@ -117,7 +120,7 @@
         }
             break;
         default:
-            NSAssert(nil, @"not supported this channel bits");
+            NSAssert(nil, @"not supported this channel bits count");
             break;
     }
     return color;

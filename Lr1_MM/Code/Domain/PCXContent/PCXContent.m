@@ -30,7 +30,6 @@
         
         self.pcxHeader = pcxHeader;
         [self decode];
-        [self encode];
     }
     return self;
 }
@@ -91,9 +90,9 @@
     NSMutableArray *encodedArray = [NSMutableArray new];
     
     for (NSArray *row in self.pallete) {
-        [encodedArray addObjectsFromArray:[self encodeArray:row[0]]];
-        [encodedArray addObjectsFromArray:[self encodeArray:row[1]]];
-        [encodedArray addObjectsFromArray:[self encodeArray:row[2]]];
+        for (int index = 0; index < self.pcxHeader.planesCount; index++) {
+            [encodedArray addObjectsFromArray:[self encodeArray:row[index]]];
+        }
     }
     return (NSArray *)encodedArray;
 }
@@ -106,11 +105,11 @@
     NSNumber *nextValue;
     for (int i = 0; i < [arrayForEncoding count]; i++) {
         value = arrayForEncoding[i];
+        nextValue = nil;
         if (i + 1 < [arrayForEncoding count]) {
             nextValue = arrayForEncoding[i + 1];
-        } else {
-            nextValue = nil;
         }
+        
         if (nextValue && [value compare:nextValue] == NSOrderedSame) {
             repeatCount++;
             continue;
@@ -124,55 +123,6 @@
     }
     return encodedArray;
 }
-
-/*- (void)startDecoding
-{
-    self.mutablePallete = [NSMutableArray new];
-    self.totalBytes = self.pcxHeader.planesCount * self.pcxHeader.bytesPerLine;
-
-    for (int i = 128; i < self.length; i++) {
-        Byte b = self.bytes[i];
-        NSLog(@"d = %d, c = %02x, i = %d", b, b, i);   
-    }
-
-    int indexByte = 128;
-    self.decodedBytes = malloc(self.pcxHeader.imageSize.height * self.totalBytes);
-    NSUInteger total = 0;
-    for (int rowIndex = 0; rowIndex < self.pcxHeader.imageSize.height; rowIndex ++) {
-        NSArray *row = [self decodeLineWithIndexByte:indexByte];
-        
-        for (int decodedIndex = 0; decodedIndex < self.pcxHeader.imageSize.width; decodedIndex++) {
-            self.decodedBytes[total + 3 * decodedIndex] = [row[decodedIndex] integerValue];
-            self.decodedBytes[total + 3 * decodedIndex + 1] = [row[decodedIndex + self.pcxHeader.bytesPerLine] integerValue];
-            self.decodedBytes[total + 3 * decodedIndex + 2] = [row[decodedIndex + (self.pcxHeader.bytesPerLine << 1)] integerValue];
-        }
-        
-        self.decodedBytes += self.pcxHeader.bytesPerLine;
-        total += self.totalBytes;
-        indexByte += self.totalBytes;
-//        [self.mutablePallete addObject:row];
-    }
-    NSLog(@"");
-}*/
-
-//- (NSArray *)decodeLineWithIndexByte:(int )indexByte
-//{
-//    NSMutableArray *row = [NSMutableArray new];
-//    for (int pixelIndex = 0; pixelIndex < self.totalBytes; pixelIndex++) {
-//        Byte value = self.bytes[indexByte++];
-//        if ((value & 192) == 192) { //0xC0 == 192
-//            NSUInteger repeatCount = value & 63; // 0x3F == 63
-//            value = self.bytes[indexByte++];
-//            while (repeatCount > 0) {
-//                [row addObject:[NSNumber numberWithInteger:value]];
-//                repeatCount--;
-//            }
-//        } else {
-//            [row addObject:[NSNumber numberWithInteger:value]];
-//        }
-//    }
-//    return (NSArray *)row;
-//}
 
 #pragma mark -
 #pragma mark Help Methods

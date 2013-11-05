@@ -12,6 +12,8 @@
 
 @interface PCXView : UIView
 
+@property (nonatomic, strong) UIColor *editedColor;
+
 - (id)initWithPCXFile:(PCXFile *)pcxFile;
 
 @end

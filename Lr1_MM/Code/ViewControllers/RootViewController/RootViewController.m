@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"savedPcxFile13" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Lr1_MM_gray" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -86,16 +86,14 @@
     self.pcxView = [[PCXView alloc] initWithPCXFile:self.pcxFile];
     
     CGRect frame = self.pcxView.frame;
-    frame.origin = CGPointMake(self.view.frame.size.width / 2 - self.pcxFile.pcxHeader.imageSize.width / 2,
-                               self.view.frame.size.height / 2 - self.pcxFile.pcxHeader.imageSize.height / 2);
+    frame.origin = CGPointMake(self.scrollView.frame.size.width / 2 - self.pcxFile.pcxHeader.imageSize.width / 2,
+                               self.scrollView.frame.size.height / 2 - self.pcxFile.pcxHeader.imageSize.height / 2);
     frame.size = self.pcxFile.pcxHeader.imageSize;
     self.pcxView.frame = frame;
 }
 
 - (void)setupScrollView
 {
-    [self setupPCXView];
-    
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 200, self.view.frame.size.height - 20)];
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.scrollView.showsVerticalScrollIndicator = self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -103,10 +101,12 @@
     self.scrollView.scrollEnabled = YES;
     self.scrollView.delegate = self;
     
-    self.scrollView.minimumZoomScale = 1.0;
+    [self setupPCXView];
+    self.scrollView.minimumZoomScale = self.scrollView.frame.size.width / self.pcxView.frame.size.width;
     self.scrollView.maximumZoomScale = 1000.0;
-    self.scrollView.zoomScale = 10;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 2, self.scrollView.frame.size.height * 2);
+    self.scrollView.zoomScale = self.scrollView.minimumZoomScale;
+    self.scrollView.contentSize = self.pcxView.frame.size;
+    
     [self.scrollView addSubview:self.pcxView];
     
     [self.view addSubview:self.scrollView];
@@ -123,13 +123,33 @@
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
 {
-    scrollView.contentSize = CGSizeMake(4000 * scale, 4000 *scale);
     self.pcxView.tag = 0;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    self.pcxView.frame = [self centeredFrameForScrollView:scrollView andUIView:self.pcxView];
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
 {
     self.pcxView.tag = 1;
+}
+
+- (CGRect)centeredFrameForScrollView:(UIScrollView *)scroll andUIView:(UIView *)rView
+{
+    CGSize boundsSize = scroll.bounds.size;
+    CGRect frameToCenter = rView.frame;
+    // center horizontally
+    if (frameToCenter.size.width < boundsSize.width) {
+        frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
+    }
+
+    // center vertically
+    if (frameToCenter.size.height < boundsSize.height) {
+        frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
+    }
+    return frameToCenter;
 }
 
 #pragma mark -
