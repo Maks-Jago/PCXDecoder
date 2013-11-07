@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Lr1_MM_gray" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"10x10" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -86,10 +86,9 @@
     self.pcxView = [[PCXView alloc] initWithPCXFile:self.pcxFile];
     
     CGRect frame = self.pcxView.frame;
-    frame.origin = CGPointMake(self.scrollView.frame.size.width / 2 - self.pcxFile.pcxHeader.imageSize.width / 2,
-                               self.scrollView.frame.size.height / 2 - self.pcxFile.pcxHeader.imageSize.height / 2);
     frame.size = self.pcxFile.pcxHeader.imageSize;
     self.pcxView.frame = frame;
+    self.pcxView.center = CGPointMake(self.scrollView.frame.size.width / 2, self.scrollView.frame.size.height / 2);
 }
 
 - (void)setupScrollView
@@ -97,7 +96,7 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 200, self.view.frame.size.height - 20)];
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.scrollView.showsVerticalScrollIndicator = self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.backgroundColor = [UIColor redColor];
+    self.scrollView.backgroundColor = [UIColor lightGrayColor];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.delegate = self;
     
@@ -141,12 +140,12 @@
     CGSize boundsSize = scroll.bounds.size;
     CGRect frameToCenter = rView.frame;
     // center horizontally
-    if (frameToCenter.size.width < boundsSize.width) {
+    if (frameToCenter.size.width <= boundsSize.width) {
         frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
     }
 
     // center vertically
-    if (frameToCenter.size.height < boundsSize.height) {
+    if (frameToCenter.size.height <= boundsSize.height) {
         frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
     }
     return frameToCenter;

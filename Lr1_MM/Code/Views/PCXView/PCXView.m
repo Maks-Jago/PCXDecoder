@@ -58,8 +58,13 @@
     
     for (int i = 0; i < self.pcxFile.pcxHeader.imageSize.height; i++) {
         CGContextMoveToPoint(context, 0, i);
+//        if (i >= [self.pcxFile.pcxContent.pallete count]) {
+//            NSLog(@"error draw return");
+//            return;
+//        }
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
-        for (int j = 0; j < self.pcxFile.pcxHeader.bytesPerLine; j++) {
+        NSUInteger count = [linePallete[0] isKindOfClass:[NSArray class]] ? [linePallete[0] count] : [linePallete count];
+        for (int j = 0; j < count; j++) {
             UIColor *color = [self colorFromLinePallete:linePallete withIndex:j alpha:1.0f];
             [color setFill];
             CGContextFillRect(context, CGRectMake(j, i, 1, 1));
@@ -81,13 +86,14 @@
                 return;
             }
             
+#warning need implement logic for get components from editedColor (gray scale or RGB)
+            
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
                 NSMutableArray *array = mutArray[index];
                 [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:0]];
             }
-            [self setNeedsDisplayInRect:CGRectMake(roundedX, roundedY, 1, 1)];
-//            [self setNeedsDisplay];
+            [self setNeedsDisplay];
         }
     }
 }
@@ -102,10 +108,13 @@
     switch (linePalleteCount) {
         case 1: {
             CGFloat grayScaleValue = [linePallete[0][index] floatValue];
+            if ([self.pcxFile.pcxContent.colorPallete count]) {
+                grayScaleValue = [self.pcxFile.pcxContent.colorPallete[((int)grayScaleValue) * 3] integerValue];
+            }
 #ifdef DEBUG_MOD
             NSLog(@"gray scale = %f", grayScaleValue);
 #endif
-            color = [UIColor colorWithWhite:grayScaleValue alpha:alpha];
+            color = WA(grayScaleValue, alpha);
         }
             break;
         case 3: {
@@ -117,6 +126,18 @@
             NSLog(@"red = %f, green = %f, blue = %f", red, green, blue);
 #endif
             color = RGBA(red, green, blue, alpha);
+        }
+            break;
+        case 4: {
+            CGFloat red = [linePallete[0][index] floatValue];
+            CGFloat green = [linePallete[1][index] floatValue];
+            CGFloat blue = [linePallete[2][index] floatValue];
+            CGFloat alphaValue = [linePallete[3][index] floatValue];
+            
+            color = [UIColor colorWithRed:red / 255.0f
+                                    green:green / 255.0f
+                                     blue:blue / 255.0f
+                                    alpha:alphaValue / 255.0f];
         }
             break;
         default:

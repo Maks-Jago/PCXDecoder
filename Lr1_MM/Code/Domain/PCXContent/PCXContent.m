@@ -9,9 +9,12 @@
 #import "PCXContent.h"
 #import "PCXHeader.h"
 
+static NSUInteger const kUseColorPallet = 12;
+static NSUInteger const kColorPalleteOffset = 769;
+
 @interface PCXContent ()
 
-@property (nonatomic, assign) Byte* bytes;
+@property (nonatomic, assign) Byte *bytes;
 @property (nonatomic, assign) NSUInteger length;
 
 @property (nonatomic, assign) NSUInteger totalBytes;
@@ -34,17 +37,21 @@
     return self;
 }
 
+#pragma mark -
+#pragma makr Decoding
+
 - (void)decode
 {
-    if (self.pcxHeader.planesCount != 1 && self.pcxHeader.planesCount != 3) {
-        NSAssert(nil, @"not supported current planes count");
-        return;
-    }
+//    if (self.pcxHeader.planesCount != 1 && self.pcxHeader.planesCount != 3) {
+//        NSAssert(nil, @"not supported current planes count");
+//        return;
+//    }
     
     self.pallete = [NSMutableArray new];
     self.totalBytes = self.pcxHeader.planesCount * self.pcxHeader.bytesPerLine;
     
     NSUInteger indexByte = kHeaderSize;
+    NSUInteger colorPalleteIndex = self.length - kColorPalleteOffset;
 #ifdef DEBUG_MOD
     for (int i = indexByte; i < self.length; i++) {
         Byte b = self.bytes[i];
@@ -54,6 +61,10 @@
     for (int rowIndex = 0; rowIndex < self.pcxHeader.imageSize.height; rowIndex ++) {
         NSMutableArray *row = [NSMutableArray new];
         for (int pixelIndex = 0; pixelIndex < self.totalBytes; pixelIndex++) {
+            if (indexByte >= self.length) {
+                NSLog(@"qwe");
+                return;
+            }
             Byte value = self.bytes[indexByte++];
             NSUInteger repeatCount = 1;
             
@@ -61,10 +72,20 @@
                 repeatCount = value - 192; // 0x3F == 63
                 value = self.bytes[indexByte++];
             }
+            
+            if (indexByte == colorPalleteIndex && self.bytes[colorPalleteIndex] == kUseColorPallet) {
+                NSLog(@"use color Pallete");
+                [self decodeCollorPallet];
+//                return;
+            }
             while (repeatCount > 0) {
                 [row addObject:[NSNumber numberWithInteger:value]];
                 repeatCount--;
             }
+//            if (indexByte > self.length) {
+//                NSLog(@"error return");
+//                return;
+//            }
         }
         
         NSMutableArray *colorValues = [NSMutableArray new];
@@ -77,10 +98,21 @@
             }
             [colorValues addObject:pixels];
         }
-        
         [self.pallete addObject:colorValues];
     }
 }
+
+- (void)decodeCollorPallet
+{
+    self.colorPallete = [NSMutableArray new];
+    for (int colorPalleteIndex = (self.length - kColorPalleteOffset) + 1; colorPalleteIndex < self.length; colorPalleteIndex++) {
+        Byte value = self.bytes[colorPalleteIndex];
+        [self.colorPallete addObject:[NSNumber numberWithInteger:value]];
+    }
+}
+
+#pragma mark -
+#pragma mark Encoding
 
 - (NSArray *)encode
 {

@@ -13,3 +13,4 @@ NSUInteger RoundFloat(CGFloat floatValue);
 //#define DEBUG_MOD
 
 #define RGBA(red, green, blue, alpha) [UIColor colorWithRed:red / 255.0f green:green / 255.0f blue:blue / 255.0f alpha:alpha]
+#define WA(white, alpha) [UIColor colorWithWhite:white / 255.0f alpha:alpha];

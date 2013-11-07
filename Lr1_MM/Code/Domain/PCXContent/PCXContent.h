@@ -12,6 +12,7 @@
 @interface PCXContent : NSObject
 
 @property (nonatomic, strong) NSMutableArray *pallete;
+@property (nonatomic, strong) NSMutableArray *colorPallete;
 
 - (id)initWithBytes:(Byte *)bytes length:(NSUInteger)length pcxHeader:(PCXHeader *)pcxHeader;
 

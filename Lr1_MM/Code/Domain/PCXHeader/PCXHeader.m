@@ -144,7 +144,6 @@ typedef enum {
 #pragma mark -
 #pragma mark Help Methods
 
-
 - (NSUInteger)totalBytes
 {
     return self.planesCount * self.bytesPerLine;
@@ -152,7 +151,7 @@ typedef enum {
 
 - (CGSize)imageSize
 {
-    CGSize size = CGSizeMake(self.window.size.width - self.window.origin.x + 1, self.window.size.height - self.window.origin.y + 1);
+    CGSize size = CGSizeMake((self.window.size.width - self.window.origin.x) + 1, (self.window.size.height - self.window.origin.y) + 1);
     if (CGSizeEqualToSize(size, CGSizeZero)) {
         size = self.screenSize;
     }
@@ -176,13 +175,15 @@ typedef enum {
     [loggedString appendString:@"colorMap:\n"];
     
     for (NSNumber *colorValue in self.colorMap) {
-        [loggedString appendFormat:@"%lu, ", [colorValue unsignedIntegerValue]];
+        [loggedString appendFormat:@"%lu, ", (unsigned long)[colorValue unsignedIntegerValue]];
     }
     
     [loggedString appendFormat:@"\nreservedByte = %lu\n", (unsigned long)self.reservedByte];
     [loggedString appendFormat:@"planesCount = %lu\n", (unsigned long)self.planesCount];
     [loggedString appendFormat:@"bytesPerLine = %lu\n", (unsigned long)self.bytesPerLine];
     [loggedString appendFormat:@"palleteInfo = %lu\n", (unsigned long)self.palleteInfo];
+    [loggedString appendFormat:@"\ntotalBytes = %lu\n", (unsigned long)[self totalBytes]];
+    [loggedString appendFormat:@"linePaddingSize = %f\n", [self linePaddingSize]];
     
     NSLog(@"%@\n", loggedString);
 }

@@ -24,8 +24,6 @@
 		2D46D0A918285C470025D63C /* grayScale.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09218285C470025D63C /* grayScale.pcx */; };
 		2D46D0AA18285C470025D63C /* image.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09318285C470025D63C /* image.pcx */; };
 		2D46D0AB18285C470025D63C /* lines.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09418285C470025D63C /* lines.pcx */; };
-		2D46D0AC18285C470025D63C /* Lr1_MM.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09518285C470025D63C /* Lr1_MM.pcx */; };
-		2D46D0AD18285C470025D63C /* Lr1_MM_gray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09618285C470025D63C /* Lr1_MM_gray.pcx */; };
 		2D46D0AE18285C470025D63C /* MARBLES.PCX in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09718285C470025D63C /* MARBLES.PCX */; };
 		2D46D0AF18285C470025D63C /* qwqwe.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09818285C470025D63C /* qwqwe.pcx */; };
 		2D46D0B018285C470025D63C /* sample.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D09918285C470025D63C /* sample.pcx */; };
@@ -37,8 +35,28 @@
 		2D46D0B918285C5E0025D63C /* saveFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0B718285C5E0025D63C /* saveFile@2x.png */; };
 		2D46D0BC18285E950025D63C /* selectColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0BA18285E950025D63C /* selectColor.png */; };
 		2D46D0BD18285E950025D63C /* selectColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0BB18285E950025D63C /* selectColor@2x.png */; };
+		2D46D0C1182876C80025D63C /* a_grayScale.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0C0182876C80025D63C /* a_grayScale.pcx */; };
+		2D4F1321182A464A00650A57 /* marb.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1320182A464A00650A57 /* marb.pcx */; };
+		2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1322182A49B700650A57 /* 10x10gray.pcx */; };
+		2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1324182A4B7400650A57 /* marb2.pcx */; };
 		2D676159180AFCA3008518F7 /* PCXContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D676158180AFCA3008518F7 /* PCXContent.m */; };
+		2D68596A182B674700779A89 /* r.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D685969182B674700779A89 /* r.pcx */; };
+		2D68596C182B67A500779A89 /* polR.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D68596B182B67A500779A89 /* polR.pcx */; };
+		2D68596E182B6EA300779A89 /* aaa.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D68596D182B6EA300779A89 /* aaa.pcx */; };
+		2D7107DA182A83EB0014BC08 /* scanText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7107D9182A83EB0014BC08 /* scanText.pcx */; };
+		2D7107DC182A88DC0014BC08 /* scanTextShort.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7107DB182A88DC0014BC08 /* scanTextShort.pcx */; };
+		2D7107DE182A89A90014BC08 /* word.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7107DD182A89A90014BC08 /* word.pcx */; };
+		2D7AA0F1182AEC2F002689D8 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC42422181DA40000F10CF4 /* libc++.1.dylib */; };
+		2D7AA0F2182AEC2F002689D8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC42423181DA40000F10CF4 /* libc++.dylib */; };
+		2D7AA0F3182AEC2F002689D8 /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC42424181DA40000F10CF4 /* libc++abi.dylib */; };
+		2D7AA0F7182AECF8002689D8 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AA0F4182AECF8002689D8 /* libstdc++.6.0.9.dylib */; };
+		2D7AA0F8182AECF8002689D8 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AA0F5182AECF8002689D8 /* libstdc++.6.dylib */; };
+		2D7AA0F9182AECF8002689D8 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AA0F6182AECF8002689D8 /* libstdc++.dylib */; };
+		2D7AA0FB182AF2B9002689D8 /* scanText1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA0FA182AF2B9002689D8 /* scanText1.pcx */; };
+		2D7AA0FD182AF4ED002689D8 /* asdaf1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA0FC182AF4ED002689D8 /* asdaf1.pcx */; };
+		2D7AA101182AFDAE002689D8 /* savedPcxFile1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA100182AFDAE002689D8 /* savedPcxFile1.pcx */; };
 		2D91623918218B86001EE321 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D91623818218B86001EE321 /* Security.framework */; };
+		2DA318D61828797F0005C356 /* color.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DA318D51828797F0005C356 /* color.pcx */; };
 		2DB5A516180ADD6B009CC3E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A515180ADD6B009CC3E2 /* Foundation.framework */; };
 		2DB5A518180ADD6B009CC3E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */; };
 		2DB5A51A180ADD6B009CC3E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A519180ADD6B009CC3E2 /* UIKit.framework */; };
@@ -88,8 +106,6 @@
 		2D46D09218285C470025D63C /* grayScale.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = grayScale.pcx; sourceTree = "<group>"; };
 		2D46D09318285C470025D63C /* image.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = image.pcx; sourceTree = "<group>"; };
 		2D46D09418285C470025D63C /* lines.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = lines.pcx; sourceTree = "<group>"; };
-		2D46D09518285C470025D63C /* Lr1_MM.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lr1_MM.pcx; sourceTree = "<group>"; };
-		2D46D09618285C470025D63C /* Lr1_MM_gray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lr1_MM_gray.pcx; sourceTree = "<group>"; };
 		2D46D09718285C470025D63C /* MARBLES.PCX */ = {isa = PBXFileReference; lastKnownFileType = file; path = MARBLES.PCX; sourceTree = "<group>"; };
 		2D46D09818285C470025D63C /* qwqwe.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = qwqwe.pcx; sourceTree = "<group>"; };
 		2D46D09918285C470025D63C /* sample.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.pcx; sourceTree = "<group>"; };
@@ -101,9 +117,26 @@
 		2D46D0B718285C5E0025D63C /* saveFile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saveFile@2x.png"; sourceTree = "<group>"; };
 		2D46D0BA18285E950025D63C /* selectColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectColor.png; sourceTree = "<group>"; };
 		2D46D0BB18285E950025D63C /* selectColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectColor@2x.png"; sourceTree = "<group>"; };
+		2D46D0C0182876C80025D63C /* a_grayScale.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = a_grayScale.pcx; sourceTree = "<group>"; };
+		2D4F1320182A464A00650A57 /* marb.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb.pcx; sourceTree = "<group>"; };
+		2D4F1322182A49B700650A57 /* 10x10gray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10gray.pcx; sourceTree = "<group>"; };
+		2D4F1324182A4B7400650A57 /* marb2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb2.pcx; sourceTree = "<group>"; };
 		2D676157180AFCA3008518F7 /* PCXContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXContent.h; sourceTree = "<group>"; };
 		2D676158180AFCA3008518F7 /* PCXContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXContent.m; sourceTree = "<group>"; };
+		2D685969182B674700779A89 /* r.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = r.pcx; sourceTree = "<group>"; };
+		2D68596B182B67A500779A89 /* polR.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = polR.pcx; sourceTree = "<group>"; };
+		2D68596D182B6EA300779A89 /* aaa.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.pcx; sourceTree = "<group>"; };
+		2D7107D9182A83EB0014BC08 /* scanText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = scanText.pcx; sourceTree = "<group>"; };
+		2D7107DB182A88DC0014BC08 /* scanTextShort.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = scanTextShort.pcx; sourceTree = "<group>"; };
+		2D7107DD182A89A90014BC08 /* word.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = word.pcx; sourceTree = "<group>"; };
+		2D7AA0F4182AECF8002689D8 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		2D7AA0F5182AECF8002689D8 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		2D7AA0F6182AECF8002689D8 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		2D7AA0FA182AF2B9002689D8 /* scanText1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = scanText1.pcx; sourceTree = "<group>"; };
+		2D7AA0FC182AF4ED002689D8 /* asdaf1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = asdaf1.pcx; sourceTree = "<group>"; };
+		2D7AA100182AFDAE002689D8 /* savedPcxFile1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = savedPcxFile1.pcx; sourceTree = "<group>"; };
 		2D91623818218B86001EE321 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2DA318D51828797F0005C356 /* color.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = color.pcx; sourceTree = "<group>"; };
 		2DB5A512180ADD6B009CC3E2 /* Lr1_MM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lr1_MM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB5A515180ADD6B009CC3E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +170,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7AA0F7182AECF8002689D8 /* libstdc++.6.0.9.dylib in Frameworks */,
+				2D7AA0F8182AECF8002689D8 /* libstdc++.6.dylib in Frameworks */,
+				2D7AA0F9182AECF8002689D8 /* libstdc++.dylib in Frameworks */,
+				2D7AA0F1182AEC2F002689D8 /* libc++.1.dylib in Frameworks */,
+				2D7AA0F2182AEC2F002689D8 /* libc++.dylib in Frameworks */,
+				2D7AA0F3182AEC2F002689D8 /* libc++abi.dylib in Frameworks */,
 				2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */,
 				2D91623918218B86001EE321 /* Security.framework in Frameworks */,
 				2DB5A518180ADD6B009CC3E2 /* CoreGraphics.framework in Frameworks */,
@@ -213,6 +252,20 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2D68596D182B6EA300779A89 /* aaa.pcx */,
+				2D68596B182B67A500779A89 /* polR.pcx */,
+				2D685969182B674700779A89 /* r.pcx */,
+				2D7AA100182AFDAE002689D8 /* savedPcxFile1.pcx */,
+				2D7AA0FC182AF4ED002689D8 /* asdaf1.pcx */,
+				2D7AA0FA182AF2B9002689D8 /* scanText1.pcx */,
+				2D7107DD182A89A90014BC08 /* word.pcx */,
+				2D7107DB182A88DC0014BC08 /* scanTextShort.pcx */,
+				2D7107D9182A83EB0014BC08 /* scanText.pcx */,
+				2D4F1324182A4B7400650A57 /* marb2.pcx */,
+				2D4F1322182A49B700650A57 /* 10x10gray.pcx */,
+				2D4F1320182A464A00650A57 /* marb.pcx */,
+				2DA318D51828797F0005C356 /* color.pcx */,
+				2D46D0C0182876C80025D63C /* a_grayScale.pcx */,
 				2D46D08718285C470025D63C /* 1.pcx */,
 				2D46D08818285C470025D63C /* 10x10.pcx */,
 				2D46D08918285C470025D63C /* 10x10_.pcx */,
@@ -227,8 +280,6 @@
 				2D46D09218285C470025D63C /* grayScale.pcx */,
 				2D46D09318285C470025D63C /* image.pcx */,
 				2D46D09418285C470025D63C /* lines.pcx */,
-				2D46D09518285C470025D63C /* Lr1_MM.pcx */,
-				2D46D09618285C470025D63C /* Lr1_MM_gray.pcx */,
 				2D46D09718285C470025D63C /* MARBLES.PCX */,
 				2D46D09818285C470025D63C /* qwqwe.pcx */,
 				2D46D09918285C470025D63C /* sample.pcx */,
@@ -293,6 +344,9 @@
 		2DB5A514180ADD6B009CC3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D7AA0F4182AECF8002689D8 /* libstdc++.6.0.9.dylib */,
+				2D7AA0F5182AECF8002689D8 /* libstdc++.6.dylib */,
+				2D7AA0F6182AECF8002689D8 /* libstdc++.dylib */,
 				2D46D08018284A6A0025D63C /* QuartzCore.framework */,
 				2D91623818218B86001EE321 /* Security.framework */,
 				2DC42422181DA40000F10CF4 /* libc++.1.dylib */,
@@ -481,34 +535,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D46D09F18285C470025D63C /* 10x10.pcx in Resources */,
+				2D7AA0FD182AF4ED002689D8 /* asdaf1.pcx in Resources */,
+				2D7AA0FB182AF2B9002689D8 /* scanText1.pcx in Resources */,
 				2D46D0B318285C470025D63C /* this.pcx in Resources */,
 				2D46D09E18285C470025D63C /* 1.pcx in Resources */,
+				2D4F1321182A464A00650A57 /* marb.pcx in Resources */,
+				2D68596C182B67A500779A89 /* polR.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
 				2D46D0B818285C5E0025D63C /* saveFile.png in Resources */,
 				2D46D0AF18285C470025D63C /* qwqwe.pcx in Resources */,
 				2D46D0A218285C470025D63C /* 2x2.pcx in Resources */,
+				2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */,
 				2D46D0AE18285C470025D63C /* MARBLES.PCX in Resources */,
+				2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */,
+				2D7107DA182A83EB0014BC08 /* scanText.pcx in Resources */,
+				2DA318D61828797F0005C356 /* color.pcx in Resources */,
 				2D46D0A318285C470025D63C /* 2x2_colors.pcx in Resources */,
 				2D46D0A018285C470025D63C /* 10x10_.pcx in Resources */,
 				2D46D0A718285C470025D63C /* D.pcx in Resources */,
+				2D46D0C1182876C80025D63C /* a_grayScale.pcx in Resources */,
 				2D46D0A518285C470025D63C /* 8x8.pcx in Resources */,
 				2D46D0B918285C5E0025D63C /* saveFile@2x.png in Resources */,
 				2D46D0B218285C470025D63C /* test.pcx in Resources */,
+				2D68596E182B6EA300779A89 /* aaa.pcx in Resources */,
 				2D46D0B018285C470025D63C /* sample.pcx in Resources */,
 				2D46D0A418285C470025D63C /* 4x4.pcx in Resources */,
 				2D46D0B418285C470025D63C /* this_gray.pcx in Resources */,
+				2D7AA101182AFDAE002689D8 /* savedPcxFile1.pcx in Resources */,
+				2D7107DE182A89A90014BC08 /* word.pcx in Resources */,
 				2D46D0BC18285E950025D63C /* selectColor.png in Resources */,
 				2D46D0A818285C470025D63C /* gmarbles-2.pcx in Resources */,
 				2D46D0A118285C470025D63C /* 1BlackPixel.pcx in Resources */,
+				2D68596A182B674700779A89 /* r.pcx in Resources */,
 				2DB5A528180ADD6B009CC3E2 /* Images.xcassets in Resources */,
 				2D46D0B118285C470025D63C /* savedPcxFile13.pcx in Resources */,
-				2D46D0AD18285C470025D63C /* Lr1_MM_gray.pcx in Resources */,
+				2D7107DC182A88DC0014BC08 /* scanTextShort.pcx in Resources */,
 				2D46D0A618285C470025D63C /* arc.pcx in Resources */,
 				2D46D0BD18285E950025D63C /* selectColor@2x.png in Resources */,
 				2D46D0AB18285C470025D63C /* lines.pcx in Resources */,
 				2D46D0A918285C470025D63C /* grayScale.pcx in Resources */,
 				2D46D0AA18285C470025D63C /* image.pcx in Resources */,
-				2D46D0AC18285C470025D63C /* Lr1_MM.pcx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
