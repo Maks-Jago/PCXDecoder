@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"aaaPallete" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"fullText" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -88,10 +88,8 @@
     self.pcxView.backgroundColor = [UIColor whiteColor];
     
     CGRect frame = self.pcxView.frame;
-    frame.size = self.pcxFile.pcxHeader.imageSize;
-//    frame.origin = CGPointMake(10, 10);
+    frame.size = CGSizeMake(self.pcxFile.pcxHeader.imageSize.width + 1, self.pcxFile.pcxHeader.imageSize.height) ;
     self.pcxView.frame = frame;
-//    [self.view addSubview:self.pcxView];
     self.pcxView.center = CGPointMake(self.scrollView.frame.size.width / 2, self.scrollView.frame.size.height / 2);
 }
 

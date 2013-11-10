@@ -58,10 +58,6 @@
     
     for (int i = 0; i < self.pcxFile.pcxContent.pallete.count; i++) {
         CGContextMoveToPoint(context, 0, i);
-//        if (i >= [self.pcxFile.pcxContent.pallete count]) {
-//            NSLog(@"error draw return");
-//            return;
-//        }
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
         NSUInteger count = [linePallete[0] isKindOfClass:[NSArray class]] ? [linePallete[0] count] : [linePallete count];
         for (int j = 0; j < count; j++) {
@@ -86,12 +82,13 @@
                 return;
             }
             
-#warning need implement logic for get components from editedColor (gray scale or RGB)
+//#warning need implement logic for get components from editedColor (gray scale or RGB)
             
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
                 NSMutableArray *array = mutArray[index];
-                [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:0]];
+                NSUInteger valueForReplace = ([self.pcxFile.pcxContent.colorPallete count] - 3) / 3;
+                [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:valueForReplace]];
             }
             [self setNeedsDisplay];
         }
@@ -106,7 +103,7 @@
     UIColor *color = nil;
     NSUInteger linePalleteCount = [linePallete count];
     if (self.pcxFile.pcxHeader.palleteInfo == 1 && self.pcxFile.pcxHeader.bitsPerPixel == 8) {
-//        NSLog(@"use color pallete");
+//        NSLog(@"color as index");
         NSArray *colorIndexs = [linePallete lastObject];
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
         CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];

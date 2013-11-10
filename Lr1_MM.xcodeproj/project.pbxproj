@@ -75,6 +75,8 @@
 		2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5A552180AE337009CC3E2 /* PCXView.m */; };
 		2DC62671182FF2D9004E0249 /* aaaGray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6266F182FF2D9004E0249 /* aaaGray.pcx */; };
 		2DC62672182FF2D9004E0249 /* aaaPallete.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC62670182FF2D9004E0249 /* aaaPallete.pcx */; };
+		2DC62676182FFF2D004E0249 /* test.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC62675182FFF2D004E0249 /* test.pcx */; };
+		2DC6267818300062004E0249 /* fullText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6267718300062004E0249 /* fullText.pcx */; };
 		2DD14029182FE84300C2C240 /* aaPMView.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD14028182FE84300C2C240 /* aaPMView.pcx */; };
 		2DD3761F182FEF7F006403F8 /* aaar_1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD3761E182FEF7F006403F8 /* aaar_1.pcx */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
@@ -170,6 +172,8 @@
 		2DC42424181DA40000F10CF4 /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		2DC6266F182FF2D9004E0249 /* aaaGray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaaGray.pcx; sourceTree = "<group>"; };
 		2DC62670182FF2D9004E0249 /* aaaPallete.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaaPallete.pcx; sourceTree = "<group>"; };
+		2DC62675182FFF2D004E0249 /* test.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pcx; sourceTree = "<group>"; };
+		2DC6267718300062004E0249 /* fullText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullText.pcx; sourceTree = "<group>"; };
 		2DD14028182FE84300C2C240 /* aaPMView.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaPMView.pcx; sourceTree = "<group>"; };
 		2DD3761E182FEF7F006403F8 /* aaar_1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaar_1.pcx; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2DC6267718300062004E0249 /* fullText.pcx */,
+				2DC62675182FFF2D004E0249 /* test.pcx */,
 				2DC6266F182FF2D9004E0249 /* aaaGray.pcx */,
 				2DC62670182FF2D9004E0249 /* aaaPallete.pcx */,
 				2DD3761E182FEF7F006403F8 /* aaar_1.pcx */,
@@ -553,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D46D09F18285C470025D63C /* 10x10.pcx in Resources */,
+				2DC62676182FFF2D004E0249 /* test.pcx in Resources */,
 				2D7AA0FD182AF4ED002689D8 /* asdaf1.pcx in Resources */,
 				2D7AA0FB182AF2B9002689D8 /* scanText1.pcx in Resources */,
 				2D46D0B318285C470025D63C /* this.pcx in Resources */,
@@ -593,6 +600,7 @@
 				2D68596A182B674700779A89 /* r.pcx in Resources */,
 				2DB5A528180ADD6B009CC3E2 /* Images.xcassets in Resources */,
 				2D46D0B118285C470025D63C /* savedPcxFile13.pcx in Resources */,
+				2DC6267818300062004E0249 /* fullText.pcx in Resources */,
 				2D7107DC182A88DC0014BC08 /* scanTextShort.pcx in Resources */,
 				2D46D0A618285C470025D63C /* arc.pcx in Resources */,
 				2D46D0BD18285E950025D63C /* selectColor@2x.png in Resources */,
