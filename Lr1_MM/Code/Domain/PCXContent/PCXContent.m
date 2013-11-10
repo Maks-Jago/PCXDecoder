@@ -118,9 +118,6 @@ static NSUInteger const kColorPalleteOffset = 769;
     NSUInteger colorPalleteIndex = self.length - kColorPalleteOffset;
     for (NSArray *row in self.pallete) {
         for (int index = 0; index < self.pcxHeader.planesCount; index++) {
-            if ([self.pallete indexOfObject:row] == 4) {
-                NSLog(@"");
-            }
             [encodedArray addObjectsFromArray:[self encodeArray:row[index]]];
         }
     }
@@ -130,15 +127,6 @@ static NSUInteger const kColorPalleteOffset = 769;
         [encodedArray addObjectsFromArray:self.colorPallete];
     }
 
-//    for (int i = 128, j = 0; i < self.length && j < [encodedArray count]; i++, j++) {
-//        NSUInteger sourceByte = self.bytes[i];
-//        NSNumber *number = encodedArray[j];
-//        NSUInteger encodedByte = [number integerValue];
-//        if (sourceByte != encodedByte) {
-//            NSLog(@"");
-//            [encodedArray replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:sourceByte]];
-//        }
-//    }
     return (NSArray *)encodedArray;
 }
 
