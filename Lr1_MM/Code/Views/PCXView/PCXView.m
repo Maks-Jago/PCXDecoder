@@ -56,7 +56,7 @@
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (int i = 0; i < self.pcxFile.pcxHeader.imageSize.height; i++) {
+    for (int i = 0; i < self.pcxFile.pcxContent.pallete.count; i++) {
         CGContextMoveToPoint(context, 0, i);
 //        if (i >= [self.pcxFile.pcxContent.pallete count]) {
 //            NSLog(@"error draw return");
@@ -105,6 +105,16 @@
 {
     UIColor *color = nil;
     NSUInteger linePalleteCount = [linePallete count];
+    if (self.pcxFile.pcxHeader.palleteInfo == 1 && self.pcxFile.pcxHeader.bitsPerPixel == 8) {
+//        NSLog(@"use color pallete");
+        NSArray *colorIndexs = [linePallete lastObject];
+        NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
+        CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];
+        CGFloat green = [self.pcxFile.pcxContent.colorPallete[colorIndex + 1] floatValue];
+        CGFloat blue = [self.pcxFile.pcxContent.colorPallete[colorIndex+ 2] floatValue];
+        return RGBA(red, green, blue, alpha);
+    }
+    
     switch (linePalleteCount) {
         case 1: {
             CGFloat grayScaleValue = [linePallete[0][index] floatValue];

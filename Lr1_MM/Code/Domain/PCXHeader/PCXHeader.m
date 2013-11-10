@@ -89,8 +89,8 @@ typedef enum {
     
     self.reservedByte = self.headerBytes[PCXHeaderContentReservedOffset];
     self.planesCount = self.headerBytes[PCXHeaderContentPlanesCountOffsets];
-    self.bytesPerLine = UIIntegerFromBytes(self.headerBytes[PCXHeaderContentBytesPerLineOffsets],
-                                           self.headerBytes[PCXHeaderContentBytesPerLineOffsets + 1]);
+    self.bytesPerLine = (UIIntegerFromBytes(self.headerBytes[PCXHeaderContentBytesPerLineOffsets],
+                                           self.headerBytes[PCXHeaderContentBytesPerLineOffsets + 1])) - 1;
     
     self.palleteInfo = UIIntegerFromBytes(self.headerBytes[PCXHeaderContentPalleteInfoOffsets],
                                           self.headerBytes[PCXHeaderContentPalleteInfoOffsets + 1]);
