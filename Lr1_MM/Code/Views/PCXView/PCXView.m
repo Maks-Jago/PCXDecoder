@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) PCXFile *pcxFile;
 
+
 @end
 
 @implementation PCXView
@@ -82,7 +83,7 @@
                 return;
             }
             
-//#warning need implement logic for get components from editedColor (gray scale or RGB)
+#warning need implement logic for get components from editedColor (gray scale or RGB)
             
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
@@ -103,7 +104,9 @@
     UIColor *color = nil;
     NSUInteger linePalleteCount = [linePallete count];
     if (self.pcxFile.pcxHeader.palleteInfo == 1 && self.pcxFile.pcxHeader.bitsPerPixel == 8) {
-//        NSLog(@"color as index");
+#ifdef DEBUG_MOD
+        NSLog(@"color as index");
+#endif
         NSArray *colorIndexs = [linePallete lastObject];
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
         CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];

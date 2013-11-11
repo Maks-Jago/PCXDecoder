@@ -34,7 +34,6 @@
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
     [self setupScrollView];
-//    [self setupPCXView];
     [self setupButtons];
 }
 

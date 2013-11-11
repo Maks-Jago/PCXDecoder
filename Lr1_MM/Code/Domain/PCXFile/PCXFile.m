@@ -54,11 +54,6 @@
         dataToSave[i + kHeaderSize] = [encodedContent[i] integerValue];
     }
     
-//    for (int j = 0; j < kHeaderSize + [encodedContent count]; j++) {
-//        Byte b = dataToSave[j];
-//        NSLog(@"d = %d, c = %02x, i = %d", b, b, j);
-//    }
-    
     NSData *contentData = [NSData dataWithBytes:dataToSave length:kHeaderSize + [encodedContent count]];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
