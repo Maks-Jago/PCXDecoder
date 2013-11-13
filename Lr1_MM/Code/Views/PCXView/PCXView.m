@@ -88,12 +88,32 @@
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
                 NSMutableArray *array = mutArray[index];
-                NSUInteger valueForReplace = ([self.pcxFile.pcxContent.colorPallete count] - 3) / 3;
+                NSUInteger valueForReplace = [self blackColorFromPallete];//([self.pcxFile.pcxContent.colorPallete count] - 3) / 3;
                 [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:valueForReplace]];
             }
             [self setNeedsDisplay];
         }
     }
+}
+
+- (NSUInteger)blackColorFromPallete
+{
+    NSUInteger colorIndex = 0;
+    CGFloat red = 255;
+    CGFloat green = 255;
+    CGFloat blue = 255;
+    for (int i = 0; i < self.pcxFile.pcxContent.colorPallete.count; i+=3) {
+        CGFloat currentRed = [self.pcxFile.pcxContent.colorPallete[i] floatValue];
+        CGFloat currentGreen = [self.pcxFile.pcxContent.colorPallete[i + 1] floatValue];
+        CGFloat currentBlue = [self.pcxFile.pcxContent.colorPallete[i + 2] floatValue];
+        if (currentRed < red && currentGreen < green && currentBlue < blue) {
+            red = currentRed;
+            green = currentGreen;
+            blue = currentBlue;
+            colorIndex = i;
+        }
+    }
+    return colorIndex / 3;
 }
 
 #pragma mark -
@@ -107,6 +127,10 @@
 #ifdef DEBUG_MOD
         NSLog(@"color as index");
 #endif
+        if (index >= self.pcxFile.pcxContent.colorPallete.count) {
+            return color;
+        }
+        
         NSArray *colorIndexs = [linePallete lastObject];
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
         CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];

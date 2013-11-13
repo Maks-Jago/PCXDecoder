@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"fullText" ofType:@"pcx"];
+    //marb
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"marb" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
