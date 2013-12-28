@@ -13,8 +13,6 @@
 
 @interface PCXView ()
 
-@property (nonatomic, strong) PCXFile *pcxFile;
-
 
 @end
 
@@ -49,6 +47,16 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (!self.drawLayerView.superview) {
+        self.drawLayerView = [[DrawLayerView alloc] initWithFrame:self.bounds];
+        self.drawLayerView.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.drawLayerView];
+    }
+}
+
 #pragma mark -
 #pragma mark View Managment
 
@@ -58,7 +66,6 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     for (int i = 0; i < self.pcxFile.pcxContent.pallete.count; i++) {
-        CGContextMoveToPoint(context, 0, i);
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
         NSUInteger count = [linePallete[0] isKindOfClass:[NSArray class]] ? [linePallete[0] count] : [linePallete count];
         for (int j = 0; j < count; j++) {
@@ -88,7 +95,7 @@
             NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
             for (int index = 0; index < [mutArray count]; index ++) {
                 NSMutableArray *array = mutArray[index];
-                NSUInteger valueForReplace = [self blackColorFromPallete];//([self.pcxFile.pcxContent.colorPallete count] - 3) / 3;
+                NSUInteger valueForReplace = [self blackColorIndex];
                 [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:valueForReplace]];
             }
             [self setNeedsDisplay];
@@ -96,34 +103,81 @@
     }
 }
 
-- (NSUInteger)blackColorFromPallete
+- (NSUInteger)blackColorIndex
 {
-    NSUInteger colorIndex = 0;
-    CGFloat red = 255;
-    CGFloat green = 255;
-    CGFloat blue = 255;
-    for (int i = 0; i < self.pcxFile.pcxContent.colorPallete.count; i+=3) {
-        CGFloat currentRed = [self.pcxFile.pcxContent.colorPallete[i] floatValue];
-        CGFloat currentGreen = [self.pcxFile.pcxContent.colorPallete[i + 1] floatValue];
-        CGFloat currentBlue = [self.pcxFile.pcxContent.colorPallete[i + 2] floatValue];
-        if (currentRed < red && currentGreen < green && currentBlue < blue) {
-            red = currentRed;
-            green = currentGreen;
-            blue = currentBlue;
-            colorIndex = i;
+    static NSUInteger colorIndex = 0;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGFloat red = 255;
+        CGFloat green = 255;
+        CGFloat blue = 255;
+        for (int i = 0; i < self.pcxFile.pcxContent.colorPallete.count; i+=3) {
+            CGFloat currentRed = [self.pcxFile.pcxContent.colorPallete[i] floatValue];
+            CGFloat currentGreen = [self.pcxFile.pcxContent.colorPallete[i + 1] floatValue];
+            CGFloat currentBlue = [self.pcxFile.pcxContent.colorPallete[i + 2] floatValue];
+            if (currentRed < red && currentGreen < green && currentBlue < blue) {
+                red = currentRed;
+                green = currentGreen;
+                blue = currentBlue;
+                colorIndex = i;
+            }
         }
-    }
-    return colorIndex / 3;
+    });
+    return colorIndex;
+}
+
+- (NSUInteger)whiteColorIndex
+{
+    static NSUInteger colorIndex = 0;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGFloat red = 0;
+        CGFloat green = 0;
+        CGFloat blue = 0;
+        for (int i = 0; i < self.pcxFile.pcxContent.colorPallete.count; i+=3) {
+            CGFloat currentRed = [self.pcxFile.pcxContent.colorPallete[i] floatValue];
+            CGFloat currentGreen = [self.pcxFile.pcxContent.colorPallete[i + 1] floatValue];
+            CGFloat currentBlue = [self.pcxFile.pcxContent.colorPallete[i + 2] floatValue];
+            if (currentRed > red && currentGreen > green && currentBlue > blue) {
+                red = currentRed;
+                green = currentGreen;
+                blue = currentBlue;
+                colorIndex = i;
+            }
+        }
+    });
+    return colorIndex;
 }
 
 #pragma mark -
 #pragma mark Help Methods
 
+- (void)convertPixelsToBlackWithMaxBlackValue:(NSUInteger)maxBlackValue
+{
+    NSUInteger blackColorIndex = [self blackColorIndex];
+    NSUInteger whiteColorIndex = [self whiteColorIndex];
+    for (int i = 0; i < self.pcxFile.pcxContent.pallete.count; i++) {
+        NSMutableArray *linePallete = self.pcxFile.pcxContent.pallete[i];
+        NSUInteger count = [linePallete[0] isKindOfClass:[NSArray class]] ? [linePallete[0] count] : [linePallete count];
+        for (int j = 0; j < count; j++) {
+            NSUInteger value = [linePallete[0][j] unsignedIntegerValue];
+            if (value != blackColorIndex && value >= maxBlackValue) {
+                value = blackColorIndex;
+            } else {
+                value = whiteColorIndex;
+            }
+            
+            [linePallete[0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value / 3]];
+        }
+    }
+    [self setNeedsDisplay];
+}
+
 - (UIColor *)colorFromLinePallete:(NSArray *)linePallete withIndex:(NSUInteger)index alpha:(CGFloat)alpha
 {
     UIColor *color = nil;
     NSUInteger linePalleteCount = [linePallete count];
-    if (self.pcxFile.pcxHeader.palleteInfo == 1 && self.pcxFile.pcxHeader.bitsPerPixel == 8) {
+    if (self.pcxFile.pcxHeader.palleteInfo == 1 && self.pcxFile.pcxHeader.bitsPerPixel == 8 && self.pcxFile.pcxContent.colorPallete) {
 #ifdef DEBUG_MOD
         NSLog(@"color as index");
 #endif

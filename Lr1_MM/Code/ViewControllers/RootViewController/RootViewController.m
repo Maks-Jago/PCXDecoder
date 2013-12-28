@@ -9,15 +9,20 @@
 #import "RootViewController.h"
 #import "PCXView.h"
 #import "PCXFile.h"
+#import "PCXAnalizer.h"
 
 #import <InfColorPickerController.h>
+
+#define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
 
 @interface RootViewController () <UIScrollViewDelegate, InfColorPickerControllerDelegate>
 
 @property (nonatomic, strong) PCXView *pcxView;
 @property (nonatomic, strong) PCXFile *pcxFile;
+@property (nonatomic, strong) PCXAnalizer *pcxAnalizer;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UISlider *slider;
 
 @end
 
@@ -29,22 +34,69 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //marb
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"marb" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sampleText2" ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
     [self setupScrollView];
     [self setupButtons];
+//    [self setupSlider];
+    [self setupDevideButton];
+    
+    self.pcxAnalizer = [[PCXAnalizer alloc] initWithPCXContent:self.pcxFile.pcxContent
+                                                    blackIndex:[self.pcxView blackColorIndex]
+                                                    whiteIndex:[self.pcxView whiteColorIndex]];
+    [self resetButtonTapped];
 }
 
 #pragma mark -
 #pragma mark Configurations
 
+- (void)setupSlider
+{
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(kOffsetX, 300, 170, 50)];
+    self.slider.value = 0.9;
+    [self.view addSubview:self.slider];
+}
+
 - (void)setupButtons
 {
+    [self setupResetButton];
     [self setupSaveButton];
+    [self setupFillButton];
     [self setupSelectColorButton];
+    [self setupConvertToBlackButton];
+}
+
+- (void)setupResetButton
+{
+    UIButton *resetButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [resetButton setTitle:@"Reset" forState:(UIControlStateNormal)];
+    [resetButton.titleLabel setFont:[UIFont systemFontOfSize:34]];
+    [resetButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    resetButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    resetButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    resetButton.frame = CGRectMake(kOffsetX, 10, 180, 50);
+    [resetButton addTarget:self action:@selector(resetButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:resetButton];
+}
+
+- (void)setupConvertToBlackButton
+{
+    UIButton *toBlackButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    UIImage *toBlackButtonImage = [UIImage imageNamed:@"toBlack"];
+    
+    [toBlackButton setImage:toBlackButtonImage forState:(UIControlStateNormal)];
+    toBlackButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    toBlackButton.frame = CGRectMake(kOffsetX,
+                                     220,
+                                     toBlackButtonImage.size.width - 73,
+                                     toBlackButtonImage.size.height - 5);
+    [toBlackButton addTarget:self action:@selector(toBlackButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:toBlackButton];
 }
 
 - (void)setupSelectColorButton
@@ -54,12 +106,11 @@
     
     [selectColorButton setImage:selectColorButtonImage forState:(UIControlStateNormal)];
     selectColorButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-    selectColorButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width + 73,
+    selectColorButton.frame = CGRectMake(kOffsetX,
                                          120,
                                          selectColorButtonImage.size.width - 33,
                                          selectColorButtonImage.size.height - 5);
     selectColorButton.backgroundColor = [UIColor lightGrayColor];
-    [selectColorButton setTitle:@"Save" forState:(UIControlStateNormal)];
     [selectColorButton addTarget:self action:@selector(selectColorButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.view addSubview:selectColorButton];
@@ -72,14 +123,45 @@
     
     [saveButton setImage:saveButtonImage forState:(UIControlStateNormal)];
     saveButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-    saveButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width + 73,
-                                  50, saveButtonImage.size.width - 60,
+    saveButton.frame = CGRectMake(kOffsetX,
+                                  65, saveButtonImage.size.width - 60,
                                   saveButtonImage.size.height - 5);
     saveButton.backgroundColor = [UIColor lightGrayColor];
-    [saveButton setTitle:@"Save" forState:(UIControlStateNormal)];
     [saveButton addTarget:self action:@selector(saveButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.view addSubview:saveButton];
+}
+
+- (void)setupDevideButton
+{
+    UIButton *devideButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [devideButton setTitle:@"Devide" forState:(UIControlStateNormal)];
+    [devideButton.titleLabel setFont:[UIFont systemFontOfSize:34]];
+    [devideButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    devideButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    devideButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    devideButton.frame = CGRectMake(kOffsetX, 400, 180, 50);
+    [devideButton addTarget:self action:@selector(devideButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:devideButton];
+}
+
+- (void)setupFillButton
+{
+    UIButton *fillButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [fillButton setTitle:@"Fill" forState:(UIControlStateNormal)];
+    [fillButton.titleLabel setFont:[UIFont systemFontOfSize:34]];
+    [fillButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    fillButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    fillButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    fillButton.frame = CGRectMake(kOffsetX, 455, 180, 50);
+    [fillButton addTarget:self action:@selector(fillButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:fillButton];
 }
 
 - (void)setupPCXView
@@ -156,6 +238,12 @@
 #pragma mark -
 #pragma mark Actions
 
+- (void)toBlackButtonTapped
+{
+//    [self.pcxView convertPixelsToBlackWithMaxBlackValue:self.slider.value * 255];
+    [self.pcxView convertPixelsToBlackWithMaxBlackValue:0.3 * 255];
+}
+
 - (void)saveButtonTapped
 {
     static NSUInteger fileIndex = 1;
@@ -177,6 +265,26 @@
 {
     NSLog(@"colorPickerControllerDidFinish");
     [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)fillButtonTapped
+{
+    [self.pcxAnalizer fillEmpties];
+    [self.pcxView setNeedsDisplay];
+}
+
+- (void)resetButtonTapped
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sampleText2" ofType:@"pcx"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+    self.pcxFile = [[PCXFile alloc] initWithData:data];
+    
+    self.pcxAnalizer = [[PCXAnalizer alloc] initWithPCXContent:self.pcxFile.pcxContent
+                                                    blackIndex:[self.pcxView blackColorIndex]
+                                                    whiteIndex:[self.pcxView whiteColorIndex]];
+
+    self.pcxView.pcxFile = self.pcxFile;
+    [self.pcxView setNeedsDisplay];
 }
 
 @end

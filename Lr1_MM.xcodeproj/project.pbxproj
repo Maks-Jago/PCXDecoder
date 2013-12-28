@@ -32,6 +32,9 @@
 		2D4F1321182A464A00650A57 /* marb.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1320182A464A00650A57 /* marb.pcx */; };
 		2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1322182A49B700650A57 /* 10x10gray.pcx */; };
 		2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1324182A4B7400650A57 /* marb2.pcx */; };
+		2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D638341183DDC0F00C09D97 /* DrawLayerView.m */; };
+		2D638345183DDF1700C09D97 /* toBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D638343183DDF1700C09D97 /* toBlack.png */; };
+		2D638346183DDF1700C09D97 /* toBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D638344183DDF1700C09D97 /* toBlack@2x.png */; };
 		2D63F924182FEB8F00EE587E /* testA.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F923182FEB8F00EE587E /* testA.pcx */; };
 		2D676159180AFCA3008518F7 /* PCXContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D676158180AFCA3008518F7 /* PCXContent.m */; };
 		2D68596A182B674700779A89 /* r.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D685969182B674700779A89 /* r.pcx */; };
@@ -65,7 +68,15 @@
 		2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5A552180AE337009CC3E2 /* PCXView.m */; };
 		2DC62676182FFF2D004E0249 /* test.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC62675182FFF2D004E0249 /* test.pcx */; };
 		2DC6267818300062004E0249 /* fullText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6267718300062004E0249 /* fullText.pcx */; };
+		2DD274651850550E0072E635 /* sampleText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD274641850550E0072E635 /* sampleText.pcx */; };
+		2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2746818505E5C0072E635 /* PCXAnalizer.m */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
+		2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE65504186F0BED00BFC97F /* EmptiesFiller.m */; };
+		2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65506186F126E00BFC97F /* sampleText2.pcx */; };
+		2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */; };
+		2DE6550F186F22FD00BFC97F /* sampleText3.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE6550E186F22FD00BFC97F /* sampleText3.pcx */; };
+		2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65510186F241800BFC97F /* sampleText4.pcx */; };
+		2DFEF3C51862C9800082BF27 /* Devider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFEF3C41862C9800082BF27 /* Devider.m */; };
 		56A50314B11F47B08BC15B15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A4E788F18C448B858D1D01 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +119,10 @@
 		2D4F1320182A464A00650A57 /* marb.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb.pcx; sourceTree = "<group>"; };
 		2D4F1322182A49B700650A57 /* 10x10gray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10gray.pcx; sourceTree = "<group>"; };
 		2D4F1324182A4B7400650A57 /* marb2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb2.pcx; sourceTree = "<group>"; };
+		2D638340183DDC0F00C09D97 /* DrawLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLayerView.h; sourceTree = "<group>"; };
+		2D638341183DDC0F00C09D97 /* DrawLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawLayerView.m; sourceTree = "<group>"; };
+		2D638343183DDF1700C09D97 /* toBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toBlack.png; sourceTree = "<group>"; };
+		2D638344183DDF1700C09D97 /* toBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toBlack@2x.png"; sourceTree = "<group>"; };
 		2D63F923182FEB8F00EE587E /* testA.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = testA.pcx; sourceTree = "<group>"; };
 		2D676157180AFCA3008518F7 /* PCXContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXContent.h; sourceTree = "<group>"; };
 		2D676158180AFCA3008518F7 /* PCXContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXContent.m; sourceTree = "<group>"; };
@@ -148,8 +163,20 @@
 		2DC42424181DA40000F10CF4 /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		2DC62675182FFF2D004E0249 /* test.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pcx; sourceTree = "<group>"; };
 		2DC6267718300062004E0249 /* fullText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullText.pcx; sourceTree = "<group>"; };
+		2DD274641850550E0072E635 /* sampleText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText.pcx; sourceTree = "<group>"; };
+		2DD2746718505E5C0072E635 /* PCXAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXAnalizer.h; sourceTree = "<group>"; };
+		2DD2746818505E5C0072E635 /* PCXAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXAnalizer.m; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
 		2DE5F22D180BCDCB006133B4 /* PCXHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXHeader.m; sourceTree = "<group>"; };
+		2DE65503186F0BED00BFC97F /* EmptiesFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptiesFiller.h; sourceTree = "<group>"; };
+		2DE65504186F0BED00BFC97F /* EmptiesFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptiesFiller.m; sourceTree = "<group>"; };
+		2DE65506186F126E00BFC97F /* sampleText2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText2.pcx; sourceTree = "<group>"; };
+		2DE65509186F1E1500BFC97F /* NSArray+LogMatr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LogMatr.h"; sourceTree = "<group>"; };
+		2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LogMatr.m"; sourceTree = "<group>"; };
+		2DE6550E186F22FD00BFC97F /* sampleText3.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText3.pcx; sourceTree = "<group>"; };
+		2DE65510186F241800BFC97F /* sampleText4.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText4.pcx; sourceTree = "<group>"; };
+		2DFEF3C31862C9800082BF27 /* Devider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devider.h; sourceTree = "<group>"; };
+		2DFEF3C41862C9800082BF27 /* Devider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Devider.m; sourceTree = "<group>"; };
 		67173942312748C989A49DD3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,8 +216,8 @@
 		2D24D1E6180D58E900C00E09 /* PCXFile */ = {
 			isa = PBXGroup;
 			children = (
-				2D24D1E7180D58F600C00E09 /* PCXFile.h */,
 				2D24D1E8180D58F600C00E09 /* PCXFile.m */,
+				2D24D1E7180D58F600C00E09 /* PCXFile.h */,
 			);
 			path = PCXFile;
 			sourceTree = "<group>";
@@ -207,6 +234,7 @@
 		2D2833471815D9BA006216EB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				2DE65508186F1E0400BFC97F /* LogMatr */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -240,6 +268,10 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2DE65510186F241800BFC97F /* sampleText4.pcx */,
+				2DE6550E186F22FD00BFC97F /* sampleText3.pcx */,
+				2DE65506186F126E00BFC97F /* sampleText2.pcx */,
+				2DD274641850550E0072E635 /* sampleText.pcx */,
 				2DC6267718300062004E0249 /* fullText.pcx */,
 				2DC62675182FFF2D004E0249 /* test.pcx */,
 				2D63F923182FEB8F00EE587E /* testA.pcx */,
@@ -276,6 +308,8 @@
 		2D46D0B518285C530025D63C /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				2D638343183DDF1700C09D97 /* toBlack.png */,
+				2D638344183DDF1700C09D97 /* toBlack@2x.png */,
 				2D46D0BA18285E950025D63C /* selectColor.png */,
 				2D46D0BB18285E950025D63C /* selectColor@2x.png */,
 				2D46D0B618285C5E0025D63C /* saveFile.png */,
@@ -284,9 +318,19 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		2D63833F183DDBFF00C09D97 /* DrawLayerView */ = {
+			isa = PBXGroup;
+			children = (
+				2D638340183DDC0F00C09D97 /* DrawLayerView.h */,
+				2D638341183DDC0F00C09D97 /* DrawLayerView.m */,
+			);
+			path = DrawLayerView;
+			sourceTree = "<group>";
+		};
 		2D676155180AFC8B008518F7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				2DD2746618505E4C0072E635 /* PCXAnalizer */,
 				2D24D1E6180D58E900C00E09 /* PCXFile */,
 				2DE5F22B180BCDC0006133B4 /* PCXHeader */,
 				2D676156180AFC8B008518F7 /* PCXContent */,
@@ -416,6 +460,7 @@
 		2DB5A54F180AE328009CC3E2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D63833F183DDBFF00C09D97 /* DrawLayerView */,
 				2DB5A550180AE328009CC3E2 /* PCXView */,
 			);
 			path = Views;
@@ -430,6 +475,17 @@
 			path = PCXView;
 			sourceTree = "<group>";
 		};
+		2DD2746618505E4C0072E635 /* PCXAnalizer */ = {
+			isa = PBXGroup;
+			children = (
+				2DE65502186F0BDB00BFC97F /* EmptiesFiller */,
+				2DFEF3C21862C9670082BF27 /* Devider */,
+				2DD2746718505E5C0072E635 /* PCXAnalizer.h */,
+				2DD2746818505E5C0072E635 /* PCXAnalizer.m */,
+			);
+			path = PCXAnalizer;
+			sourceTree = "<group>";
+		};
 		2DE5F22B180BCDC0006133B4 /* PCXHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +493,33 @@
 				2DE5F22D180BCDCB006133B4 /* PCXHeader.m */,
 			);
 			path = PCXHeader;
+			sourceTree = "<group>";
+		};
+		2DE65502186F0BDB00BFC97F /* EmptiesFiller */ = {
+			isa = PBXGroup;
+			children = (
+				2DE65503186F0BED00BFC97F /* EmptiesFiller.h */,
+				2DE65504186F0BED00BFC97F /* EmptiesFiller.m */,
+			);
+			path = EmptiesFiller;
+			sourceTree = "<group>";
+		};
+		2DE65508186F1E0400BFC97F /* LogMatr */ = {
+			isa = PBXGroup;
+			children = (
+				2DE65509186F1E1500BFC97F /* NSArray+LogMatr.h */,
+				2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */,
+			);
+			path = LogMatr;
+			sourceTree = "<group>";
+		};
+		2DFEF3C21862C9670082BF27 /* Devider */ = {
+			isa = PBXGroup;
+			children = (
+				2DFEF3C31862C9800082BF27 /* Devider.h */,
+				2DFEF3C41862C9800082BF27 /* Devider.m */,
+			);
+			path = Devider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,7 +603,10 @@
 				2DC62676182FFF2D004E0249 /* test.pcx in Resources */,
 				2D7AA0FD182AF4ED002689D8 /* asdaf1.pcx in Resources */,
 				2D7AA0FB182AF2B9002689D8 /* scanText1.pcx in Resources */,
+				2D638346183DDF1700C09D97 /* toBlack@2x.png in Resources */,
 				2D46D09E18285C470025D63C /* 1.pcx in Resources */,
+				2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */,
+				2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */,
 				2D4F1321182A464A00650A57 /* marb.pcx in Resources */,
 				2D68596C182B67A500779A89 /* polR.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
@@ -534,12 +620,15 @@
 				2D46D0A018285C470025D63C /* 10x10_.pcx in Resources */,
 				2D46D0C1182876C80025D63C /* a_grayScale.pcx in Resources */,
 				2D46D0B918285C5E0025D63C /* saveFile@2x.png in Resources */,
+				2D638345183DDF1700C09D97 /* toBlack.png in Resources */,
+				2DE6550F186F22FD00BFC97F /* sampleText3.pcx in Resources */,
 				2D46D0B218285C470025D63C /* test.pcx in Resources */,
 				2D685970182B795500779A89 /* aaa.pcx in Resources */,
 				2D46D0B018285C470025D63C /* sample.pcx in Resources */,
 				2D46D0A418285C470025D63C /* 4x4.pcx in Resources */,
 				2D7AA101182AFDAE002689D8 /* savedPcxFile1.pcx in Resources */,
 				2D7107DE182A89A90014BC08 /* word.pcx in Resources */,
+				2DD274651850550E0072E635 /* sampleText.pcx in Resources */,
 				2D46D0BC18285E950025D63C /* selectColor.png in Resources */,
 				2D46D0A118285C470025D63C /* 1BlackPixel.pcx in Resources */,
 				2D68596A182B674700779A89 /* r.pcx in Resources */,
@@ -602,14 +691,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2D28334B1815D9F8006216EB /* Defines.m in Sources */,
 				2D676159180AFCA3008518F7 /* PCXContent.m in Sources */,
 				2DB5A526180ADD6B009CC3E2 /* AppDelegate.m in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
+				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
+				2DFEF3C51862C9800082BF27 /* Devider.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
 				2DB5A54E180AE261009CC3E2 /* RootViewController.m in Sources */,
+				2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */,
+				2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

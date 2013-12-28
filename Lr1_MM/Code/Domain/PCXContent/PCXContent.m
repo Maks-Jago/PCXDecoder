@@ -66,6 +66,7 @@ static NSUInteger const kColorPalleteOffset = 769;
 #ifdef DEBUG_MOD
             NSLog(@"value = %d, rowSize = %d", value, [row count]);
 #endif
+            
             if (indexByte == colorPalleteIndex && self.bytes[colorPalleteIndex] == kUseColorPallet) {
                 NSLog(@"use color Pallete");
                 [self decodeCollorPallet];
