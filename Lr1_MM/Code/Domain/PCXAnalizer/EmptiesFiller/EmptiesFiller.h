@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PCXContent.h"
 
+#define EMPTIES_FILLER_DEBUG 1
+
 @interface EmptiesFiller : NSObject
 
 @property (nonatomic, assign) NSUInteger whiteIndex;

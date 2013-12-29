@@ -72,6 +72,8 @@
 		2DD01C141870564300FA2D5A /* LeftAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C131870564300FA2D5A /* LeftAperture.m */; };
 		2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C1718705C4C00FA2D5A /* TopAperture.m */; };
 		2DD01C1C18705C7400FA2D5A /* BaseAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C1B18705C7400FA2D5A /* BaseAperture.m */; };
+		2DD01C2118707E1800FA2D5A /* RightAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C2018707E1800FA2D5A /* RightAperture.m */; };
+		2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C2318707E3800FA2D5A /* BottomAperture.m */; };
 		2DD274651850550E0072E635 /* sampleText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD274641850550E0072E635 /* sampleText.pcx */; };
 		2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2746818505E5C0072E635 /* PCXAnalizer.m */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
@@ -175,6 +177,10 @@
 		2DD01C1718705C4C00FA2D5A /* TopAperture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAperture.m; sourceTree = "<group>"; };
 		2DD01C1A18705C7400FA2D5A /* BaseAperture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAperture.h; sourceTree = "<group>"; };
 		2DD01C1B18705C7400FA2D5A /* BaseAperture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAperture.m; sourceTree = "<group>"; };
+		2DD01C1F18707E1800FA2D5A /* RightAperture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightAperture.h; sourceTree = "<group>"; };
+		2DD01C2018707E1800FA2D5A /* RightAperture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightAperture.m; sourceTree = "<group>"; };
+		2DD01C2218707E3800FA2D5A /* BottomAperture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomAperture.h; sourceTree = "<group>"; };
+		2DD01C2318707E3800FA2D5A /* BottomAperture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomAperture.m; sourceTree = "<group>"; };
 		2DD274641850550E0072E635 /* sampleText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText.pcx; sourceTree = "<group>"; };
 		2DD2746718505E5C0072E635 /* PCXAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXAnalizer.h; sourceTree = "<group>"; };
 		2DD2746818505E5C0072E635 /* PCXAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXAnalizer.m; sourceTree = "<group>"; };
@@ -490,6 +496,8 @@
 		2DD01C0D1870542B00FA2D5A /* FringeEraser */ = {
 			isa = PBXGroup;
 			children = (
+				2DD01C1D18707DEC00FA2D5A /* BottomAperture */,
+				2DD01C1E18707DEC00FA2D5A /* RightAperture */,
 				2DD01C1918705C6800FA2D5A /* BaseAperture */,
 				2DD01C1518705C3B00FA2D5A /* TopAperture */,
 				2DD01C11187055F400FA2D5A /* LeftAperture */,
@@ -524,6 +532,24 @@
 				2DD01C1B18705C7400FA2D5A /* BaseAperture.m */,
 			);
 			path = BaseAperture;
+			sourceTree = "<group>";
+		};
+		2DD01C1D18707DEC00FA2D5A /* BottomAperture */ = {
+			isa = PBXGroup;
+			children = (
+				2DD01C2218707E3800FA2D5A /* BottomAperture.h */,
+				2DD01C2318707E3800FA2D5A /* BottomAperture.m */,
+			);
+			path = BottomAperture;
+			sourceTree = "<group>";
+		};
+		2DD01C1E18707DEC00FA2D5A /* RightAperture */ = {
+			isa = PBXGroup;
+			children = (
+				2DD01C1F18707E1800FA2D5A /* RightAperture.h */,
+				2DD01C2018707E1800FA2D5A /* RightAperture.m */,
+			);
+			path = RightAperture;
 			sourceTree = "<group>";
 		};
 		2DD2746618505E4C0072E635 /* PCXAnalizer */ = {
@@ -745,6 +771,7 @@
 			files = (
 				2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
+				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */,
 				2D28334B1815D9F8006216EB /* Defines.m in Sources */,
@@ -753,6 +780,7 @@
 				2DB5A526180ADD6B009CC3E2 /* AppDelegate.m in Sources */,
 				2DD01C101870549800FA2D5A /* FringeEraser.m in Sources */,
 				2DD01C1C18705C7400FA2D5A /* BaseAperture.m in Sources */,
+				2DD01C2118707E1800FA2D5A /* RightAperture.m in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
 				2DFEF3C51862C9800082BF27 /* Devider.m in Sources */,

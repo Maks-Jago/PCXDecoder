@@ -191,6 +191,10 @@
             return [UIColor redColor];
         }
         
+        if ([colorIndexs[index] integerValue] == 776) {
+            return [UIColor greenColor];
+        }
+        
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
         if (colorIndex > self.pcxFile.pcxContent.colorPallete.count) {
             colorIndex /= 3;

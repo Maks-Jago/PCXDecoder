@@ -36,6 +36,9 @@
             if (pixel == self.whiteIndex / 3) {
                 if ([self isNeedFillPixelWithRowsIndex:i rowIndex:j row:row]) {
                     NSUInteger value = self.blackIndex / 3;
+#if EMPTIES_FILLER_DEBUG
+                    value = 776;
+#endif
                     [row replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
                 }
             }
