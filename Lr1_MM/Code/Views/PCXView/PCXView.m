@@ -186,7 +186,16 @@
         }
         
         NSArray *colorIndexs = [linePallete lastObject];
+        
+        if ([colorIndexs[index] integerValue] == 777) {
+            return [UIColor redColor];
+        }
+        
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
+        if (colorIndex > self.pcxFile.pcxContent.colorPallete.count) {
+            colorIndex /= 3;
+        }
+        
         CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];
         CGFloat green = [self.pcxFile.pcxContent.colorPallete[colorIndex + 1] floatValue];
         CGFloat blue = [self.pcxFile.pcxContent.colorPallete[colorIndex+ 2] floatValue];

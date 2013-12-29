@@ -15,6 +15,8 @@
 
 #define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
 
+static NSString *const kFilePath = @"sampleText2";
+
 @interface RootViewController () <UIScrollViewDelegate, InfColorPickerControllerDelegate>
 
 @property (nonatomic, strong) PCXView *pcxView;
@@ -34,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sampleText2" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:kFilePath ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -64,7 +66,8 @@
     [self setupResetButton];
     [self setupSaveButton];
     [self setupFillButton];
-    [self setupSelectColorButton];
+    [self setupEraseFringeButton];
+//    [self setupSelectColorButton];
     [self setupConvertToBlackButton];
 }
 
@@ -163,6 +166,23 @@
     
     [self.view addSubview:fillButton];
 }
+
+- (void)setupEraseFringeButton
+{
+    UIButton *eraseFringeButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [eraseFringeButton setTitle:@"Erase Fringe" forState:(UIControlStateNormal)];
+    [eraseFringeButton.titleLabel setFont:[UIFont systemFontOfSize:28]];
+    [eraseFringeButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    eraseFringeButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    eraseFringeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    eraseFringeButton.frame = CGRectMake(kOffsetX, 510, 180, 50);
+    [eraseFringeButton addTarget:self action:@selector(eraseFringeButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:eraseFringeButton];
+}
+
 
 - (void)setupPCXView
 {
@@ -273,9 +293,15 @@
     [self.pcxView setNeedsDisplay];
 }
 
+- (void)eraseFringeButtonTapped
+{
+    [self.pcxAnalizer eraseFringe];
+    [self.pcxView setNeedsDisplay];
+}
+
 - (void)resetButtonTapped
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sampleText2" ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:kFilePath ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     

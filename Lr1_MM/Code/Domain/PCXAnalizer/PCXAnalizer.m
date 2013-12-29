@@ -9,11 +9,13 @@
 #import "PCXAnalizer.h"
 #import "Devider.h"
 #import "EmptiesFiller.h"
+#import "FringeEraser.h"
 
 @interface PCXAnalizer ()
 
 @property (nonatomic, strong) PCXContent *pcxContent;
 @property (nonatomic, strong) EmptiesFiller *emptiesFiller;
+@property (nonatomic, strong) FringeEraser *fringeEraser;
 
 @property (nonatomic, readwrite, strong) NSMutableArray *deviders;
 @property (nonatomic, assign) NSUInteger blackIndex;
@@ -31,6 +33,10 @@
         self.emptiesFiller = [[EmptiesFiller alloc] initWithPCXContent:content];
         self.emptiesFiller.blackIndex = blackIndex;
         self.emptiesFiller.whiteIndex = whiteIndex;
+        
+        self.fringeEraser = [[FringeEraser alloc] initWithPCXContent:content];
+        self.fringeEraser.whiteIndex = whiteIndex;
+        self.fringeEraser.blackIndex = blackIndex;
     }
     return self;
 }
@@ -44,6 +50,11 @@
 - (void)fillEmpties
 {
     [self.emptiesFiller fillEmpties];
+}
+
+- (void)eraseFringe
+{
+    [self.fringeEraser eraseFringe];
 }
 
 #pragma mark -

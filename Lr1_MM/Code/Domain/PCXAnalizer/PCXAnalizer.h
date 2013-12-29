@@ -16,5 +16,6 @@
 - (id)initWithPCXContent:(PCXContent *)content blackIndex:(NSUInteger)blackIndex whiteIndex:(NSUInteger)whiteIndex;
 
 - (void)fillEmpties;
+- (void)eraseFringe;
 
 @end
