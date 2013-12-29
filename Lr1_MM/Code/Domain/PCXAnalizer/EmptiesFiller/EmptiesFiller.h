@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PCXContent.h"
 
-#define EMPTIES_FILLER_DEBUG 1
+#define EMPTIES_FILLER_DEBUG 0
 
 @interface EmptiesFiller : NSObject
 

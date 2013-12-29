@@ -69,7 +69,7 @@
         for (int j = 1; j < row.count - 1; j++) {
             BOOL isFringe = YES;
             if (![self.topAperture isPixelEqualToAperture:rows rowsIndex:i rowIndex:j]) {
-                if (![self.leftAperture isPixelEqualToAperture:row rowsIndex:i rowIndex:j]) {
+                if (![self.leftAperture isPixelEqualToAperture:rows rowsIndex:i rowIndex:j]) {
                     if (![self.rightAperture isPixelEqualToAperture:rows rowsIndex:i rowIndex:j]) {
                         if (![self.bottomAperture isPixelEqualToAperture:rows rowsIndex:i rowIndex:j]) {
                             isFringe = NO;
@@ -79,7 +79,7 @@
             }
             
             if (isFringe) {
-                NSUInteger value = self.blackIndex;
+                NSUInteger value = self.whiteIndex;
 #if FRINGE_ERASER_DEBUG
                 value = 777;
 #endif
