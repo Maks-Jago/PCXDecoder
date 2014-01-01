@@ -15,7 +15,7 @@
 
 #define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
 
-static NSString *const kFilePath = @"fullText";
+static NSString *const kFilePath = @"sampleText2";
 
 @interface RootViewController () <UIScrollViewDelegate, InfColorPickerControllerDelegate>
 

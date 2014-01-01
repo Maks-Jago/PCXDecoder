@@ -21,6 +21,8 @@
 @property (nonatomic, strong) RightAperture *rightAperture;
 @property (nonatomic, strong) BottomAperture *bottomAperture;
 
+@property (nonatomic, strong) NSMutableArray *palleteCopy;
+
 @end
 
 @implementation FringeEraser
@@ -36,6 +38,19 @@
         self.bottomAperture = [BottomAperture new];
     }
     return self;
+}
+
+- (void)createPalleteCopy
+{
+    self.palleteCopy = [[NSMutableArray alloc] init];
+    for (NSArray *row in self.pcxContent.pallete) {
+        NSArray *cell = row[0];
+        NSMutableArray *newCell = [NSMutableArray new];
+        for (NSNumber *value in cell) {
+            [newCell addObject:[NSNumber numberWithUnsignedInteger:[value unsignedIntegerValue]]];
+        }
+        [self.palleteCopy addObject:@[newCell]];
+    }
 }
 
 - (void)setWhiteIndex:(NSUInteger)whiteIndex
@@ -59,6 +74,11 @@
 - (void)eraseFringe
 {
     NSMutableArray *rows = self.pcxContent.pallete;
+    if (self.useCopy) {
+        [self createPalleteCopy];
+        rows = self.palleteCopy;
+    }
+    
     if (!rows.count) {
         NSLog(@"FringeEraser: rowsCount == 0");
         return;
@@ -83,7 +103,11 @@
 #if FRINGE_ERASER_DEBUG
                 value = 777;
 #endif
-                [row replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
+                if (self.useCopy) {
+                    [self.pcxContent.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
+                } else {
+                    [row replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
+                }
             }
         }
     }

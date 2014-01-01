@@ -39,6 +39,7 @@
         self.fringeEraser = [[FringeEraser alloc] initWithPCXContent:content];
         self.fringeEraser.whiteIndex = whiteIndex;
         self.fringeEraser.blackIndex = blackIndex;
+        self.fringeEraser.useCopy = YES;
         
         self.devideAnalizer = [[DevideAnalizer alloc] initWithPCXContent:content];
         self.devideAnalizer.whiteIndex = whiteIndex;

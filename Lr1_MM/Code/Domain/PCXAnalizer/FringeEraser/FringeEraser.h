@@ -14,6 +14,7 @@
 
 @property (nonatomic, assign) NSUInteger whiteIndex;
 @property (nonatomic, assign) NSUInteger blackIndex;
+@property (nonatomic, assign) BOOL useCopy;
 
 - (id)initWithPCXContent:(PCXContent *)pcxContent;
 
