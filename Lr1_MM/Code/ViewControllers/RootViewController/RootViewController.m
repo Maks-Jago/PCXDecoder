@@ -15,7 +15,7 @@
 
 #define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
 
-static NSString *const kFilePath = @"sampleText2";
+static NSString *const kFilePath = @"fullText";
 
 @interface RootViewController () <UIScrollViewDelegate, InfColorPickerControllerDelegate>
 
@@ -155,8 +155,8 @@ static NSString *const kFilePath = @"sampleText2";
 {
     UIButton *fillButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
     
-    [fillButton setTitle:@"Fill" forState:(UIControlStateNormal)];
-    [fillButton.titleLabel setFont:[UIFont systemFontOfSize:34]];
+    [fillButton setTitle:@"Fill empties" forState:(UIControlStateNormal)];
+    [fillButton.titleLabel setFont:[UIFont systemFontOfSize:28]];
     [fillButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     
     fillButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
@@ -313,4 +313,13 @@ static NSString *const kFilePath = @"sampleText2";
     [self.pcxView setNeedsDisplay];
 }
 
+- (void)devideButtonTapped
+{
+    NSArray *deviders = [self.pcxAnalizer devide];
+    [self.pcxView.drawLayerView setRects:deviders];
+}
+
 @end
+
+
+

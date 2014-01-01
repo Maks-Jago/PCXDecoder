@@ -76,13 +76,14 @@
 		2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C2318707E3800FA2D5A /* BottomAperture.m */; };
 		2DD274651850550E0072E635 /* sampleText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD274641850550E0072E635 /* sampleText.pcx */; };
 		2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2746818505E5C0072E635 /* PCXAnalizer.m */; };
+		2DD873111871610B009FEA42 /* Devider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD873101871610B009FEA42 /* Devider.m */; };
+		2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD873131871611F009FEA42 /* DevideAnalizer.m */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
 		2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE65504186F0BED00BFC97F /* EmptiesFiller.m */; };
 		2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65506186F126E00BFC97F /* sampleText2.pcx */; };
 		2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */; };
 		2DE6550F186F22FD00BFC97F /* sampleText3.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE6550E186F22FD00BFC97F /* sampleText3.pcx */; };
 		2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65510186F241800BFC97F /* sampleText4.pcx */; };
-		2DFEF3C51862C9800082BF27 /* Devider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFEF3C41862C9800082BF27 /* Devider.m */; };
 		56A50314B11F47B08BC15B15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A4E788F18C448B858D1D01 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,10 @@
 		2DD274641850550E0072E635 /* sampleText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText.pcx; sourceTree = "<group>"; };
 		2DD2746718505E5C0072E635 /* PCXAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXAnalizer.h; sourceTree = "<group>"; };
 		2DD2746818505E5C0072E635 /* PCXAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXAnalizer.m; sourceTree = "<group>"; };
+		2DD8730F1871610B009FEA42 /* Devider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devider.h; sourceTree = "<group>"; };
+		2DD873101871610B009FEA42 /* Devider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Devider.m; sourceTree = "<group>"; };
+		2DD873121871611F009FEA42 /* DevideAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevideAnalizer.h; sourceTree = "<group>"; };
+		2DD873131871611F009FEA42 /* DevideAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideAnalizer.m; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
 		2DE5F22D180BCDCB006133B4 /* PCXHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXHeader.m; sourceTree = "<group>"; };
 		2DE65503186F0BED00BFC97F /* EmptiesFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptiesFiller.h; sourceTree = "<group>"; };
@@ -193,8 +198,6 @@
 		2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LogMatr.m"; sourceTree = "<group>"; };
 		2DE6550E186F22FD00BFC97F /* sampleText3.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText3.pcx; sourceTree = "<group>"; };
 		2DE65510186F241800BFC97F /* sampleText4.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText4.pcx; sourceTree = "<group>"; };
-		2DFEF3C31862C9800082BF27 /* Devider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devider.h; sourceTree = "<group>"; };
-		2DFEF3C41862C9800082BF27 /* Devider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Devider.m; sourceTree = "<group>"; };
 		67173942312748C989A49DD3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -555,13 +558,32 @@
 		2DD2746618505E4C0072E635 /* PCXAnalizer */ = {
 			isa = PBXGroup;
 			children = (
+				2DD8730D1871610B009FEA42 /* DevideAnalizer */,
 				2DD01C0D1870542B00FA2D5A /* FringeEraser */,
 				2DE65502186F0BDB00BFC97F /* EmptiesFiller */,
-				2DFEF3C21862C9670082BF27 /* Devider */,
 				2DD2746718505E5C0072E635 /* PCXAnalizer.h */,
 				2DD2746818505E5C0072E635 /* PCXAnalizer.m */,
 			);
 			path = PCXAnalizer;
+			sourceTree = "<group>";
+		};
+		2DD8730D1871610B009FEA42 /* DevideAnalizer */ = {
+			isa = PBXGroup;
+			children = (
+				2DD8730E1871610B009FEA42 /* Devider */,
+				2DD873121871611F009FEA42 /* DevideAnalizer.h */,
+				2DD873131871611F009FEA42 /* DevideAnalizer.m */,
+			);
+			path = DevideAnalizer;
+			sourceTree = "<group>";
+		};
+		2DD8730E1871610B009FEA42 /* Devider */ = {
+			isa = PBXGroup;
+			children = (
+				2DD8730F1871610B009FEA42 /* Devider.h */,
+				2DD873101871610B009FEA42 /* Devider.m */,
+			);
+			path = Devider;
 			sourceTree = "<group>";
 		};
 		2DE5F22B180BCDC0006133B4 /* PCXHeader */ = {
@@ -589,15 +611,6 @@
 				2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */,
 			);
 			path = LogMatr;
-			sourceTree = "<group>";
-		};
-		2DFEF3C21862C9670082BF27 /* Devider */ = {
-			isa = PBXGroup;
-			children = (
-				2DFEF3C31862C9800082BF27 /* Devider.h */,
-				2DFEF3C41862C9800082BF27 /* Devider.m */,
-			);
-			path = Devider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -783,10 +796,11 @@
 				2DD01C2118707E1800FA2D5A /* RightAperture.m in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
-				2DFEF3C51862C9800082BF27 /* Devider.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
+				2DD873111871610B009FEA42 /* Devider.m in Sources */,
 				2DB5A54E180AE261009CC3E2 /* RootViewController.m in Sources */,
 				2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */,
+				2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */,
 				2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

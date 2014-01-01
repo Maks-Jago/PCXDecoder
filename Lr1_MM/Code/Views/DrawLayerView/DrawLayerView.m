@@ -27,8 +27,13 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColor(context, CGColorGetComponents([UIColor yellowColor].CGColor));
+    
     for (int i = 0; i < self.rects.count; i++) {
         CGRect rect = [self.rects[i] CGRectValue];
+        rect.origin.x -= 1;
+        rect.origin.y -= 1;
+        rect.size.width += 2;
+        rect.size.height += 2;
         CGContextStrokeRect(context, rect);
     }
 }

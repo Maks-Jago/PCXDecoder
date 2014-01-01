@@ -10,12 +10,14 @@
 #import "Devider.h"
 #import "EmptiesFiller.h"
 #import "FringeEraser.h"
+#import "DevideAnalizer.h"
 
 @interface PCXAnalizer ()
 
 @property (nonatomic, strong) PCXContent *pcxContent;
 @property (nonatomic, strong) EmptiesFiller *emptiesFiller;
 @property (nonatomic, strong) FringeEraser *fringeEraser;
+@property (nonatomic, strong) DevideAnalizer *devideAnalizer;
 
 @property (nonatomic, readwrite, strong) NSMutableArray *deviders;
 @property (nonatomic, assign) NSUInteger blackIndex;
@@ -37,14 +39,12 @@
         self.fringeEraser = [[FringeEraser alloc] initWithPCXContent:content];
         self.fringeEraser.whiteIndex = whiteIndex;
         self.fringeEraser.blackIndex = blackIndex;
+        
+        self.devideAnalizer = [[DevideAnalizer alloc] initWithPCXContent:content];
+        self.devideAnalizer.whiteIndex = whiteIndex;
+        self.devideAnalizer.blackIndex = blackIndex;
     }
     return self;
-}
-
-- (void)finSimbolDeviders
-{
-    self.deviders = [NSMutableArray new];
-    [self findDeviders:CGPointZero lastFoundDevider:nil detectProcces:NO];
 }
 
 - (void)fillEmpties
@@ -57,21 +57,9 @@
     [self.fringeEraser eraseFringe];
 }
 
-#pragma mark -
-#pragma mark Rects
-
-- (NSArray *)simbolDeviders
+- (NSArray *)devide
 {
-    return @[[NSValue valueWithCGRect:CGRectMake(10, 10, 100, 20)], [NSValue valueWithCGRect:CGRectMake(110, 110, 50, 70)]];
-}
-
-- (void)findDeviders:(CGPoint)currentLocation lastFoundDevider:(Devider *)devider detectProcces:(BOOL)detectProcces
-{
-    if (!detectProcces) {
-        NSNumber *value = self.pcxContent.pallete[(NSInteger)currentLocation.y][(NSInteger)currentLocation.x];
-    } else {
-        
-    }
+    return [self.devideAnalizer devide];
 }
 
 @end

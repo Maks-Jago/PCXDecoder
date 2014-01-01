@@ -12,6 +12,7 @@
 @interface EmptiesFiller ()
 
 @property (nonatomic, strong) PCXContent *pcxContent;
+@property (nonatomic, strong) NSMutableArray *palleteCopy;
 
 @end
 
@@ -28,7 +29,9 @@
 
 - (void)fillEmpties
 {
-    NSMutableArray *rows = self.pcxContent.pallete;
+    [self createPalleteCopy];
+    
+    NSMutableArray *rows = self.palleteCopy;
     for (int i = 0; i < rows.count; i ++) {
         NSMutableArray *row = rows[i][0];
         for (int j = 0; j < row.count; j++) {
@@ -39,12 +42,29 @@
 #if EMPTIES_FILLER_DEBUG
                     value = 776;
 #endif
-                    [row replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
+//                    [row replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
+                    [self.pcxContent.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:value]];
                 }
             }
         }
     }
+    
+//    self.pcxContent.pallete = [NSMutableArray arrayWithArray:rows];
 }
+
+- (void)createPalleteCopy
+{
+    self.palleteCopy = [[NSMutableArray alloc] init];
+    for (NSArray *row in self.pcxContent.pallete) {
+        NSArray *cell = row[0];
+        NSMutableArray *newCell = [NSMutableArray new];
+        for (NSNumber *value in cell) {
+            [newCell addObject:[NSNumber numberWithUnsignedInteger:[value unsignedIntegerValue]]];
+        }
+        [self.palleteCopy addObject:@[newCell]];
+    }
+}
+
 
 - (BOOL)isNeedFillPixelWithRowsIndex:(NSUInteger)rowsIndex rowIndex:(NSUInteger)rowIndex row:(NSArray *)row
 {
@@ -52,8 +72,8 @@
     NSArray *rowCopy = [NSArray arrayWithArray:row];
     blackPixelsCount = [self analizeRow:rowCopy withBlackPixelsCount:blackPixelsCount rowIndex:rowIndex];
     
-    if (rowsIndex - 1 < self.pcxContent.pallete.count) {
-        rowCopy = self.pcxContent.pallete[rowsIndex - 1][0];
+    if (rowsIndex - 1 < self.palleteCopy.count) {
+        rowCopy = self.palleteCopy[rowsIndex - 1][0];
         blackPixelsCount = [self analizeRow:rowCopy withBlackPixelsCount:blackPixelsCount rowIndex:rowIndex];
         if ([row[rowIndex] integerValue] == self.blackIndex / 3) {
             blackPixelsCount ++;
@@ -61,8 +81,8 @@
         
     }
     
-    if (rowsIndex + 1 < self.pcxContent.pallete.count) {
-        rowCopy = self.pcxContent.pallete[rowsIndex + 1][0];
+    if (rowsIndex + 1 < self.palleteCopy.count) {
+        rowCopy = self.palleteCopy[rowsIndex + 1][0];
         blackPixelsCount = [self analizeRow:rowCopy withBlackPixelsCount:blackPixelsCount rowIndex:rowIndex];
         if ([row[rowIndex] integerValue] == self.blackIndex / 3) {
             blackPixelsCount ++;

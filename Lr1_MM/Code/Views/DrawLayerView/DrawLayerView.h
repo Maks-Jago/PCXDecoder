@@ -10,7 +10,6 @@
 
 @interface DrawLayerView : UIView
 
-@property (nonatomic, strong) NSMutableArray *rects;
-@property (nonatomic, strong) NSMutableArray *pixels;
+@property (nonatomic, strong) NSArray *rects;
 
 @end

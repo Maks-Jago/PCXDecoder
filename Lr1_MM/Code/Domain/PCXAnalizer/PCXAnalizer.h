@@ -11,11 +11,10 @@
 
 @interface PCXAnalizer : NSObject
 
-@property (nonatomic, readonly) NSArray *deviders;
-
 - (id)initWithPCXContent:(PCXContent *)content blackIndex:(NSUInteger)blackIndex whiteIndex:(NSUInteger)whiteIndex;
 
 - (void)fillEmpties;
 - (void)eraseFringe;
+- (NSArray *)devide;
 
 @end

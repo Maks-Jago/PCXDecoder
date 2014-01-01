@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "PCXContent.h"
 
-#define FRINGE_ERASER_DEBUG 0
 
 @interface FringeEraser : NSObject
 
