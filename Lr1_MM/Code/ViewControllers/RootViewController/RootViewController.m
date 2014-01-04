@@ -44,6 +44,7 @@ static NSString *const kFilePath = @"sampleText2";
     [self setupButtons];
 //    [self setupSlider];
     [self setupDevideButton];
+    [self setupThinningButton];
     
     self.pcxAnalizer = [[PCXAnalizer alloc] initWithPCXContent:self.pcxFile.pcxContent
                                                     blackIndex:[self.pcxView blackColorIndex]
@@ -183,6 +184,22 @@ static NSString *const kFilePath = @"sampleText2";
     [self.view addSubview:eraseFringeButton];
 }
 
+- (void)setupThinningButton
+{
+    UIButton *thinningButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [thinningButton setTitle:@"Thinning" forState:(UIControlStateNormal)];
+    [thinningButton.titleLabel setFont:[UIFont systemFontOfSize:28]];
+    [thinningButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    thinningButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    thinningButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    thinningButton.frame = CGRectMake(kOffsetX, 690, 180, 50);
+    [thinningButton addTarget:self action:@selector(thinningButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:thinningButton];
+}
+
 
 - (void)setupPCXView
 {
@@ -310,13 +327,24 @@ static NSString *const kFilePath = @"sampleText2";
                                                     whiteIndex:[self.pcxView whiteColorIndex]];
 
     self.pcxView.pcxFile = self.pcxFile;
+    [self.pcxView.drawLayerView setRects:nil];
     [self.pcxView setNeedsDisplay];
 }
 
 - (void)devideButtonTapped
 {
-    NSArray *deviders = [self.pcxAnalizer devide];
-    [self.pcxView.drawLayerView setRects:deviders];
+    if (self.pcxView.drawLayerView.rects.count) {
+        [self.pcxView.drawLayerView setRects:nil];
+    } else {
+        NSArray *deviders = [self.pcxAnalizer devide];
+        [self.pcxView.drawLayerView setRects:deviders];
+    }
+}
+
+- (void)thinningButtonTapped
+{
+    [self.pcxAnalizer thinningDevides];
+    [self.pcxView setNeedsDisplay];
 }
 
 @end

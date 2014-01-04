@@ -11,6 +11,7 @@
 #import "EmptiesFiller.h"
 #import "FringeEraser.h"
 #import "DevideAnalizer.h"
+#import "DevideThinning.h"
 
 @interface PCXAnalizer ()
 
@@ -18,8 +19,8 @@
 @property (nonatomic, strong) EmptiesFiller *emptiesFiller;
 @property (nonatomic, strong) FringeEraser *fringeEraser;
 @property (nonatomic, strong) DevideAnalizer *devideAnalizer;
+@property (nonatomic, strong) DevideThinning *devideThinning;
 
-@property (nonatomic, readwrite, strong) NSMutableArray *deviders;
 @property (nonatomic, assign) NSUInteger blackIndex;
 @property (nonatomic, assign) NSUInteger whiteIndex;
 
@@ -44,6 +45,10 @@
         self.devideAnalizer = [[DevideAnalizer alloc] initWithPCXContent:content];
         self.devideAnalizer.whiteIndex = whiteIndex;
         self.devideAnalizer.blackIndex = blackIndex;
+        
+        self.devideThinning = [[DevideThinning alloc] initWithPCXContent:content];
+        self.devideThinning.whiteIndex = whiteIndex;
+        self.devideThinning.blackIndex = blackIndex;
     }
     return self;
 }
@@ -61,6 +66,17 @@
 - (NSArray *)devide
 {
     return [self.devideAnalizer devide];
+}
+
+- (void)thinningDevides
+{
+    [self.devideThinning createPalleteCopy];
+    
+    NSArray *devides = [self.devideAnalizer getCurrentDevides];
+    for (NSValue *devide in devides) {
+        [self.devideThinning thinningDevide:[devide CGRectValue]];
+        break;
+    }
 }
 
 @end

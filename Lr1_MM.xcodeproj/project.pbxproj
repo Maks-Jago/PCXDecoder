@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24D1E8180D58F600C00E09 /* PCXFile.m */; };
+		2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D268FF61875B27300D3F3B6 /* DevideThinning.m */; };
+		2D268FFE1875BDAB00D3F3B6 /* FirstPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */; };
 		2D28334B1815D9F8006216EB /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28334A1815D9F8006216EB /* Defines.m */; };
 		2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D46D08018284A6A0025D63C /* QuartzCore.framework */; };
 		2D46D09E18285C470025D63C /* 1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08718285C470025D63C /* 1.pcx */; };
@@ -101,6 +103,10 @@
 		25A4E788F18C448B858D1D01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D24D1E7180D58F600C00E09 /* PCXFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXFile.h; sourceTree = "<group>"; };
 		2D24D1E8180D58F600C00E09 /* PCXFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXFile.m; sourceTree = "<group>"; };
+		2D268FF51875B27300D3F3B6 /* DevideThinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevideThinning.h; sourceTree = "<group>"; };
+		2D268FF61875B27300D3F3B6 /* DevideThinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideThinning.m; sourceTree = "<group>"; };
+		2D268FFC1875BDAB00D3F3B6 /* FirstPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPass.h; sourceTree = "<group>"; };
+		2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPass.m; sourceTree = "<group>"; };
 		2D2833491815D9F8006216EB /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		2D28334A1815D9F8006216EB /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		2D46D08018284A6A0025D63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -241,6 +247,49 @@
 				2D24D1E7180D58F600C00E09 /* PCXFile.h */,
 			);
 			path = PCXFile;
+			sourceTree = "<group>";
+		};
+		2D268FF41875B25F00D3F3B6 /* DevideThinning */ = {
+			isa = PBXGroup;
+			children = (
+				2D268FF81875BD9900D3F3B6 /* FourthPass */,
+				2D268FF91875BD9900D3F3B6 /* ThirdPass */,
+				2D268FFA1875BD9900D3F3B6 /* SecondPass */,
+				2D268FFB1875BD9900D3F3B6 /* FirstPass */,
+				2D268FF51875B27300D3F3B6 /* DevideThinning.h */,
+				2D268FF61875B27300D3F3B6 /* DevideThinning.m */,
+			);
+			path = DevideThinning;
+			sourceTree = "<group>";
+		};
+		2D268FF81875BD9900D3F3B6 /* FourthPass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FourthPass;
+			sourceTree = "<group>";
+		};
+		2D268FF91875BD9900D3F3B6 /* ThirdPass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdPass;
+			sourceTree = "<group>";
+		};
+		2D268FFA1875BD9900D3F3B6 /* SecondPass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondPass;
+			sourceTree = "<group>";
+		};
+		2D268FFB1875BD9900D3F3B6 /* FirstPass */ = {
+			isa = PBXGroup;
+			children = (
+				2D268FFC1875BDAB00D3F3B6 /* FirstPass.h */,
+				2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */,
+			);
+			path = FirstPass;
 			sourceTree = "<group>";
 		};
 		2D2833461815D9BA006216EB /* Common */ = {
@@ -558,6 +607,7 @@
 		2DD2746618505E4C0072E635 /* PCXAnalizer */ = {
 			isa = PBXGroup;
 			children = (
+				2D268FF41875B25F00D3F3B6 /* DevideThinning */,
 				2DD8730D1871610B009FEA42 /* DevideAnalizer */,
 				2DD01C0D1870542B00FA2D5A /* FringeEraser */,
 				2DE65502186F0BDB00BFC97F /* EmptiesFiller */,
@@ -783,7 +833,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */,
+				2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
+				2D268FFE1875BDAB00D3F3B6 /* FirstPass.m in Sources */,
 				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */,

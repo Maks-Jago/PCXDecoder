@@ -14,6 +14,7 @@ static NSUInteger const kNotAnalizeValue = 9999;
 
 @property (nonatomic, strong) PCXContent *pcxContent;
 @property (nonatomic, strong) NSMutableArray *palleteCopy;
+@property (nonatomic, strong) NSArray *currentDevides;
 
 @end
 
@@ -28,14 +29,24 @@ static NSUInteger const kNotAnalizeValue = 9999;
     return self;
 }
 
+- (NSArray *)getCurrentDevides
+{
+    if (!self.currentDevides) {
+        self.currentDevides = [self devide];
+    }
+    return self.currentDevides;
+}
+
 - (NSArray *)devide
 {
     [self createPalleteCopy];
     
     NSMutableArray *deviders = [NSMutableArray new];
-    return [self findDeviders:CGPointZero
-                detectProcces:NO
-                     deviders:deviders];
+    [self findDeviders:CGPointZero
+         detectProcces:NO
+              deviders:deviders];
+    self.currentDevides = (NSArray *)deviders;
+    return deviders;
 }
 
 - (void)createPalleteCopy
@@ -64,9 +75,9 @@ static NSUInteger const kNotAnalizeValue = 9999;
 #pragma mark -
 #pragma mark Rects
 
-- (NSArray *)findDeviders:(CGPoint)currentLocation
-            detectProcces:(BOOL)detectProcces
-                 deviders:(NSMutableArray *)deviders
+- (void)findDeviders:(CGPoint)currentLocation
+       detectProcces:(BOOL)detectProcces
+            deviders:(NSMutableArray *)deviders
 {
     if (!detectProcces) {
         NSArray *row = self.palleteCopy[(NSInteger)currentLocation.y];
@@ -77,7 +88,7 @@ static NSUInteger const kNotAnalizeValue = 9999;
             currentLocation.y += 1;
             
             if (currentLocation.y >= self.palleteCopy.count) {
-                return deviders;
+                return;
             }
         }
 
@@ -102,8 +113,6 @@ static NSUInteger const kNotAnalizeValue = 9999;
              detectProcces:NO
                   deviders:deviders];
     }
-    
-    return (NSArray *)deviders;
 }
 
 - (void)funcDetectProccessWithCurrentLocation:(CGPoint)currentLocation

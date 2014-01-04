@@ -16,5 +16,6 @@
 - (void)fillEmpties;
 - (void)eraseFringe;
 - (NSArray *)devide;
+- (void)thinningDevides;
 
 @end

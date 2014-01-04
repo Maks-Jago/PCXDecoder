@@ -195,10 +195,23 @@
             return [UIColor greenColor];
         }
         
+        if ([colorIndexs[index] integerValue] == 775) {
+            return [UIColor blueColor];
+        }
+        
+        if ([colorIndexs[index] integerValue] == 774) {
+            return [UIColor orangeColor];
+        }
+
+        
         NSUInteger colorIndex = [colorIndexs[index] floatValue] * 3;
-        if (colorIndex > self.pcxFile.pcxContent.colorPallete.count) {
+        if (colorIndex >= self.pcxFile.pcxContent.colorPallete.count) {
             colorIndex /= 3;
         }
+        
+//        if (colorIndex != [self blackColorIndex] && colorIndex != [self whiteColorIndex]) {
+//            NSLog(@"");
+//        }
         
         CGFloat red = [self.pcxFile.pcxContent.colorPallete[colorIndex] floatValue];
         CGFloat green = [self.pcxFile.pcxContent.colorPallete[colorIndex + 1] floatValue];
