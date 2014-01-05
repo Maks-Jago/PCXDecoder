@@ -73,9 +73,13 @@
     [self.devideThinning createPalleteCopy];
     
     NSArray *devides = [self.devideAnalizer getCurrentDevides];
+    int index = 0;
     for (NSValue *devide in devides) {
+        if (index == 149) {
+            NSLog(@"");
+        }
         [self.devideThinning thinningDevide:[devide CGRectValue]];
-        break;
+        index++;
     }
 }
 
