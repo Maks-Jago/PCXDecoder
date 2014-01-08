@@ -61,21 +61,108 @@ static NSUInteger const kSaveValue = 983;
 
 - (void)thinningDevide:(CGRect)devide
 {
-    int index = 256;
+    CGFloat minWidth = (CGFloat)[self minWidthForDevide:devide];
+    
+    int index = 0;
     NSUInteger compareValue = self.whiteIndex;
     while (YES) {
-        BOOL flag = [self setIndex:index forDevide:devide compareValue:compareValue];
+        int saveIndexCount = ceilf(((minWidth / devide.size.width) * 10)) + 1;
+        BOOL isNeedSave = index >= saveIndexCount; //(devide.size.width / minWidth) || index >= (devide.size.height / minWidth);//minWidth / 3;
+        BOOL flag = [self setIndex:256 forDevide:devide compareValue:compareValue isNeedSave:isNeedSave];
         [self replaceAllIndexWithDevide:devide replaceSave:!flag];
         if (!flag) {
             break;
         }
         
+        index ++;
 #if DEVIDE_THINNING_DEBUG
         compareValue = 774;
 #endif
 
     }
     self.pcxContent.pallete = self.palleteCopy;
+}
+
+- (NSUInteger)minWidthForDevide:(CGRect)devide
+{
+    NSUInteger minWidth = NSUIntegerMax;
+    //width
+    BOOL shape = NO;
+    for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
+        NSUInteger tmpWidth = 0;
+        for (int j = devide.origin.x; j < devide.size.width + devide.origin.x; j++) {
+            minWidth = [self minWidthWithRowIndex:i
+                                        cellIndex:j
+                                     currentWidth:minWidth
+                                         tmpWidth:&tmpWidth
+                                          isShape:&shape
+                                       isVertical:NO];
+        }
+    }
+
+    //height
+    shape = NO;
+    for (int j = devide.origin.x; j < devide.size.width + devide.origin.x; j++) {
+        NSUInteger tmpWidth = 0;
+        for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
+            minWidth = [self minWidthWithRowIndex:i
+                                        cellIndex:j
+                                     currentWidth:minWidth
+                                         tmpWidth:&tmpWidth
+                                          isShape:&shape
+                                       isVertical:YES];
+
+        }
+    }
+    
+    return minWidth;
+}
+
+- (NSUInteger)minWidthWithRowIndex:(NSInteger)rowIndex
+                         cellIndex:(NSInteger)cellIndex
+                      currentWidth:(NSUInteger)currentWidth
+                          tmpWidth:(NSUInteger *)tmpWidth
+                           isShape:(BOOL *)isShape
+                        isVertical:(BOOL)isVertical
+{
+    NSUInteger minWidth = currentWidth;
+    NSUInteger value = [self.palleteCopy[rowIndex][0][cellIndex] unsignedIntegerValue];
+    NSInteger topCenter = self.whiteIndex;
+    
+    if (rowIndex - 1 > 0) {
+        topCenter = [self.palleteCopy[rowIndex - 1][0][cellIndex] unsignedIntegerValue];
+    }
+    
+    NSInteger midleLeft = self.whiteIndex;
+    NSInteger midleRight = [self.palleteCopy[rowIndex][0][cellIndex + 1] unsignedIntegerValue];
+    NSInteger bottomLeft = self.whiteIndex;
+    
+    if (cellIndex - 1 > 0) {
+        midleLeft = [self.palleteCopy[rowIndex][0][cellIndex - 1] unsignedIntegerValue];
+        
+        bottomLeft = [self.palleteCopy[rowIndex + 1][0][cellIndex - 1] unsignedIntegerValue];
+    }
+    
+    NSInteger bottomCenter = [self.palleteCopy[rowIndex + 1][0][cellIndex] unsignedIntegerValue];
+    
+    if (value == self.blackIndex) {
+        if (!(*isShape) && !isVertical && midleLeft == self.whiteIndex && topCenter == self.blackIndex && bottomCenter == self.blackIndex) {
+            (*isShape) = YES;
+        } else if (!(*isShape) && isVertical && midleRight == self.blackIndex && midleLeft == self.blackIndex && topCenter == self.whiteIndex && bottomCenter == self.blackIndex) {
+            (*isShape) = YES;
+        }
+
+        if ((*isShape)) {
+            (*tmpWidth)++;
+        }
+    } else if (value == self.whiteIndex) {
+        if ((*tmpWidth) < minWidth && (*tmpWidth)) {
+            minWidth = (*tmpWidth);
+        }
+        (*isShape) = NO;
+        (*tmpWidth) = 0;
+    }
+    return minWidth;
 }
 
 - (NSUInteger)calculateBlackPixelsForPoint:(CGPoint)point
@@ -139,7 +226,7 @@ static NSUInteger const kSaveValue = 983;
     }
 }
 
-- (BOOL)setIndex:(NSUInteger)index forDevide:(CGRect)devide compareValue:(NSUInteger)compareValue
+- (BOOL)setIndex:(NSUInteger)index forDevide:(CGRect)devide compareValue:(NSUInteger)compareValue isNeedSave:(BOOL)isNeedSave
 {
     BOOL isNeedContinue = NO;
     for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
@@ -183,7 +270,7 @@ static NSUInteger const kSaveValue = 983;
                 midleLeft == compareValue || midleCenter == compareValue || midleRight == compareValue ||
                 bottomLeft == compareValue || bottomCenter == compareValue || bottomRight == compareValue) {
                 
-                if ([self calculateBlackPixelsForPoint:CGPointMake(j, i)] < 3) {
+                if ([self calculateBlackPixelsForPoint:CGPointMake(j, i)] <= 2 && isNeedSave) {
                     [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:kSaveValue]];                                        
                 } else {
                     [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:index]];

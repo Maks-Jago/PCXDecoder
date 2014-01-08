@@ -19,3 +19,6 @@
 #define EMPTIES_FILLER_DEBUG 0
 #define FRINGE_ERASER_DEBUG 0
 #define DEVIDE_THINNING_DEBUG 0
+
+//fullText
+static NSString *const kFilePath = @"fullText";//@"sampleText3";

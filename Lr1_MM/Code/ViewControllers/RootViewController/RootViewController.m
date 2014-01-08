@@ -15,9 +15,6 @@
 
 #define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
 
-//fullText
-static NSString *const kFilePath = @"sampleText3";
-
 @interface RootViewController () <UIScrollViewDelegate, InfColorPickerControllerDelegate>
 
 @property (nonatomic, strong) PCXView *pcxView;
