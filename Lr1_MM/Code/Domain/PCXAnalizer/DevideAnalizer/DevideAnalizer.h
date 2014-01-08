@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "PCXContent.h"
-#import "Devider.h"
 
 @interface DevideAnalizer : NSObject
 

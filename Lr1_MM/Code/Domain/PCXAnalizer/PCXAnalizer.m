@@ -7,7 +7,6 @@
 //
 
 #import "PCXAnalizer.h"
-#import "Devider.h"
 #import "EmptiesFiller.h"
 #import "FringeEraser.h"
 #import "DevideAnalizer.h"

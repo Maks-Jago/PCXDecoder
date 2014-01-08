@@ -13,7 +13,6 @@
  */
 
 #import "DevideThinning.h"
-#import "FirstPass.h"
 #import "NSArray+LogMatr.h"
 
 static NSUInteger const kSaveValue = 983;
@@ -185,10 +184,10 @@ static NSUInteger const kSaveValue = 983;
                 bottomLeft == compareValue || bottomCenter == compareValue || bottomRight == compareValue) {
                 
                 if ([self calculateBlackPixelsForPoint:CGPointMake(j, i)] < 3) {
-                    [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:kSaveValue]];
-                    continue;
+                    [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:kSaveValue]];                                        
+                } else {
+                    [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:index]];
                 }
-                [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:index]];
                 isNeedContinue = YES;
             }
         }

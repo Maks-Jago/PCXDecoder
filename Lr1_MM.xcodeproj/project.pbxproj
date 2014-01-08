@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24D1E8180D58F600C00E09 /* PCXFile.m */; };
 		2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D268FF61875B27300D3F3B6 /* DevideThinning.m */; };
-		2D268FFE1875BDAB00D3F3B6 /* FirstPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */; };
 		2D28334B1815D9F8006216EB /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28334A1815D9F8006216EB /* Defines.m */; };
 		2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D46D08018284A6A0025D63C /* QuartzCore.framework */; };
 		2D46D09E18285C470025D63C /* 1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08718285C470025D63C /* 1.pcx */; };
@@ -31,6 +30,7 @@
 		2D46D0BC18285E950025D63C /* selectColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0BA18285E950025D63C /* selectColor.png */; };
 		2D46D0BD18285E950025D63C /* selectColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0BB18285E950025D63C /* selectColor@2x.png */; };
 		2D46D0C1182876C80025D63C /* a_grayScale.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D0C0182876C80025D63C /* a_grayScale.pcx */; };
+		2D4B3D87187BFCE6001E060F /* sampleText3.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4B3D86187BFCE6001E060F /* sampleText3.pcx */; };
 		2D4F1321182A464A00650A57 /* marb.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1320182A464A00650A57 /* marb.pcx */; };
 		2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1322182A49B700650A57 /* 10x10gray.pcx */; };
 		2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1324182A4B7400650A57 /* marb2.pcx */; };
@@ -78,13 +78,11 @@
 		2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01C2318707E3800FA2D5A /* BottomAperture.m */; };
 		2DD274651850550E0072E635 /* sampleText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD274641850550E0072E635 /* sampleText.pcx */; };
 		2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2746818505E5C0072E635 /* PCXAnalizer.m */; };
-		2DD873111871610B009FEA42 /* Devider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD873101871610B009FEA42 /* Devider.m */; };
 		2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD873131871611F009FEA42 /* DevideAnalizer.m */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
 		2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE65504186F0BED00BFC97F /* EmptiesFiller.m */; };
 		2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65506186F126E00BFC97F /* sampleText2.pcx */; };
 		2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */; };
-		2DE6550F186F22FD00BFC97F /* sampleText3.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE6550E186F22FD00BFC97F /* sampleText3.pcx */; };
 		2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65510186F241800BFC97F /* sampleText4.pcx */; };
 		56A50314B11F47B08BC15B15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A4E788F18C448B858D1D01 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -105,8 +103,6 @@
 		2D24D1E8180D58F600C00E09 /* PCXFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXFile.m; sourceTree = "<group>"; };
 		2D268FF51875B27300D3F3B6 /* DevideThinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevideThinning.h; sourceTree = "<group>"; };
 		2D268FF61875B27300D3F3B6 /* DevideThinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideThinning.m; sourceTree = "<group>"; };
-		2D268FFC1875BDAB00D3F3B6 /* FirstPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPass.h; sourceTree = "<group>"; };
-		2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPass.m; sourceTree = "<group>"; };
 		2D2833491815D9F8006216EB /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		2D28334A1815D9F8006216EB /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		2D46D08018284A6A0025D63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -129,6 +125,7 @@
 		2D46D0BA18285E950025D63C /* selectColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectColor.png; sourceTree = "<group>"; };
 		2D46D0BB18285E950025D63C /* selectColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectColor@2x.png"; sourceTree = "<group>"; };
 		2D46D0C0182876C80025D63C /* a_grayScale.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = a_grayScale.pcx; sourceTree = "<group>"; };
+		2D4B3D86187BFCE6001E060F /* sampleText3.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText3.pcx; sourceTree = "<group>"; };
 		2D4F1320182A464A00650A57 /* marb.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb.pcx; sourceTree = "<group>"; };
 		2D4F1322182A49B700650A57 /* 10x10gray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10gray.pcx; sourceTree = "<group>"; };
 		2D4F1324182A4B7400650A57 /* marb2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb2.pcx; sourceTree = "<group>"; };
@@ -191,8 +188,6 @@
 		2DD274641850550E0072E635 /* sampleText.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText.pcx; sourceTree = "<group>"; };
 		2DD2746718505E5C0072E635 /* PCXAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXAnalizer.h; sourceTree = "<group>"; };
 		2DD2746818505E5C0072E635 /* PCXAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXAnalizer.m; sourceTree = "<group>"; };
-		2DD8730F1871610B009FEA42 /* Devider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devider.h; sourceTree = "<group>"; };
-		2DD873101871610B009FEA42 /* Devider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Devider.m; sourceTree = "<group>"; };
 		2DD873121871611F009FEA42 /* DevideAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevideAnalizer.h; sourceTree = "<group>"; };
 		2DD873131871611F009FEA42 /* DevideAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideAnalizer.m; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
@@ -202,7 +197,6 @@
 		2DE65506186F126E00BFC97F /* sampleText2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText2.pcx; sourceTree = "<group>"; };
 		2DE65509186F1E1500BFC97F /* NSArray+LogMatr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LogMatr.h"; sourceTree = "<group>"; };
 		2DE6550A186F1E1500BFC97F /* NSArray+LogMatr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LogMatr.m"; sourceTree = "<group>"; };
-		2DE6550E186F22FD00BFC97F /* sampleText3.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText3.pcx; sourceTree = "<group>"; };
 		2DE65510186F241800BFC97F /* sampleText4.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleText4.pcx; sourceTree = "<group>"; };
 		67173942312748C989A49DD3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,44 +246,10 @@
 		2D268FF41875B25F00D3F3B6 /* DevideThinning */ = {
 			isa = PBXGroup;
 			children = (
-				2D268FF81875BD9900D3F3B6 /* FourthPass */,
-				2D268FF91875BD9900D3F3B6 /* ThirdPass */,
-				2D268FFA1875BD9900D3F3B6 /* SecondPass */,
-				2D268FFB1875BD9900D3F3B6 /* FirstPass */,
 				2D268FF51875B27300D3F3B6 /* DevideThinning.h */,
 				2D268FF61875B27300D3F3B6 /* DevideThinning.m */,
 			);
 			path = DevideThinning;
-			sourceTree = "<group>";
-		};
-		2D268FF81875BD9900D3F3B6 /* FourthPass */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FourthPass;
-			sourceTree = "<group>";
-		};
-		2D268FF91875BD9900D3F3B6 /* ThirdPass */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ThirdPass;
-			sourceTree = "<group>";
-		};
-		2D268FFA1875BD9900D3F3B6 /* SecondPass */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SecondPass;
-			sourceTree = "<group>";
-		};
-		2D268FFB1875BD9900D3F3B6 /* FirstPass */ = {
-			isa = PBXGroup;
-			children = (
-				2D268FFC1875BDAB00D3F3B6 /* FirstPass.h */,
-				2D268FFD1875BDAB00D3F3B6 /* FirstPass.m */,
-			);
-			path = FirstPass;
 			sourceTree = "<group>";
 		};
 		2D2833461815D9BA006216EB /* Common */ = {
@@ -338,8 +298,8 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2D4B3D86187BFCE6001E060F /* sampleText3.pcx */,
 				2DE65510186F241800BFC97F /* sampleText4.pcx */,
-				2DE6550E186F22FD00BFC97F /* sampleText3.pcx */,
 				2DE65506186F126E00BFC97F /* sampleText2.pcx */,
 				2DD274641850550E0072E635 /* sampleText.pcx */,
 				2DC6267718300062004E0249 /* fullText.pcx */,
@@ -620,20 +580,10 @@
 		2DD8730D1871610B009FEA42 /* DevideAnalizer */ = {
 			isa = PBXGroup;
 			children = (
-				2DD8730E1871610B009FEA42 /* Devider */,
 				2DD873121871611F009FEA42 /* DevideAnalizer.h */,
 				2DD873131871611F009FEA42 /* DevideAnalizer.m */,
 			);
 			path = DevideAnalizer;
-			sourceTree = "<group>";
-		};
-		2DD8730E1871610B009FEA42 /* Devider */ = {
-			isa = PBXGroup;
-			children = (
-				2DD8730F1871610B009FEA42 /* Devider.h */,
-				2DD873101871610B009FEA42 /* Devider.m */,
-			);
-			path = Devider;
 			sourceTree = "<group>";
 		};
 		2DE5F22B180BCDC0006133B4 /* PCXHeader */ = {
@@ -748,6 +698,7 @@
 				2D46D09E18285C470025D63C /* 1.pcx in Resources */,
 				2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */,
 				2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */,
+				2D4B3D87187BFCE6001E060F /* sampleText3.pcx in Resources */,
 				2D4F1321182A464A00650A57 /* marb.pcx in Resources */,
 				2D68596C182B67A500779A89 /* polR.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
@@ -762,7 +713,6 @@
 				2D46D0C1182876C80025D63C /* a_grayScale.pcx in Resources */,
 				2D46D0B918285C5E0025D63C /* saveFile@2x.png in Resources */,
 				2D638345183DDF1700C09D97 /* toBlack.png in Resources */,
-				2DE6550F186F22FD00BFC97F /* sampleText3.pcx in Resources */,
 				2D46D0B218285C470025D63C /* test.pcx in Resources */,
 				2D685970182B795500779A89 /* aaa.pcx in Resources */,
 				2D46D0B018285C470025D63C /* sample.pcx in Resources */,
@@ -835,7 +785,6 @@
 				2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */,
 				2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
-				2D268FFE1875BDAB00D3F3B6 /* FirstPass.m in Sources */,
 				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */,
@@ -849,7 +798,6 @@
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
-				2DD873111871610B009FEA42 /* Devider.m in Sources */,
 				2DB5A54E180AE261009CC3E2 /* RootViewController.m in Sources */,
 				2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */,
 				2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */,

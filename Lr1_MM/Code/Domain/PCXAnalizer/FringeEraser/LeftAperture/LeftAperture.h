@@ -10,5 +10,4 @@
 
 @interface LeftAperture : BaseAperture
 
-
 @end
