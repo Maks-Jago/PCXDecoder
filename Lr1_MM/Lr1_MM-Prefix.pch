@@ -21,4 +21,4 @@
 #define DEVIDE_THINNING_DEBUG 0
 
 //fullText
-static NSString *const kFilePath = @"fullText";//@"sampleText3";
+static NSString *const kFilePath = @"sampleText3";//@"sampleText3";

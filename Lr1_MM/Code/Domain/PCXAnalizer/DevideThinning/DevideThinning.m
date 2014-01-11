@@ -6,22 +6,22 @@
 //  Copyright (c) 2014 111Minutes. All rights reserved.
 //
 
-/*
- p3 p2 p1
- p4 ss p0
- p5 p6 p7
- */
-
 #import "DevideThinning.h"
 #import "NSArray+LogMatr.h"
+#import "FringeEraser.h"
+
+#import "LeftAperture.h"
+#import "TopAperture.h"
+#import "RightAperture.h"
+#import "BottomAperture.h"
 
 static NSUInteger const kSaveValue = 983;
+static NSUInteger const kEraseIndex = 778;
 
 @interface DevideThinning ()
 
 @property (nonatomic, strong) PCXContent *pcxContent;
 @property (nonatomic, strong) NSMutableArray *palleteCopy;
-@property (nonatomic, strong) NSMutableArray *tmp;
 
 @end
 
@@ -66,10 +66,12 @@ static NSUInteger const kSaveValue = 983;
     int index = 0;
     NSUInteger compareValue = self.whiteIndex;
     while (YES) {
-        int saveIndexCount = ceilf(((minWidth / devide.size.width) * 10)) + 1;
-        BOOL isNeedSave = index >= saveIndexCount; //(devide.size.width / minWidth) || index >= (devide.size.height / minWidth);//minWidth / 3;
+        int saveIndexCount = ceilf(((minWidth / devide.size.width) * 10));
+        BOOL isNeedSave = index >= saveIndexCount;
+
         BOOL flag = [self setIndex:256 forDevide:devide compareValue:compareValue isNeedSave:isNeedSave];
         [self replaceAllIndexWithDevide:devide replaceSave:!flag];
+        
         if (!flag) {
             break;
         }
@@ -80,7 +82,153 @@ static NSUInteger const kSaveValue = 983;
 #endif
 
     }
+    
+    [self eraseSimplePixelWithDevide:devide];
+    [self eraseOnePixel8x8WithDevide:devide];
+    
     self.pcxContent.pallete = self.palleteCopy;
+}
+
+- (void)eraseOnePixel8x8WithDevide:(CGRect)devide
+{
+    for (int i = devide.origin.y + 2; i < (devide.size.height + devide.origin.y) - 2; i++) {
+        for (int j = devide.origin.x + 2; j < (devide.size.width + devide.origin.x) - 2; j++) {
+            NSUInteger value = [self.palleteCopy[i][0][j] unsignedIntegerValue];
+            
+            if (value != self.blackIndex) {
+                continue;
+            }
+            
+            NSUInteger topLeft = [self.palleteCopy[i - 1][0][j - 1] unsignedIntegerValue];
+            NSUInteger topLeftLeft = [self.palleteCopy[i - 2][0][j - 2] unsignedIntegerValue];
+            
+            NSUInteger topCenter = [self.palleteCopy[i - 1][0][j] unsignedIntegerValue];
+            NSUInteger topCenterCenter = [self.palleteCopy[i - 2][0][j] unsignedIntegerValue];
+
+            NSUInteger topRight = [self.palleteCopy[i - 1][0][j + 1] unsignedIntegerValue];
+            NSUInteger topRightRigth = [self.palleteCopy[i - 2][0][j + 2] unsignedIntegerValue];
+            
+            NSUInteger midleLeft = [self.palleteCopy[i][0][j - 1] unsignedIntegerValue];
+            NSUInteger midleLeftLeft = [self.palleteCopy[i][0][j - 2] unsignedIntegerValue];
+            
+            NSUInteger bottomLeft = [self.palleteCopy[i + 1][0][j - 1] unsignedIntegerValue];
+            NSUInteger bottomLeftLeft = [self.palleteCopy[i + 2][0][j - 2] unsignedIntegerValue];
+            
+            NSUInteger midleRight = [self.palleteCopy[i][0][j + 1] unsignedIntegerValue];
+            NSUInteger midleRightRight = [self.palleteCopy[i][0][j + 2] unsignedIntegerValue];
+            
+            NSUInteger bottomCenter = [self.palleteCopy[i + 1][0][j] unsignedIntegerValue];
+            NSUInteger bottomCenterCenter = [self.palleteCopy[i + 2][0][j] unsignedIntegerValue];
+            
+            NSUInteger bottomRight = [self.palleteCopy[i + 1][0][j + 1] unsignedIntegerValue];
+            NSUInteger bottomRightRight = [self.palleteCopy[i + 2][0][j + 2] unsignedIntegerValue];
+            
+            NSUInteger topCenterCenterLeft = [self.palleteCopy[i - 2][0][j - 1] unsignedIntegerValue];
+            NSUInteger topCenterCenterRight = [self.palleteCopy[i - 2][0][j + 1] unsignedIntegerValue];
+            
+            NSUInteger midleLeftLeftTop = [self.palleteCopy[i - 1][0][j - 2] unsignedIntegerValue];
+            NSUInteger midleLeftLeftBottom = [self.palleteCopy[i + 1][0][j - 2] unsignedIntegerValue];
+            
+            NSUInteger bottomCenterCenterLeft = [self.palleteCopy[i + 2][0][j - 1] unsignedIntegerValue];
+            NSUInteger bottomCenterCenterRight = [self.palleteCopy[i + 2][0][j + 1] unsignedIntegerValue];
+            
+            NSUInteger midleRightRightTop = [self.palleteCopy[i - 1][0][j + 2] unsignedIntegerValue];
+            NSUInteger midleRightRightBottom = [self.palleteCopy[i + 1][0][j + 2] unsignedIntegerValue];
+            
+            if (topLeft == self.whiteIndex && topLeftLeft == self.whiteIndex &&
+                topCenter == self.whiteIndex && topCenterCenter == self.whiteIndex &&
+                topRight == self.whiteIndex && topRightRigth == self.whiteIndex &&
+                midleLeft == self.whiteIndex && midleLeftLeft == self.whiteIndex &&
+                midleRight == self.whiteIndex && midleRightRight == self.whiteIndex &&
+                bottomLeft == self.whiteIndex && bottomLeftLeft == self.whiteIndex &&
+                bottomCenter == self.whiteIndex && bottomCenterCenter == self.whiteIndex &&
+                bottomRight == self.whiteIndex && bottomRightRight == self.whiteIndex &&
+                topCenterCenterLeft == self.whiteIndex && topCenterCenterRight == self.whiteIndex &&
+                midleRightRightTop == self.whiteIndex && midleRightRightBottom == self.whiteIndex &&
+                midleLeftLeftTop == self.whiteIndex && midleLeftLeftBottom == self.whiteIndex &&
+                bottomCenterCenterLeft == self.whiteIndex && bottomCenterCenterRight == self.whiteIndex
+                ) {
+                [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.whiteIndex]];
+            }
+        }
+    }
+}
+
+- (void)eraseSimplePixelWithDevide:(CGRect)devide
+{
+    for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
+        for (int j = devide.origin.x; j < devide.size.width + devide.origin.x; j++) {
+            NSUInteger value = [self.palleteCopy[i][0][j] unsignedIntegerValue];
+            
+            if (value != self.blackIndex && value != kSaveValue) {
+                continue;
+            }
+            
+            NSUInteger topLeft = self.whiteIndex;
+            NSUInteger topCenter = self.whiteIndex;
+            NSUInteger topRight = self.whiteIndex;
+            
+            if (j - 1 > 0 && i - 1 > 0) {
+                topLeft = [self.palleteCopy[i - 1][0][j - 1] unsignedIntegerValue];
+                topCenter = [self.palleteCopy[i - 1][0][j] unsignedIntegerValue];
+                topRight = [self.palleteCopy[i - 1][0][j + 1] unsignedIntegerValue];
+            }
+            
+            NSUInteger midleLeft = self.whiteIndex;
+            NSUInteger bottomLeft = self.whiteIndex;
+            
+            if (j - 1 > 0) {
+                midleLeft = [self.palleteCopy[i][0][j - 1] unsignedIntegerValue];
+                bottomLeft = [self.palleteCopy[i + 1][0][j - 1] unsignedIntegerValue];
+            }
+            
+            
+            NSUInteger midleRight = [self.palleteCopy[i][0][j + 1] unsignedIntegerValue];
+            
+            NSUInteger bottomCenter = [self.palleteCopy[i + 1][0][j] unsignedIntegerValue];
+            NSUInteger bottomRight = [self.palleteCopy[i + 1][0][j + 1] unsignedIntegerValue];
+            
+            midleLeft = [self convertValue:midleLeft];
+            midleRight = [self convertValue:midleRight];
+            
+            topLeft = [self convertValue:topLeft];
+            topRight = [self convertValue:topRight];
+            topCenter = [self convertValue:topCenter];
+            
+            bottomCenter = [self convertValue:bottomCenter];
+            bottomLeft = [self convertValue:bottomLeft];
+            bottomRight = [self convertValue:bottomRight];
+            
+            
+            /*
+             0 0 1
+             0 1 0
+             1 0 0
+             */
+            if (midleLeft == self.whiteIndex && midleRight == self.whiteIndex  &&
+                topLeft == self.whiteIndex && (topCenter == self.whiteIndex || topCenter == kEraseIndex) && (topRight == self.whiteIndex || topRight == kEraseIndex) &&
+                (bottomLeft == self.blackIndex || topRight == kEraseIndex) && bottomCenter == self.whiteIndex  && bottomRight == self.whiteIndex) {
+                [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:kEraseIndex]];
+            }
+        }
+    }
+    
+//    for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
+//        for (int j = devide.origin.x; j < devide.size.width + devide.origin.x; j++) {
+//            NSUInteger value = [self.palleteCopy[i][0][j] unsignedIntegerValue];
+//            if (value == eraseIndex) {
+//                [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.whiteIndex]];
+//            }
+//        }
+//    }
+}
+
+- (NSUInteger)convertValue:(NSUInteger)value
+{
+    if (value == kSaveValue || value == 774) {
+        return self.blackIndex;
+    }
+    return value;
 }
 
 - (NSUInteger)minWidthForDevide:(CGRect)devide
@@ -232,7 +380,7 @@ static NSUInteger const kSaveValue = 983;
     for (int i = devide.origin.y; i < devide.size.height + devide.origin.y; i++) {
         for (int j = devide.origin.x; j < devide.size.width + devide.origin.x; j++) {
             NSNumber *value = self.palleteCopy[i][0][j];
-
+            
             if ([value unsignedIntegerValue] != self.blackIndex) {
                 continue;
             }
@@ -270,8 +418,8 @@ static NSUInteger const kSaveValue = 983;
                 midleLeft == compareValue || midleCenter == compareValue || midleRight == compareValue ||
                 bottomLeft == compareValue || bottomCenter == compareValue || bottomRight == compareValue) {
                 
-                if ([self calculateBlackPixelsForPoint:CGPointMake(j, i)] <= 2 && isNeedSave) {
-                    [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:kSaveValue]];                                        
+                if ([self calculateBlackPixelsForPoint:CGPointMake(j, i)] < 3 && isNeedSave) {
+                    [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:kSaveValue]];
                 } else {
                     [self.palleteCopy[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithUnsignedInteger:index]];
                 }

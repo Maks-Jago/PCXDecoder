@@ -199,7 +199,7 @@
             return [UIColor blueColor];
         }
         
-        if ([colorIndexs[index] integerValue] == 774) {
+        if ([colorIndexs[index] integerValue] == 774 || [colorIndexs[index] integerValue] == 778) {
             return [UIColor orangeColor];
         }
         
