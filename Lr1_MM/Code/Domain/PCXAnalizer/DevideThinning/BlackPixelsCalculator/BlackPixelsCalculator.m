@@ -23,26 +23,45 @@
     NSUInteger topLeft = whiteIndex;
     NSUInteger topCenter = whiteIndex;
     NSUInteger topRight = whiteIndex;
-    
     if (j - 1 > 0 && i - 1 > 0) {
         topLeft = [pallete[i - 1][0][j - 1] unsignedIntegerValue];
-        topCenter = [pallete[i - 1][0][j] unsignedIntegerValue];
-        topRight = [pallete[i - 1][0][j + 1] unsignedIntegerValue];
+        if (j < [pallete[i - 1][0] count]) {
+            topCenter = [pallete[i - 1][0][j] unsignedIntegerValue];
+        }
+    
+        if (j + 1 < [pallete[i - 1][0] count]) {
+            topRight = [pallete[i - 1][0][j + 1] unsignedIntegerValue];
+        }
     }
     
     NSUInteger midleLeft = whiteIndex;
     NSUInteger bottomLeft = whiteIndex;
-    
     if (j - 1 > 0) {
         midleLeft = [pallete[i][0][j - 1] unsignedIntegerValue];
-        bottomLeft = [pallete[i + 1][0][j - 1] unsignedIntegerValue];
+        
+        if (i + 1 < pallete.count) {
+            bottomLeft = [pallete[i + 1][0][j - 1] unsignedIntegerValue];
+        }
+    }
+    
+    NSUInteger midleRight = whiteIndex;
+    if (j + 1 < [pallete[i][0] count]) {
+        midleRight = [pallete[i][0][j + 1] unsignedIntegerValue];
     }
     
     
-    NSUInteger midleRight = [pallete[i][0][j + 1] unsignedIntegerValue];
+    NSUInteger bottomCenter = whiteIndex;
+    NSUInteger bottomRight = whiteIndex;
     
-    NSUInteger bottomCenter = [pallete[i + 1][0][j] unsignedIntegerValue];
-    NSUInteger bottomRight = [pallete[i + 1][0][j + 1] unsignedIntegerValue];
+    if (i + 1 < pallete.count) {
+        if (j < [pallete[i - 1][0] count]) {
+            bottomCenter = [pallete[i + 1][0][j] unsignedIntegerValue];
+        }
+        
+        if (j + 1 < [pallete[i + 1][0] count]) {
+            bottomRight = [pallete[i + 1][0][j + 1] unsignedIntegerValue];
+        }
+    }
     
     blackPixelsCount = [self incrementIndex:blackPixelsCount withValue:topLeft maxValue:blackIndex];
     blackPixelsCount = [self incrementIndex:blackPixelsCount withValue:topCenter maxValue:blackIndex];
@@ -52,7 +71,6 @@
     blackPixelsCount = [self incrementIndex:blackPixelsCount withValue:bottomLeft maxValue:blackIndex];
     blackPixelsCount = [self incrementIndex:blackPixelsCount withValue:bottomCenter maxValue:blackIndex];
     blackPixelsCount = [self incrementIndex:blackPixelsCount withValue:bottomRight maxValue:blackIndex];
-    
     return blackPixelsCount;
 }
 
