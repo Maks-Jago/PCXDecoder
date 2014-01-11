@@ -20,5 +20,8 @@
 #define FRINGE_ERASER_DEBUG 0
 #define DEVIDE_THINNING_DEBUG 0
 
+static NSUInteger const kSaveValue = 983;
+static NSUInteger const kEraseIndex = 778;
+
 //fullText
 static NSString *const kFilePath = @"sampleText3";//@"sampleText3";

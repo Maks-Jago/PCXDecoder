@@ -53,6 +53,10 @@
 		2D7AA0FB182AF2B9002689D8 /* scanText1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA0FA182AF2B9002689D8 /* scanText1.pcx */; };
 		2D7AA0FD182AF4ED002689D8 /* asdaf1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA0FC182AF4ED002689D8 /* asdaf1.pcx */; };
 		2D7AA101182AFDAE002689D8 /* savedPcxFile1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AA100182AFDAE002689D8 /* savedPcxFile1.pcx */; };
+		2D7B80A61881720E006391F0 /* MinShapeWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80A51881720E006391F0 /* MinShapeWidth.m */; };
+		2D7B80AA1881740E006391F0 /* BlackPixelsCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80A91881740E006391F0 /* BlackPixelsCalculator.m */; };
+		2D7B80AE1881756C006391F0 /* OnePixelEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80AD1881756C006391F0 /* OnePixelEraser.m */; };
+		2D7B80B218817716006391F0 /* DivideFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80B118817716006391F0 /* DivideFilter.m */; };
 		2D91623918218B86001EE321 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D91623818218B86001EE321 /* Security.framework */; };
 		2DB5A516180ADD6B009CC3E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A515180ADD6B009CC3E2 /* Foundation.framework */; };
 		2DB5A518180ADD6B009CC3E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */; };
@@ -147,6 +151,14 @@
 		2D7AA0FA182AF2B9002689D8 /* scanText1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = scanText1.pcx; sourceTree = "<group>"; };
 		2D7AA0FC182AF4ED002689D8 /* asdaf1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = asdaf1.pcx; sourceTree = "<group>"; };
 		2D7AA100182AFDAE002689D8 /* savedPcxFile1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = savedPcxFile1.pcx; sourceTree = "<group>"; };
+		2D7B80A41881720E006391F0 /* MinShapeWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinShapeWidth.h; sourceTree = "<group>"; };
+		2D7B80A51881720E006391F0 /* MinShapeWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinShapeWidth.m; sourceTree = "<group>"; };
+		2D7B80A81881740E006391F0 /* BlackPixelsCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackPixelsCalculator.h; sourceTree = "<group>"; };
+		2D7B80A91881740E006391F0 /* BlackPixelsCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackPixelsCalculator.m; sourceTree = "<group>"; };
+		2D7B80AC1881756C006391F0 /* OnePixelEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePixelEraser.h; sourceTree = "<group>"; };
+		2D7B80AD1881756C006391F0 /* OnePixelEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePixelEraser.m; sourceTree = "<group>"; };
+		2D7B80B018817716006391F0 /* DivideFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivideFilter.h; sourceTree = "<group>"; };
+		2D7B80B118817716006391F0 /* DivideFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivideFilter.m; sourceTree = "<group>"; };
 		2D91623818218B86001EE321 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2DB5A512180ADD6B009CC3E2 /* Lr1_MM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lr1_MM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB5A515180ADD6B009CC3E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,6 +258,10 @@
 		2D268FF41875B25F00D3F3B6 /* DevideThinning */ = {
 			isa = PBXGroup;
 			children = (
+				2D7B80AF1881770A006391F0 /* DivideFilter */,
+				2D7B80AB18817549006391F0 /* OnePixelEraser */,
+				2D7B80A718817401006391F0 /* BlackPixelsCalculator */,
+				2D7B80A3188171F9006391F0 /* MinShapeWidth */,
 				2D268FF51875B27300D3F3B6 /* DevideThinning.h */,
 				2D268FF61875B27300D3F3B6 /* DevideThinning.m */,
 			);
@@ -375,6 +391,42 @@
 				2D676158180AFCA3008518F7 /* PCXContent.m */,
 			);
 			path = PCXContent;
+			sourceTree = "<group>";
+		};
+		2D7B80A3188171F9006391F0 /* MinShapeWidth */ = {
+			isa = PBXGroup;
+			children = (
+				2D7B80A41881720E006391F0 /* MinShapeWidth.h */,
+				2D7B80A51881720E006391F0 /* MinShapeWidth.m */,
+			);
+			path = MinShapeWidth;
+			sourceTree = "<group>";
+		};
+		2D7B80A718817401006391F0 /* BlackPixelsCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				2D7B80A81881740E006391F0 /* BlackPixelsCalculator.h */,
+				2D7B80A91881740E006391F0 /* BlackPixelsCalculator.m */,
+			);
+			path = BlackPixelsCalculator;
+			sourceTree = "<group>";
+		};
+		2D7B80AB18817549006391F0 /* OnePixelEraser */ = {
+			isa = PBXGroup;
+			children = (
+				2D7B80AC1881756C006391F0 /* OnePixelEraser.h */,
+				2D7B80AD1881756C006391F0 /* OnePixelEraser.m */,
+			);
+			path = OnePixelEraser;
+			sourceTree = "<group>";
+		};
+		2D7B80AF1881770A006391F0 /* DivideFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2D7B80B018817716006391F0 /* DivideFilter.h */,
+				2D7B80B118817716006391F0 /* DivideFilter.m */,
+			);
+			path = DivideFilter;
 			sourceTree = "<group>";
 		};
 		2DB5A509180ADD6B009CC3E2 = {
@@ -784,6 +836,7 @@
 			files = (
 				2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */,
 				2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */,
+				2D7B80A61881720E006391F0 /* MinShapeWidth.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
 				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
@@ -793,8 +846,10 @@
 				2D676159180AFCA3008518F7 /* PCXContent.m in Sources */,
 				2DB5A526180ADD6B009CC3E2 /* AppDelegate.m in Sources */,
 				2DD01C101870549800FA2D5A /* FringeEraser.m in Sources */,
+				2D7B80B218817716006391F0 /* DivideFilter.m in Sources */,
 				2DD01C1C18705C7400FA2D5A /* BaseAperture.m in Sources */,
 				2DD01C2118707E1800FA2D5A /* RightAperture.m in Sources */,
+				2D7B80AA1881740E006391F0 /* BlackPixelsCalculator.m in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
@@ -802,6 +857,7 @@
 				2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */,
 				2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */,
 				2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */,
+				2D7B80AE1881756C006391F0 /* OnePixelEraser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
