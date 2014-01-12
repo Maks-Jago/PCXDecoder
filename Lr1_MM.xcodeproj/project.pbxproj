@@ -10,6 +10,8 @@
 		2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24D1E8180D58F600C00E09 /* PCXFile.m */; };
 		2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D268FF61875B27300D3F3B6 /* DevideThinning.m */; };
 		2D28334B1815D9F8006216EB /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28334A1815D9F8006216EB /* Defines.m */; };
+		2D37FDD11882B8CD00472ED7 /* test1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD01882B8CD00472ED7 /* test1.pcx */; };
+		2D37FDD31882C2DE00472ED7 /* test2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD21882C2DE00472ED7 /* test2.pcx */; };
 		2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D46D08018284A6A0025D63C /* QuartzCore.framework */; };
 		2D46D09E18285C470025D63C /* 1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08718285C470025D63C /* 1.pcx */; };
 		2D46D09F18285C470025D63C /* 10x10.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08818285C470025D63C /* 10x10.pcx */; };
@@ -109,6 +111,8 @@
 		2D268FF61875B27300D3F3B6 /* DevideThinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideThinning.m; sourceTree = "<group>"; };
 		2D2833491815D9F8006216EB /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		2D28334A1815D9F8006216EB /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
+		2D37FDD01882B8CD00472ED7 /* test1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.pcx; sourceTree = "<group>"; };
+		2D37FDD21882C2DE00472ED7 /* test2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.pcx; sourceTree = "<group>"; };
 		2D46D08018284A6A0025D63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2D46D08718285C470025D63C /* 1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.pcx; sourceTree = "<group>"; };
 		2D46D08818285C470025D63C /* 10x10.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10.pcx; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2D37FDD21882C2DE00472ED7 /* test2.pcx */,
+				2D37FDD01882B8CD00472ED7 /* test1.pcx */,
 				2D4B3D86187BFCE6001E060F /* sampleText3.pcx */,
 				2DE65510186F241800BFC97F /* sampleText4.pcx */,
 				2DE65506186F126E00BFC97F /* sampleText2.pcx */,
@@ -756,6 +762,7 @@
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
 				2D46D0B818285C5E0025D63C /* saveFile.png in Resources */,
 				2D46D0AF18285C470025D63C /* qwqwe.pcx in Resources */,
+				2D37FDD31882C2DE00472ED7 /* test2.pcx in Resources */,
 				2D46D0A218285C470025D63C /* 2x2.pcx in Resources */,
 				2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */,
 				2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */,
@@ -783,6 +790,7 @@
 				2D46D0AB18285C470025D63C /* lines.pcx in Resources */,
 				2D46D0A918285C470025D63C /* grayScale.pcx in Resources */,
 				2D46D0AA18285C470025D63C /* image.pcx in Resources */,
+				2D37FDD11882B8CD00472ED7 /* test1.pcx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

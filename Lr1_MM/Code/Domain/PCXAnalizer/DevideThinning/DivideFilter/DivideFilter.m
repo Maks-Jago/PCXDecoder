@@ -65,10 +65,6 @@
             bottomLeft = [self convertValue:bottomLeft blackIndex:blackIndex];
             bottomRight = [self convertValue:bottomRight blackIndex:blackIndex];
             
-            if (topRight == kEraseIndex) {
-                NSLog(@"");
-            }
-            
             if (midleLeft == whiteIndex && midleRight == whiteIndex  &&
                 topLeft == whiteIndex && topCenter == whiteIndex && topRight == whiteIndex &&
                 bottomLeft == blackIndex && bottomCenter == whiteIndex  && bottomRight == whiteIndex) {
@@ -112,6 +108,87 @@
             }
         }
     }
+    [self fromTopLeftWithDivide:divide withPallete:pallete blackIndex:blackIndex whiteIndex:whiteIndex];
+}
+
++ (void)fromTopLeftWithDivide:(CGRect)divide
+                  withPallete:(NSMutableArray *)pallete
+                   blackIndex:(NSUInteger)blackIndex
+                   whiteIndex:(NSUInteger)whiteIndex
+{
+    for (int i = divide.origin.y; i < divide.size.height + divide.origin.y; i++) {
+        for (int j = divide.origin.x; j < divide.size.width + divide.origin.x; j++) {
+            NSUInteger value = [pallete[i][0][j] unsignedIntegerValue];
+            
+            if (value != blackIndex && value != kSaveValue) {
+                continue;
+            }
+            
+            NSUInteger topLeft = whiteIndex;
+            NSUInteger topCenter = whiteIndex;
+            NSUInteger topRight = whiteIndex;
+            
+            if (j - 1 > 0 && i - 1 > 0) {
+                topLeft = [pallete[i - 1][0][j - 1] unsignedIntegerValue];
+                topCenter = [pallete[i - 1][0][j] unsignedIntegerValue];
+                
+                if (j + 1 < [pallete[i - 1][0] count]) {
+                    topRight = [pallete[i - 1][0][j + 1] unsignedIntegerValue];
+                }
+            }
+            
+            NSUInteger midleLeft = whiteIndex;
+            NSUInteger bottomLeft = whiteIndex;
+            
+            if (j - 1 > 0) {
+                midleLeft = [pallete[i][0][j - 1] unsignedIntegerValue];
+                
+                if (i + 1 < pallete.count) {
+                    bottomLeft = [pallete[i + 1][0][j - 1] unsignedIntegerValue];
+                }
+            }
+            
+            
+            NSUInteger midleRight = [pallete[i][0][j + 1] unsignedIntegerValue];
+            
+            NSUInteger bottomCenter = [pallete[i + 1][0][j] unsignedIntegerValue];
+            NSUInteger bottomRight = [pallete[i + 1][0][j + 1] unsignedIntegerValue];
+            
+            midleLeft = [self convertValue:midleLeft blackIndex:blackIndex];
+            midleRight = [self convertValue:midleRight blackIndex:blackIndex];
+            
+            topLeft = [self convertValue:topLeft blackIndex:blackIndex];
+            topRight = [self convertValue:topRight blackIndex:blackIndex];
+            topCenter = [self convertValue:topCenter blackIndex:blackIndex];
+            
+            bottomCenter = [self convertValue:bottomCenter blackIndex:blackIndex];
+            bottomLeft = [self convertValue:bottomLeft blackIndex:blackIndex];
+            bottomRight = [self convertValue:bottomRight blackIndex:blackIndex];
+            
+            if (midleLeft == whiteIndex && midleRight == whiteIndex &&
+                       (bottomLeft == whiteIndex || bottomLeft == blackIndex || bottomLeft == kEraseIndex) && bottomRight == blackIndex &&
+                       topCenter == whiteIndex && topLeft == whiteIndex && (topRight == whiteIndex || topRight == blackIndex || topRight == kEraseIndex)) {
+                if (i - 2 > 0 && j - 2 > 0) {
+                    NSUInteger value = [pallete[i - 2][0][j - 2] unsignedIntegerValue];
+                    if (value != blackIndex) {
+                        if ([self isNeedAnalize:CGPointMake(j - 2, i - 2)
+                                         divide:divide
+                                        pallete:pallete
+                                     whiteIndex:whiteIndex
+                                     blackIndex:blackIndex] &&
+                            [self isNeedAnalize:CGPointMake(j - 1, i - 2)
+                                         divide:divide
+                                        pallete:pallete
+                                     whiteIndex:whiteIndex
+                                     blackIndex:blackIndex]) {
+                            [self fromTopLeftToBottomRight:CGPointMake(j, i) pallete:pallete whiteIndex:whiteIndex blackIndex:blackIndex];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 + (BOOL)isNeedAnalize:(CGPoint)location
@@ -272,6 +349,78 @@
     } while (needContinue);
 }
 
+/*
+ 1 0 0 0
+ 0 1 0 0
+ 0 0 1 0
+ 0 0 0 0
+ */
++ (void)fromTopLeftToBottomRight:(CGPoint)location
+                         pallete:(NSMutableArray *)pallete
+                      whiteIndex:(NSUInteger)whiteIndex
+                      blackIndex:(NSUInteger)blackIndex
+{
+    int i = location.y;
+    int j = location.x;
+    BOOL needContinue = NO;
+    do {
+        needContinue = NO;
+        if (i >= pallete.count || j >= [pallete[i][0] count]) {
+            break;
+        }
+        
+        NSUInteger topLeft = whiteIndex;
+        NSUInteger topCenter = whiteIndex;
+        NSUInteger topRight = whiteIndex;
+        NSUInteger midleLeft = whiteIndex;
+        NSUInteger midleRight = whiteIndex;
+        NSUInteger bottomCenter = whiteIndex;
+        NSUInteger bottomLeft = whiteIndex;
+        NSUInteger bottomRight = whiteIndex;
+        
+        if (i - 1 > 0) {
+            if (j - 1 > 0) {
+                topLeft = [pallete[i - 1][0][j - 1] unsignedIntegerValue];
+            }
+            
+            topCenter = [pallete[i - 1][0][j] unsignedIntegerValue];
+            
+            if (j + 1 < [pallete[i][0] count]) {
+                topRight = [pallete[i - 1][0][j + 1] unsignedIntegerValue];
+            }
+        }
+        
+        if (j - 1 > 0) {
+            midleLeft = [pallete[i][0][j - 1] unsignedIntegerValue];
+        }
+        
+        if (j + 1 < [pallete[i][0] count]) {
+            midleRight = [pallete[i][0][j + 1] unsignedIntegerValue];
+        }
+        
+        if (i + 1 < pallete.count) {
+            bottomCenter = [pallete[i + 1][0][j] unsignedIntegerValue];
+            
+            if (j - 1 > 0) {
+                bottomLeft = [pallete[i + 1][0][j - 1] unsignedIntegerValue];
+            }
+            
+            if (j + 1 < [pallete[i + 1][0] count]) {
+                bottomRight = [pallete[i + 1][0][j + 1] unsignedIntegerValue];
+            }
+        }
+        
+        if (midleLeft == whiteIndex && midleRight == whiteIndex &&
+            (topRight == whiteIndex || topRight == blackIndex || topRight == kEraseIndex) && topCenter == whiteIndex && (topLeft == whiteIndex || topLeft == kEraseIndex) &&
+            bottomCenter == whiteIndex && bottomRight == blackIndex) {
+            [pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:whiteIndex]];
+            needContinue = YES;
+        }
+        
+        i ++;
+        j ++;
+    } while (needContinue);
+}
 
 /*
  0 0 0 0

@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/PCXAnalizer/DevideThinning/DivideFilter/DivideFilter.m"
-            timestampString = "411154248.955077"
+            timestampString = "411227574.904959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "+fromRightToLeft:pallete:whiteIndex:blackIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lr1_MM/Code/Domain/PCXAnalizer/DevideAnalizer/DevideAnalizer.m"
+            timestampString = "411222758.837679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-findDeviders:detectProcces:deviders:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lr1_MM/Code/Domain/PCXAnalizer/DevideThinning/DivideFilter/DivideFilter.m"
-            timestampString = "411154073.735259"
+            filePath = "Lr1_MM/Code/Domain/PCXAnalizer/DevideAnalizer/DevideAnalizer.m"
+            timestampString = "411222758.837679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "+filterDivide:withPallete:blackIndex:whiteIndex:"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-findDeviders:detectProcces:deviders:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

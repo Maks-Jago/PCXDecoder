@@ -42,9 +42,22 @@ static NSUInteger const kNotAnalizeValue = 9999;
     [self createPalleteCopy];
     
     NSMutableArray *deviders = [NSMutableArray new];
-    [self findDeviders:CGPointZero
-         detectProcces:NO
-              deviders:deviders];
+    BOOL needContinue = NO;
+    int count = 0;
+    CGPoint location = CGPointZero;
+    do {
+        needContinue = NO;
+        [self findDeviders:location
+             detectProcces:NO
+                  deviders:deviders];
+
+        if (deviders.count != count) {
+            needContinue = YES;
+            location = [[deviders lastObject] CGRectValue].origin;
+            location.x += [[deviders lastObject] CGRectValue].size.width;
+            count = deviders.count;
+        }
+    } while (needContinue);
     self.currentDevides = (NSArray *)deviders;
     return deviders;
 }
@@ -79,6 +92,11 @@ static NSUInteger const kNotAnalizeValue = 9999;
        detectProcces:(BOOL)detectProcces
             deviders:(NSMutableArray *)deviders
 {
+    if (currentLocation.y >= self.palleteCopy.count) {
+        NSLog(@"currentLocation.y >= self.palleteCopy.count");
+        return;
+    }
+    
     if (!detectProcces) {
         NSArray *row = self.palleteCopy[(NSInteger)currentLocation.y];
         NSArray *cell = row[0];
@@ -107,11 +125,16 @@ static NSUInteger const kNotAnalizeValue = 9999;
         [deviders addObject:[NSValue valueWithCGRect:CGRectMake(currentLocation.x, currentLocation.y, 0, 0)]];
         [self funcDetectProccessWithCurrentLocation:currentLocation
                                            deviders:deviders];
-        currentLocation.x += 1;
         
-        [self findDeviders:currentLocation
-             detectProcces:NO
-                  deviders:deviders];
+//        if (deviders.count >= 50) {
+//            NSLog(@"");
+//        }
+        currentLocation.x += 1;
+
+        return;
+//        [self findDeviders:currentLocation
+//             detectProcces:NO
+//                  deviders:deviders];
     }
 }
 
@@ -126,6 +149,10 @@ static NSUInteger const kNotAnalizeValue = 9999;
     if (currentLocation.y >= self.palleteCopy.count || currentLocation.x >= [self.palleteCopy[(NSInteger)currentLocation.y][0] count]) {
         return;
     }
+    
+//    if (currentLocation.x == 19 && currentLocation.y == 196) {
+//        NSLog(@"");
+//    }
     
     NSUInteger value = [self.palleteCopy[(NSInteger)currentLocation.y][0][(NSInteger)currentLocation.x] unsignedIntegerValue];
     if (value == self.whiteIndex || value == kNotAnalizeValue) {

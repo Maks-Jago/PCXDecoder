@@ -67,7 +67,7 @@
     NSUInteger compareValue = self.whiteIndex;
     while (YES) {
         int saveIndexCount = ceilf(((minWidth / devide.size.width) * 10));
-        BOOL isNeedSave = index >= saveIndexCount;
+        BOOL isNeedSave = [self pathAnalize] ? index >= saveIndexCount : YES;
 
         BOOL flag = [self setIndex:256 forDevide:devide compareValue:compareValue isNeedSave:isNeedSave];
         [self replaceAllIndexWithDevide:devide replaceSave:!flag];
@@ -165,6 +165,11 @@
         }
     }
     return isNeedContinue;
+}
+
+- (BOOL)pathAnalize
+{
+    return [kFilePath isEqualToString:@"sampleText3"];
 }
 
 @end
