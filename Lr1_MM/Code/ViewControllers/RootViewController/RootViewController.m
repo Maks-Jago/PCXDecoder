@@ -47,7 +47,22 @@
     self.pcxAnalizer = [[PCXAnalizer alloc] initWithPCXContent:self.pcxFile.pcxContent
                                                     blackIndex:[self.pcxView blackColorIndex]
                                                     whiteIndex:[self.pcxView whiteColorIndex]];
+    self.pcxView.pcxAnalizer = self.pcxAnalizer;
     [self resetButtonTapped];
+    
+    UISwitch *swt = [[UISwitch alloc] init];
+    swt.frame = CGRectMake(kOffsetX + 120, 135, 0, 0);
+    [swt addTarget:self action:@selector(switchValueChanged:) forControlEvents:(UIControlEventValueChanged)];
+    [self.view addSubview:swt];
+    
+    UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(kOffsetX, 140, 110, 20)];
+    lb.text = @"concat divide";
+    [self.view addSubview:lb];
+}
+
+- (void)switchValueChanged:(UISwitch *)obj
+{
+    self.scrollView.scrollEnabled = !obj.on;
 }
 
 #pragma mark -
@@ -202,6 +217,7 @@
 - (void)setupPCXView
 {
     self.pcxView = [[PCXView alloc] initWithPCXFile:self.pcxFile];
+    self.
     self.pcxView.backgroundColor = [UIColor whiteColor];
     
     CGRect frame = self.pcxView.frame;
@@ -325,6 +341,7 @@
                                                     whiteIndex:[self.pcxView whiteColorIndex]];
 
     self.pcxView.pcxFile = self.pcxFile;
+    self.pcxView.pcxAnalizer = self.pcxAnalizer;
     [self.pcxView.drawLayerView setRects:nil];
     [self.pcxView setNeedsDisplay];
 }

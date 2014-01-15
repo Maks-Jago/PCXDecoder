@@ -18,4 +18,6 @@
 - (NSArray *)devide;
 - (void)thinningDevides;
 
+- (void)setDivides:(NSArray *)divides;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DrawLayerView.h"
+#import "PCXAnalizer.h"
 
 @class PCXFile;
 
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) UIColor *editedColor;
 @property (nonatomic, strong) DrawLayerView *drawLayerView;
 @property (nonatomic, strong) PCXFile *pcxFile;
+@property (nonatomic, strong) PCXAnalizer *pcxAnalizer;
 
 - (id)initWithPCXFile:(PCXFile *)pcxFile;
 

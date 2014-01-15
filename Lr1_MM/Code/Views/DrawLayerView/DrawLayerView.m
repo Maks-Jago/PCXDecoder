@@ -14,15 +14,6 @@
 
 @implementation DrawLayerView
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-
-    }
-    return self;
-}
-
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();

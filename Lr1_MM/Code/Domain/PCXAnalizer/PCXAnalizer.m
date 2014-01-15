@@ -64,7 +64,13 @@
 
 - (NSArray *)devide
 {
-    return [self.devideAnalizer devide];
+//    return [self.devideAnalizer devide];
+    return [self.devideAnalizer getCurrentDevides];
+}
+
+- (void)setDivides:(NSArray *)divides
+{
+    [self.devideAnalizer setCurrentDevides:divides];
 }
 
 - (void)thinningDevides

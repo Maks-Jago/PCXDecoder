@@ -37,6 +37,11 @@ static NSUInteger const kNotAnalizeValue = 9999;
     return self.currentDevides;
 }
 
+- (void)setCurrentDevides:(NSArray *)divides
+{
+    _currentDevides = divides;
+}
+
 - (NSArray *)devide
 {
     [self createPalleteCopy];

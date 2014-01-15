@@ -13,6 +13,7 @@
 
 @interface PCXView ()
 
+@property (nonatomic, assign) NSValue *firstDivider;
 
 @end
 
@@ -57,6 +58,21 @@
     }
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    UITouch *touch = [touches.allObjects lastObject];
+    CGPoint location = [touch locationInView:self];
+    
+    for (NSValue *value in self.drawLayerView.rects) {
+        CGRect divider = [value CGRectValue];
+        if (CGRectContainsPoint(divider, location)) {
+            self.firstDivider = value;
+            break;
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark View Managment
 
@@ -78,29 +94,68 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSArray *touchesArray = [touches allObjects];
-    if ([touchesArray count] && !self.tag) {
-        UITouch *touch = [touches allObjects][0];
-        if (touch.tapCount == 1) {
-            CGPoint location = [touch locationInView:self];
-            NSUInteger roundedX = RoundFloat(location.x);
-            NSUInteger roundedY = RoundFloat(location.y);
+    if (!self.firstDivider) {
+        return;
+    }
 
-            if ((NSUInteger)location.x >= [self.pcxFile.pcxContent.pallete count]) {
-                return;
+    UITouch *touch = [touches.allObjects lastObject];
+    CGPoint location = [touch locationInView:self];
+    
+    if (!CGRectContainsPoint([self.firstDivider CGRectValue], location)) {
+        for (NSValue *value in self.drawLayerView.rects) {
+            CGRect divider = [value CGRectValue];
+            if (CGRectContainsPoint(divider, location)) {
+                NSMutableArray *arr = [NSMutableArray arrayWithArray:self.drawLayerView.rects];
+                [arr removeObjectAtIndex:[self.drawLayerView.rects indexOfObject:value]];
+                [arr removeObject:self.firstDivider];
+
+                CGRect newDivider;
+                CGRect firstDiv = [self.firstDivider CGRectValue];
+                
+                newDivider.origin.x = firstDiv.origin.x < divider.origin.x ? firstDiv.origin.x : divider.origin.x;
+                newDivider.origin.y = firstDiv.origin.y < divider.origin.y ? firstDiv.origin.y : divider.origin.y;
+                newDivider.size.height = firstDiv.size.height > divider.size.height ? firstDiv.size.height : divider.size.height;
+                newDivider.size.width = firstDiv.size.width > divider.size.width ? firstDiv.size.width : divider.size.width;
+
+                if (CGRectGetMaxX(divider) > CGRectGetMaxX(newDivider)) {
+                    newDivider.size.width += fabsf(CGRectGetMaxX(divider) - CGRectGetMaxX(newDivider));
+                }
+
+                if (CGRectGetMaxY(divider) > CGRectGetMaxY(newDivider)) {
+                    newDivider.size.height += fabsf(CGRectGetMaxY(divider) - CGRectGetMaxY(newDivider));
+                }
+                
+                [arr addObject:[NSValue valueWithCGRect:newDivider]];
+                self.firstDivider = nil;
+                [self.pcxAnalizer setDivides:arr];
+                [self.drawLayerView setRects:arr];
+                break;
             }
-            
-#warning need implement logic for get components from editedColor (gray scale or RGB)
-            
-            NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
-            for (int index = 0; index < [mutArray count]; index ++) {
-                NSMutableArray *array = mutArray[index];
-                NSUInteger valueForReplace = [self blackColorIndex];
-                [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:valueForReplace]];
-            }
-            [self setNeedsDisplay];
         }
     }
+//    NSArray *touchesArray = [touches allObjects];
+//    if ([touchesArray count] && !self.tag) {
+//        UITouch *touch = [touches allObjects][0];
+//        if (touch.tapCount == 1) {
+//            CGPoint location = [touch locationInView:self];
+//            NSUInteger roundedX = RoundFloat(location.x);
+//            NSUInteger roundedY = RoundFloat(location.y);
+//
+//            if ((NSUInteger)location.x >= [self.pcxFile.pcxContent.pallete count]) {
+//                return;
+//            }
+//            
+//#warning need implement logic for get components from editedColor (gray scale or RGB)
+//            
+//            NSMutableArray *mutArray = self.pcxFile.pcxContent.pallete[roundedY];
+//            for (int index = 0; index < [mutArray count]; index ++) {
+//                NSMutableArray *array = mutArray[index];
+//                NSUInteger valueForReplace = [self blackColorIndex];
+//                [array replaceObjectAtIndex:roundedX withObject:[NSNumber numberWithInteger:valueForReplace]];
+//            }
+//            [self setNeedsDisplay];
+//        }
+//    }
 }
 
 - (NSUInteger)blackColorIndex

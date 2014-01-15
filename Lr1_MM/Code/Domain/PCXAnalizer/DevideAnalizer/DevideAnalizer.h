@@ -19,4 +19,6 @@
 - (NSArray *)devide;
 - (NSArray *)getCurrentDevides;
 
+- (void)setCurrentDevides:(NSArray *)divides;
+
 @end
