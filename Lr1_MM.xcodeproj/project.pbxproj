@@ -12,6 +12,8 @@
 		2D28334B1815D9F8006216EB /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28334A1815D9F8006216EB /* Defines.m */; };
 		2D37FDD11882B8CD00472ED7 /* test1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD01882B8CD00472ED7 /* test1.pcx */; };
 		2D37FDD31882C2DE00472ED7 /* test2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD21882C2DE00472ED7 /* test2.pcx */; };
+		2D37FDD81882D71300472ED7 /* TrainDividersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D37FDD61882D71300472ED7 /* TrainDividersViewController.m */; };
+		2D37FDD91882D71300472ED7 /* TrainDividersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD71882D71300472ED7 /* TrainDividersViewController.xib */; };
 		2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D46D08018284A6A0025D63C /* QuartzCore.framework */; };
 		2D46D09E18285C470025D63C /* 1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08718285C470025D63C /* 1.pcx */; };
 		2D46D09F18285C470025D63C /* 10x10.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08818285C470025D63C /* 10x10.pcx */; };
@@ -85,6 +87,8 @@
 		2DD274651850550E0072E635 /* sampleText.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DD274641850550E0072E635 /* sampleText.pcx */; };
 		2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2746818505E5C0072E635 /* PCXAnalizer.m */; };
 		2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD873131871611F009FEA42 /* DevideAnalizer.m */; };
+		2DE44B4018872659000F8DD9 /* GapFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE44B3F18872659000F8DD9 /* GapFiller.m */; };
+		2DE44B4218873D83000F8DD9 /* test3.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE44B4118873D83000F8DD9 /* test3.pcx */; };
 		2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5F22D180BCDCB006133B4 /* PCXHeader.m */; };
 		2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE65504186F0BED00BFC97F /* EmptiesFiller.m */; };
 		2DE65507186F126E00BFC97F /* sampleText2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2DE65506186F126E00BFC97F /* sampleText2.pcx */; };
@@ -113,6 +117,9 @@
 		2D28334A1815D9F8006216EB /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		2D37FDD01882B8CD00472ED7 /* test1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.pcx; sourceTree = "<group>"; };
 		2D37FDD21882C2DE00472ED7 /* test2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.pcx; sourceTree = "<group>"; };
+		2D37FDD51882D71300472ED7 /* TrainDividersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainDividersViewController.h; sourceTree = "<group>"; };
+		2D37FDD61882D71300472ED7 /* TrainDividersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainDividersViewController.m; sourceTree = "<group>"; };
+		2D37FDD71882D71300472ED7 /* TrainDividersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainDividersViewController.xib; sourceTree = "<group>"; };
 		2D46D08018284A6A0025D63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2D46D08718285C470025D63C /* 1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.pcx; sourceTree = "<group>"; };
 		2D46D08818285C470025D63C /* 10x10.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10.pcx; sourceTree = "<group>"; };
@@ -206,6 +213,9 @@
 		2DD2746818505E5C0072E635 /* PCXAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXAnalizer.m; sourceTree = "<group>"; };
 		2DD873121871611F009FEA42 /* DevideAnalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevideAnalizer.h; sourceTree = "<group>"; };
 		2DD873131871611F009FEA42 /* DevideAnalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevideAnalizer.m; sourceTree = "<group>"; };
+		2DE44B3E18872659000F8DD9 /* GapFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GapFiller.h; sourceTree = "<group>"; };
+		2DE44B3F18872659000F8DD9 /* GapFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GapFiller.m; sourceTree = "<group>"; };
+		2DE44B4118873D83000F8DD9 /* test3.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.pcx; sourceTree = "<group>"; };
 		2DE5F22C180BCDCB006133B4 /* PCXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXHeader.h; sourceTree = "<group>"; };
 		2DE5F22D180BCDCB006133B4 /* PCXHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXHeader.m; sourceTree = "<group>"; };
 		2DE65503186F0BED00BFC97F /* EmptiesFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptiesFiller.h; sourceTree = "<group>"; };
@@ -262,6 +272,7 @@
 		2D268FF41875B25F00D3F3B6 /* DevideThinning */ = {
 			isa = PBXGroup;
 			children = (
+				2DE44B3D18872642000F8DD9 /* GapFiller */,
 				2D7B80AF1881770A006391F0 /* DivideFilter */,
 				2D7B80AB18817549006391F0 /* OnePixelEraser */,
 				2D7B80A718817401006391F0 /* BlackPixelsCalculator */,
@@ -298,6 +309,16 @@
 			path = Defines;
 			sourceTree = "<group>";
 		};
+		2D37FDD41882D6D200472ED7 /* TrainDividersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D37FDD51882D71300472ED7 /* TrainDividersViewController.h */,
+				2D37FDD61882D71300472ED7 /* TrainDividersViewController.m */,
+				2D37FDD71882D71300472ED7 /* TrainDividersViewController.xib */,
+			);
+			path = TrainDividersViewController;
+			sourceTree = "<group>";
+		};
 		2D46D08418285C470025D63C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +339,7 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2DE44B4118873D83000F8DD9 /* test3.pcx */,
 				2D37FDD21882C2DE00472ED7 /* test2.pcx */,
 				2D37FDD01882B8CD00472ED7 /* test1.pcx */,
 				2D4B3D86187BFCE6001E060F /* sampleText3.pcx */,
@@ -531,6 +553,7 @@
 		2DB5A54A180AE246009CC3E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D37FDD41882D6D200472ED7 /* TrainDividersViewController */,
 				2DB5A54B180AE246009CC3E2 /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -642,6 +665,15 @@
 				2DD873131871611F009FEA42 /* DevideAnalizer.m */,
 			);
 			path = DevideAnalizer;
+			sourceTree = "<group>";
+		};
+		2DE44B3D18872642000F8DD9 /* GapFiller */ = {
+			isa = PBXGroup;
+			children = (
+				2DE44B3E18872659000F8DD9 /* GapFiller.h */,
+				2DE44B3F18872659000F8DD9 /* GapFiller.m */,
+			);
+			path = GapFiller;
 			sourceTree = "<group>";
 		};
 		2DE5F22B180BCDC0006133B4 /* PCXHeader */ = {
@@ -763,6 +795,7 @@
 				2D46D0B818285C5E0025D63C /* saveFile.png in Resources */,
 				2D46D0AF18285C470025D63C /* qwqwe.pcx in Resources */,
 				2D37FDD31882C2DE00472ED7 /* test2.pcx in Resources */,
+				2D37FDD91882D71300472ED7 /* TrainDividersViewController.xib in Resources */,
 				2D46D0A218285C470025D63C /* 2x2.pcx in Resources */,
 				2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */,
 				2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */,
@@ -791,6 +824,7 @@
 				2D46D0A918285C470025D63C /* grayScale.pcx in Resources */,
 				2D46D0AA18285C470025D63C /* image.pcx in Resources */,
 				2D37FDD11882B8CD00472ED7 /* test1.pcx in Resources */,
+				2DE44B4218873D83000F8DD9 /* test3.pcx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +880,8 @@
 				2D268FF71875B27300D3F3B6 /* DevideThinning.m in Sources */,
 				2D7B80A61881720E006391F0 /* MinShapeWidth.m in Sources */,
 				2DE5F22E180BCDCB006133B4 /* PCXHeader.m in Sources */,
+				2DE44B4018872659000F8DD9 /* GapFiller.m in Sources */,
+				2D37FDD81882D71300472ED7 /* TrainDividersViewController.m in Sources */,
 				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
 				2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */,

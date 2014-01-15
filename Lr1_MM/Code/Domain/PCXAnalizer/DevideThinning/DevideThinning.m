@@ -14,6 +14,7 @@
 #import "BlackPixelsCalculator.h"
 #import "OnePixelEraser.h"
 #import "DivideFilter.h"
+#import "GapFiller.h"
 
 @interface DevideThinning ()
 
@@ -88,6 +89,11 @@
                                        pallete:self.palleteCopy
                                     blackIndex:self.blackIndex
                                     whiteIndex:self.whiteIndex];
+ 
+    GapFiller *gapFiller = [[GapFiller alloc] initWithPallete:self.palleteCopy
+                                                   whiteIndex:self.whiteIndex
+                                                   blackIndex:self.blackIndex];    
+    [gapFiller fillGapsWithDivide:devide];
     
     self.pcxContent.pallete = self.palleteCopy;
 }
