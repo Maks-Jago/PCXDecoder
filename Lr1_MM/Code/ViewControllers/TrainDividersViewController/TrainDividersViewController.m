@@ -11,7 +11,7 @@
 #import "PCXDivideView.h"
 #import "Recognizer.h"
 
-@interface TrainDividersViewController ()
+@interface TrainDividersViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) PCXAnalizer *pcxAnalizer;
 @property (nonatomic, strong) PCXContent *pcxContent;
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet PCXDivideView *divideView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *letterTextField;
-@property (weak, nonatomic) IBOutlet UITextView *recognizeTextView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -134,9 +134,7 @@
         previousRect = [value CGRectValue];
     }
     
-    self.recognizeTextView.text = string;
     NSLog(@"string:\n%@", string);
-
 }
 
 - (void)addTextViewForDivide:(CGRect)divide withLetter:(NSString *)letter
@@ -150,5 +148,19 @@
     textView.textAlignment = NSTextAlignmentCenter;
     [self.pcxView addSubview:textView];
 }
+
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+
 
 @end
