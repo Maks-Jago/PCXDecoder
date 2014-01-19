@@ -32,8 +32,9 @@
 }
 
 
-- (void)fillGapsWithDivide:(CGRect)divide
+- (BOOL)fillGapsWithDivide:(CGRect)divide
 {
+    BOOL isReplace = NO;
     for (int i = divide.origin.y; i < divide.size.height + divide.origin.y; i++) {
         for (int j = divide.origin.x; j < divide.size.width + divide.origin.x; j++) {
             NSUInteger value = [self.pallete[i][0][j] unsignedIntegerValue];
@@ -93,6 +94,7 @@
             if (topLeft == self.whiteIndex && topCenter == self.whiteIndex && topRight == self.blackIndex &&
                 midleLeft == self.whiteIndex && midleRight == self.whiteIndex &&
                 bottomLeft == self.blackIndex && bottomCenter == self.whiteIndex && bottomRight == self.whiteIndex) {
+                isReplace = YES;
                 [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
             }
             
@@ -104,6 +106,7 @@
             else if (topLeft == self.blackIndex && topCenter == self.whiteIndex && topRight == self.whiteIndex &&
                 midleLeft == self.whiteIndex && midleRight == self.whiteIndex &&
                 bottomLeft == self.whiteIndex && bottomCenter == self.whiteIndex && bottomRight == self.blackIndex) {
+                isReplace = YES;
                 [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
             }
 
@@ -115,10 +118,49 @@
             else if (topLeft == self.whiteIndex && topCenter == self.whiteIndex && topRight == self.whiteIndex &&
                      midleLeft == self.blackIndex && midleRight == self.blackIndex &&
                      bottomLeft == self.whiteIndex && bottomCenter == self.whiteIndex && bottomRight == self.whiteIndex) {
+                isReplace = YES;
                 [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
             }
+            
+            /*
+             0 1 0
+             0 0 0
+             0 1 0
+             */
+            else if (topLeft == self.whiteIndex && topCenter == self.blackIndex && topRight == self.whiteIndex &&
+                     midleLeft == self.whiteIndex && midleRight == self.whiteIndex &&
+                     bottomLeft == self.whiteIndex && bottomCenter == self.blackIndex && bottomRight == self.whiteIndex) {
+                isReplace = YES;
+                [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
+            }
+            
+//            /*
+//             1 0 0
+//             0 0 1
+//             0 0 0
+//             */
+//            else if (topLeft == self.blackIndex && topCenter == self.whiteIndex && topRight == self.whiteIndex &&
+//                     midleLeft == self.whiteIndex && midleRight == self.blackIndex &&
+//                     bottomLeft == self.whiteIndex && bottomCenter == self.whiteIndex && bottomRight == self.whiteIndex) {
+//                isReplace = YES;
+//                [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
+//            }
+//
+//            /*
+//             0 0 0
+//             0 0 1
+//             1 0 0
+//             */
+//            else if (topLeft == self.whiteIndex && topCenter == self.whiteIndex && topRight == self.whiteIndex &&
+//                     midleLeft == self.whiteIndex && midleRight == self.blackIndex &&
+//                     bottomLeft == self.blackIndex && bottomCenter == self.whiteIndex && bottomRight == self.whiteIndex) {
+//                isReplace = YES;
+//                [self.pallete[i][0] replaceObjectAtIndex:j withObject:[NSNumber numberWithInteger:self.blackIndex]];
+//            }
+
         }
     }
+    return isReplace;
 }
 
 @end

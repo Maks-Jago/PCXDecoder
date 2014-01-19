@@ -19,10 +19,14 @@
 @property (nonatomic, strong) PCXFile *pcxFile;
 @property (nonatomic, strong) PCXAnalizer *pcxAnalizer;
 
+@property (nonatomic, strong) void(^touchBlock)(UITouch *touch);
+
 - (id)initWithPCXFile:(PCXFile *)pcxFile;
 
 - (void)convertPixelsToBlackWithMaxBlackValue:(NSUInteger)maxBlackValue;
 - (NSUInteger)whiteColorIndex;
 - (NSUInteger)blackColorIndex;
+
+- (UIColor *)colorFromLinePallete:(NSArray *)linePallete withIndex:(NSUInteger)index alpha:(CGFloat)alpha;
 
 @end

@@ -10,7 +10,10 @@
 #import "PCXView.h"
 #import "PCXFile.h"
 #import "PCXAnalizer.h"
+#import "TrainDividersViewController.h"
+#import "Recognizer.h"
 
+#import "FilePath.h"
 #import <InfColorPickerController.h>
 
 #define kOffsetX [UIScreen mainScreen].bounds.size.width + 73
@@ -31,10 +34,23 @@
 #pragma mark -
 #pragma mark View Managment
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:kFilePath ofType:@"pcx"];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[[FilePath shared] path] ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -43,6 +59,7 @@
 //    [self setupSlider];
     [self setupDevideButton];
     [self setupThinningButton];
+    [self setupDetectButton];
     
     self.pcxAnalizer = [[PCXAnalizer alloc] initWithPCXContent:self.pcxFile.pcxContent
                                                     blackIndex:[self.pcxView blackColorIndex]
@@ -207,17 +224,32 @@
     
     thinningButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
     thinningButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-    thinningButton.frame = CGRectMake(kOffsetX, 690, 180, 50);
+    thinningButton.frame = CGRectMake(kOffsetX, 565, 180, 50);
     [thinningButton addTarget:self action:@selector(thinningButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.view addSubview:thinningButton];
+}
+
+- (void)setupDetectButton
+{
+    UIButton *detectButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    
+    [detectButton setTitle:@"Detect" forState:(UIControlStateNormal)];
+    [detectButton.titleLabel setFont:[UIFont systemFontOfSize:28]];
+    [detectButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    
+    detectButton.backgroundColor = [UIColor colorWithRed:49.0 / 255.0f green:78.0 / 255.0f blue:125.0f / 255.0f alpha:1.0f];
+    detectButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    detectButton.frame = CGRectMake(kOffsetX, 690, 180, 50);
+    [detectButton addTarget:self action:@selector(detectButtonTapped) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.view addSubview:detectButton];
 }
 
 
 - (void)setupPCXView
 {
     self.pcxView = [[PCXView alloc] initWithPCXFile:self.pcxFile];
-    self.
     self.pcxView.backgroundColor = [UIColor whiteColor];
     
     CGRect frame = self.pcxView.frame;
@@ -297,6 +329,7 @@
 
 - (void)saveButtonTapped
 {
+    [[FilePath shared] changeFilePath];
     static NSUInteger fileIndex = 1;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSMutableString *pathForSave = [NSMutableString stringWithString:[paths lastObject]];
@@ -314,7 +347,6 @@
 
 - (void)colorPickerControllerDidFinish:(InfColorPickerController*)controller
 {
-    NSLog(@"colorPickerControllerDidFinish");
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -332,7 +364,7 @@
 
 - (void)resetButtonTapped
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:kFilePath ofType:@"pcx"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[[FilePath shared] path] ofType:@"pcx"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
     self.pcxFile = [[PCXFile alloc] initWithData:data];
     
@@ -358,8 +390,19 @@
 
 - (void)thinningButtonTapped
 {
+    [self toBlackButtonTapped];
     [self.pcxAnalizer thinningDevides];
     [self.pcxView setNeedsDisplay];
+}
+
+- (void)detectButtonTapped
+{
+    [Recognizer shared].pallete = self.pcxFile.pcxContent.pallete;
+    [Recognizer shared].blackIndex = [self.pcxView blackColorIndex] / 3;
+    TrainDividersViewController *trainViewController = [[TrainDividersViewController alloc] initWithPCXContent:self.pcxFile.pcxContent
+                                                                                                   pcxAnalizer:self.pcxAnalizer
+                                                                                                       pcxFile:self.pcxFile];
+    [self.navigationController pushViewController:trainViewController animated:YES];
 }
 
 @end

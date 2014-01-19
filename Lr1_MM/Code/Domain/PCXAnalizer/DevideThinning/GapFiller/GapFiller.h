@@ -14,6 +14,6 @@
            whiteIndex:(NSUInteger)whiteIndex
            blackIndex:(NSUInteger)blackIndex;
 
-- (void)fillGapsWithDivide:(CGRect)divide;
+- (BOOL)fillGapsWithDivide:(CGRect)divide;
 
 @end

@@ -14,6 +14,9 @@
 		2D37FDD31882C2DE00472ED7 /* test2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD21882C2DE00472ED7 /* test2.pcx */; };
 		2D37FDD81882D71300472ED7 /* TrainDividersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D37FDD61882D71300472ED7 /* TrainDividersViewController.m */; };
 		2D37FDD91882D71300472ED7 /* TrainDividersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D37FDD71882D71300472ED7 /* TrainDividersViewController.xib */; };
+		2D41C056188BE79600650094 /* FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D41C055188BE79600650094 /* FilePath.m */; };
+		2D41C058188BFDE200650094 /* test4.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D41C057188BFDE200650094 /* test4.pcx */; };
+		2D41C05A188C11C400650094 /* test5.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D41C059188C11C400650094 /* test5.pcx */; };
 		2D46D08118284A6A0025D63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D46D08018284A6A0025D63C /* QuartzCore.framework */; };
 		2D46D09E18285C470025D63C /* 1.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08718285C470025D63C /* 1.pcx */; };
 		2D46D09F18285C470025D63C /* 10x10.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D46D08818285C470025D63C /* 10x10.pcx */; };
@@ -38,6 +41,7 @@
 		2D4F1321182A464A00650A57 /* marb.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1320182A464A00650A57 /* marb.pcx */; };
 		2D4F1323182A49B700650A57 /* 10x10gray.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1322182A49B700650A57 /* 10x10gray.pcx */; };
 		2D4F1325182A4B7700650A57 /* marb2.pcx in Resources */ = {isa = PBXBuildFile; fileRef = 2D4F1324182A4B7400650A57 /* marb2.pcx */; };
+		2D5F23A41887BE87006C55EF /* PCXDivideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F23A31887BE87006C55EF /* PCXDivideView.m */; };
 		2D638342183DDC0F00C09D97 /* DrawLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D638341183DDC0F00C09D97 /* DrawLayerView.m */; };
 		2D638345183DDF1700C09D97 /* toBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D638343183DDF1700C09D97 /* toBlack.png */; };
 		2D638346183DDF1700C09D97 /* toBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D638344183DDF1700C09D97 /* toBlack@2x.png */; };
@@ -61,6 +65,8 @@
 		2D7B80AA1881740E006391F0 /* BlackPixelsCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80A91881740E006391F0 /* BlackPixelsCalculator.m */; };
 		2D7B80AE1881756C006391F0 /* OnePixelEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80AD1881756C006391F0 /* OnePixelEraser.m */; };
 		2D7B80B218817716006391F0 /* DivideFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B80B118817716006391F0 /* DivideFilter.m */; };
+		2D80F6C3188AA00A00DEFF05 /* Recognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D80F6C2188AA00A00DEFF05 /* Recognizer.m */; };
+		2D80F6C7188AA28D00DEFF05 /* Mensuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D80F6C6188AA28D00DEFF05 /* Mensuration.m */; };
 		2D91623918218B86001EE321 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D91623818218B86001EE321 /* Security.framework */; };
 		2DB5A516180ADD6B009CC3E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A515180ADD6B009CC3E2 /* Foundation.framework */; };
 		2DB5A518180ADD6B009CC3E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB5A517180ADD6B009CC3E2 /* CoreGraphics.framework */; };
@@ -120,6 +126,10 @@
 		2D37FDD51882D71300472ED7 /* TrainDividersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainDividersViewController.h; sourceTree = "<group>"; };
 		2D37FDD61882D71300472ED7 /* TrainDividersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainDividersViewController.m; sourceTree = "<group>"; };
 		2D37FDD71882D71300472ED7 /* TrainDividersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainDividersViewController.xib; sourceTree = "<group>"; };
+		2D41C054188BE79600650094 /* FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePath.h; sourceTree = "<group>"; };
+		2D41C055188BE79600650094 /* FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePath.m; sourceTree = "<group>"; };
+		2D41C057188BFDE200650094 /* test4.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test4.pcx; sourceTree = "<group>"; };
+		2D41C059188C11C400650094 /* test5.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test5.pcx; sourceTree = "<group>"; };
 		2D46D08018284A6A0025D63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2D46D08718285C470025D63C /* 1.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.pcx; sourceTree = "<group>"; };
 		2D46D08818285C470025D63C /* 10x10.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10.pcx; sourceTree = "<group>"; };
@@ -144,6 +154,8 @@
 		2D4F1320182A464A00650A57 /* marb.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb.pcx; sourceTree = "<group>"; };
 		2D4F1322182A49B700650A57 /* 10x10gray.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10gray.pcx; sourceTree = "<group>"; };
 		2D4F1324182A4B7400650A57 /* marb2.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; path = marb2.pcx; sourceTree = "<group>"; };
+		2D5F23A21887BE87006C55EF /* PCXDivideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCXDivideView.h; sourceTree = "<group>"; };
+		2D5F23A31887BE87006C55EF /* PCXDivideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCXDivideView.m; sourceTree = "<group>"; };
 		2D638340183DDC0F00C09D97 /* DrawLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLayerView.h; sourceTree = "<group>"; };
 		2D638341183DDC0F00C09D97 /* DrawLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawLayerView.m; sourceTree = "<group>"; };
 		2D638343183DDF1700C09D97 /* toBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toBlack.png; sourceTree = "<group>"; };
@@ -170,6 +182,10 @@
 		2D7B80AD1881756C006391F0 /* OnePixelEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePixelEraser.m; sourceTree = "<group>"; };
 		2D7B80B018817716006391F0 /* DivideFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivideFilter.h; sourceTree = "<group>"; };
 		2D7B80B118817716006391F0 /* DivideFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivideFilter.m; sourceTree = "<group>"; };
+		2D80F6C1188AA00A00DEFF05 /* Recognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recognizer.h; sourceTree = "<group>"; };
+		2D80F6C2188AA00A00DEFF05 /* Recognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recognizer.m; sourceTree = "<group>"; };
+		2D80F6C5188AA28D00DEFF05 /* Mensuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mensuration.h; sourceTree = "<group>"; };
+		2D80F6C6188AA28D00DEFF05 /* Mensuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mensuration.m; sourceTree = "<group>"; };
 		2D91623818218B86001EE321 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2DB5A512180ADD6B009CC3E2 /* Lr1_MM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lr1_MM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB5A515180ADD6B009CC3E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -339,6 +355,8 @@
 		2D46D08618285C470025D63C /* PCXImages */ = {
 			isa = PBXGroup;
 			children = (
+				2D41C059188C11C400650094 /* test5.pcx */,
+				2D41C057188BFDE200650094 /* test4.pcx */,
 				2DE44B4118873D83000F8DD9 /* test3.pcx */,
 				2D37FDD21882C2DE00472ED7 /* test2.pcx */,
 				2D37FDD01882B8CD00472ED7 /* test1.pcx */,
@@ -404,10 +422,13 @@
 		2D676155180AFC8B008518F7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				2D80F6C0188A9FF900DEFF05 /* Recognizer */,
 				2DD2746618505E4C0072E635 /* PCXAnalizer */,
 				2D24D1E6180D58E900C00E09 /* PCXFile */,
 				2DE5F22B180BCDC0006133B4 /* PCXHeader */,
 				2D676156180AFC8B008518F7 /* PCXContent */,
+				2D41C054188BE79600650094 /* FilePath.h */,
+				2D41C055188BE79600650094 /* FilePath.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -455,6 +476,25 @@
 				2D7B80B118817716006391F0 /* DivideFilter.m */,
 			);
 			path = DivideFilter;
+			sourceTree = "<group>";
+		};
+		2D80F6C0188A9FF900DEFF05 /* Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				2D80F6C4188AA1E000DEFF05 /* Mensuration */,
+				2D80F6C1188AA00A00DEFF05 /* Recognizer.h */,
+				2D80F6C2188AA00A00DEFF05 /* Recognizer.m */,
+			);
+			path = Recognizer;
+			sourceTree = "<group>";
+		};
+		2D80F6C4188AA1E000DEFF05 /* Mensuration */ = {
+			isa = PBXGroup;
+			children = (
+				2D80F6C5188AA28D00DEFF05 /* Mensuration.h */,
+				2D80F6C6188AA28D00DEFF05 /* Mensuration.m */,
+			);
+			path = Mensuration;
 			sourceTree = "<group>";
 		};
 		2DB5A509180ADD6B009CC3E2 = {
@@ -582,6 +622,8 @@
 			children = (
 				2DB5A551180AE337009CC3E2 /* PCXView.h */,
 				2DB5A552180AE337009CC3E2 /* PCXView.m */,
+				2D5F23A21887BE87006C55EF /* PCXDivideView.h */,
+				2D5F23A31887BE87006C55EF /* PCXDivideView.m */,
 			);
 			path = PCXView;
 			sourceTree = "<group>";
@@ -790,6 +832,7 @@
 				2DE65511186F241800BFC97F /* sampleText4.pcx in Resources */,
 				2D4B3D87187BFCE6001E060F /* sampleText3.pcx in Resources */,
 				2D4F1321182A464A00650A57 /* marb.pcx in Resources */,
+				2D41C058188BFDE200650094 /* test4.pcx in Resources */,
 				2D68596C182B67A500779A89 /* polR.pcx in Resources */,
 				2DB5A520180ADD6B009CC3E2 /* InfoPlist.strings in Resources */,
 				2D46D0B818285C5E0025D63C /* saveFile.png in Resources */,
@@ -810,6 +853,7 @@
 				2D46D0B018285C470025D63C /* sample.pcx in Resources */,
 				2D46D0A418285C470025D63C /* 4x4.pcx in Resources */,
 				2D7AA101182AFDAE002689D8 /* savedPcxFile1.pcx in Resources */,
+				2D41C05A188C11C400650094 /* test5.pcx in Resources */,
 				2D7107DE182A89A90014BC08 /* word.pcx in Resources */,
 				2DD274651850550E0072E635 /* sampleText.pcx in Resources */,
 				2D46D0BC18285E950025D63C /* selectColor.png in Resources */,
@@ -884,6 +928,7 @@
 				2D37FDD81882D71300472ED7 /* TrainDividersViewController.m in Sources */,
 				2DD01C2418707E3800FA2D5A /* BottomAperture.m in Sources */,
 				2D24D1E9180D58F600C00E09 /* PCXFile.m in Sources */,
+				2D80F6C7188AA28D00DEFF05 /* Mensuration.m in Sources */,
 				2DD01C1818705C4C00FA2D5A /* TopAperture.m in Sources */,
 				2D28334B1815D9F8006216EB /* Defines.m in Sources */,
 				2DD01C141870564300FA2D5A /* LeftAperture.m in Sources */,
@@ -891,9 +936,11 @@
 				2DB5A526180ADD6B009CC3E2 /* AppDelegate.m in Sources */,
 				2DD01C101870549800FA2D5A /* FringeEraser.m in Sources */,
 				2D7B80B218817716006391F0 /* DivideFilter.m in Sources */,
+				2D80F6C3188AA00A00DEFF05 /* Recognizer.m in Sources */,
 				2DD01C1C18705C7400FA2D5A /* BaseAperture.m in Sources */,
 				2DD01C2118707E1800FA2D5A /* RightAperture.m in Sources */,
 				2D7B80AA1881740E006391F0 /* BlackPixelsCalculator.m in Sources */,
+				2D41C056188BE79600650094 /* FilePath.m in Sources */,
 				2DB5A522180ADD6B009CC3E2 /* main.m in Sources */,
 				2DD2746918505E5C0072E635 /* PCXAnalizer.m in Sources */,
 				2DB5A553180AE337009CC3E2 /* PCXView.m in Sources */,
@@ -901,6 +948,7 @@
 				2DE65505186F0BED00BFC97F /* EmptiesFiller.m in Sources */,
 				2DD873141871611F009FEA42 /* DevideAnalizer.m in Sources */,
 				2DE6550B186F1E1500BFC97F /* NSArray+LogMatr.m in Sources */,
+				2D5F23A41887BE87006C55EF /* PCXDivideView.m in Sources */,
 				2D7B80AE1881756C006391F0 /* OnePixelEraser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

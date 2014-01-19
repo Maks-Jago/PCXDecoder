@@ -81,7 +81,7 @@
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (int i = 0; i < self.pcxFile.pcxContent.pallete.count; i++) {
+    for (int i = 0; i < self.pcxFile.pcxContent.pallete.count - 1; i++) {
         NSArray *linePallete = self.pcxFile.pcxContent.pallete[i];
         NSUInteger count = [linePallete[0] isKindOfClass:[NSArray class]] ? [linePallete[0] count] : [linePallete count];
         for (int j = 0; j < count; j++) {
@@ -94,11 +94,16 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    UITouch *touch = [touches.allObjects lastObject];
+    
+    if (self.touchBlock) {
+        self.touchBlock(touch);
+    }
+    
     if (!self.firstDivider) {
         return;
     }
-
-    UITouch *touch = [touches.allObjects lastObject];
+    
     CGPoint location = [touch locationInView:self];
     
     if (!CGRectContainsPoint([self.firstDivider CGRectValue], location)) {
@@ -106,8 +111,8 @@
             CGRect divider = [value CGRectValue];
             if (CGRectContainsPoint(divider, location)) {
                 NSMutableArray *arr = [NSMutableArray arrayWithArray:self.drawLayerView.rects];
-                [arr removeObjectAtIndex:[self.drawLayerView.rects indexOfObject:value]];
-                [arr removeObject:self.firstDivider];
+                NSUInteger index = [self.drawLayerView.rects indexOfObject:value];
+//                [arr removeObjectAtIndex:index];
 
                 CGRect newDivider;
                 CGRect firstDiv = [self.firstDivider CGRectValue];
@@ -125,7 +130,10 @@
                     newDivider.size.height += fabsf(CGRectGetMaxY(divider) - CGRectGetMaxY(newDivider));
                 }
                 
-                [arr addObject:[NSValue valueWithCGRect:newDivider]];
+//                [arr addObject:[NSValue valueWithCGRect:newDivider]];
+//                [arr insertObject: atIndex:index - 2];
+                [arr replaceObjectAtIndex:index withObject:[NSValue valueWithCGRect:newDivider]];
+                [arr removeObject:self.firstDivider];
                 self.firstDivider = nil;
                 [self.pcxAnalizer setDivides:arr];
                 [self.drawLayerView setRects:arr];

@@ -23,6 +23,10 @@
 static NSUInteger const kSaveValue = 983;
 static NSUInteger const kEraseIndex = 778;
 
+static NSString *const kSampleText3 = @"sampleText3";
+static NSString *const kTest3 = @"test5";
+static NSString *const kTest4 = @"test4";
+
 //fullText
-static NSString *const kFilePath = @"test3";//@"sampleText3";
+static NSString *kFilePath = @"test5";//@"sampleText3";
 //test3

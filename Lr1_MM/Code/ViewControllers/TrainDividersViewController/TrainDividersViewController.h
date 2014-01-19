@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCXContent.h"
+#import "PCXAnalizer.h"
+#import "PCXFile.h"
 
 @interface TrainDividersViewController : UIViewController
+
+- (id)initWithPCXContent:(PCXContent *)content pcxAnalizer:(PCXAnalizer *)analizer pcxFile:(PCXFile *)pcxFile;
 
 @end

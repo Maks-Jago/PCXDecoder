@@ -15,6 +15,7 @@
 #import "OnePixelEraser.h"
 #import "DivideFilter.h"
 #import "GapFiller.h"
+#import "FilePath.h"
 
 @interface DevideThinning ()
 
@@ -89,11 +90,15 @@
                                        pallete:self.palleteCopy
                                     blackIndex:self.blackIndex
                                     whiteIndex:self.whiteIndex];
- 
+
     GapFiller *gapFiller = [[GapFiller alloc] initWithPallete:self.palleteCopy
                                                    whiteIndex:self.whiteIndex
-                                                   blackIndex:self.blackIndex];    
+                                                   blackIndex:self.blackIndex];
+
     [gapFiller fillGapsWithDivide:devide];
+//    while ([gapFiller fillGapsWithDivide:devide]) {
+//        NSLog(@"fillGapsWithDivide");
+//    }
     
     self.pcxContent.pallete = self.palleteCopy;
 }
@@ -175,7 +180,7 @@
 
 - (BOOL)pathAnalize
 {
-    return [kFilePath isEqualToString:@"sampleText3"];
+    return [[[FilePath shared] path] isEqualToString:@"sampleText3"];
 }
 
 @end
