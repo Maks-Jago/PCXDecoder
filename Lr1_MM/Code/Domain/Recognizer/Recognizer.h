@@ -11,12 +11,14 @@
 
 @interface Recognizer : NSObject
 
+@property (nonatomic, strong) NSMutableDictionary *mensurations;
+
 @property (nonatomic, strong) NSArray *pallete;
 @property (nonatomic, assign) NSUInteger blackIndex;
 
 + (Recognizer *)shared;
 
-- (void)addMensurationForDivide:(CGRect)divide letter:(NSString *)letter;
+- (void)addMensurationForDivide:(CGRect)divide letter:(NSString *)letter image:(UIImage *)image;
 - (Mensuration *)mensurationForDivide:(CGRect)divide;
 - (Mensuration *)recognizeDivide:(CGRect)divide;
 

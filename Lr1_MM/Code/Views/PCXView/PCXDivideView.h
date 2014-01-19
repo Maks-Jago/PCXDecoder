@@ -10,6 +10,7 @@
 
 @interface PCXDivideView : PCXView
 
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) CGRect divide;
 
 @end

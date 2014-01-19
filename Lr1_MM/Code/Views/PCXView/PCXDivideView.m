@@ -10,6 +10,8 @@
 #import "PCXFile.h"
 #import "PCXContent.h"
 
+
+
 @implementation PCXDivideView
 
 - (void)drawRect:(CGRect)rect
@@ -29,8 +31,28 @@
                                                   self.frame.size.height / 2 - (self.divide.size.height / 2 - ii), 1, 1));
         }
     }
+    
+    CGImageRef imgRef = CGBitmapContextCreateImage(context);
+    self.image = [UIImage imageWithCGImage:imgRef];
+    CGPoint origin = CGPointMake(self.frame.size.width / 2 - (self.divide.size.width / 2),
+                                 self.frame.size.height / 2 - (self.divide.size.height / 2));
+    self.image = [self getSubImage:CGRectMake(origin.x, origin.y, self.divide.size.width, self.divide.size.height) image:self.image];
+    CGImageRelease(imgRef);
 }
 
+- (UIImage *)getSubImage:(CGRect)rect image:(UIImage *)image
+{
+    CGImageRef subImageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+    CGRect smallBounds = CGRectMake(rect.origin.x, rect.origin.y, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
+    
+    UIGraphicsBeginImageContext(smallBounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, smallBounds, subImageRef);
+    UIImage* smallImg = [UIImage imageWithCGImage:subImageRef];
+    UIGraphicsEndImageContext();
+    
+    return smallImg;
+}
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];

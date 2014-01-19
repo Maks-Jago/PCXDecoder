@@ -10,23 +10,6 @@
 
 @implementation Mensuration
 
-//- (void)encodeWithCoder:(NSCoder *)coder;
-//{
-//    [coder encodeObject:self.horizontal forKey:@"horizontal"];
-//    [coder encodeCGRect:self.divide forKey:@"divide"];
-//}
-//
-//- (id)initWithCoder:(NSCoder *)coder;
-//{
-//    self = [super init];
-//    if (self != nil)
-//    {
-//        self.horizontal = [coder decodeObjectForKey:@"horizontal"];
-//        self.divide = [coder decodeCGRectForKey:@"divide"];
-//    }
-//    return self;
-//}
-
 + (Mensuration *)mensurationFromDivide:(CGRect)divide
                            withPallete:(NSArray *)pallete
                                 letter:(NSString *)letter

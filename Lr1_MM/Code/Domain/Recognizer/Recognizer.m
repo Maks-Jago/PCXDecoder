@@ -10,7 +10,6 @@
 
 @interface Recognizer ()
 
-@property (nonatomic, strong) NSMutableDictionary *mensurations;
 
 @end
 
@@ -35,9 +34,10 @@
     return self;
 }
 
-- (void)addMensurationForDivide:(CGRect)divide letter:(NSString *)letter
+- (void)addMensurationForDivide:(CGRect)divide letter:(NSString *)letter image:(UIImage *)image
 {
     Mensuration *mensuration = [Mensuration mensurationFromDivide:divide withPallete:self.pallete letter:letter blackIndex:self.blackIndex];
+    mensuration.image = image;
     NSMutableArray *arr = [self.mensurations valueForKey:letter];
     if (!arr) {
         arr = [NSMutableArray new];

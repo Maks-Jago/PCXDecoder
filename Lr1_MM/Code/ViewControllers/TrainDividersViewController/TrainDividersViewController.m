@@ -84,11 +84,6 @@
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
 {
     [self.scrollView setContentOffset:CGPointMake(1, 1) animated:YES];
-//    int index = 1;
-//    for (NSValue *value in [self.pcxAnalizer devide]) {
-//        [self addTextViewForDivide:[value CGRectValue] withLetter:[NSString stringWithFormat:@"%d", index]];
-//        index ++;
-//    }
 }
 
 
@@ -99,10 +94,12 @@
 {
     NSString *letter = self.letterTextField.text;
     if (letter.length) {
-        [[Recognizer shared] addMensurationForDivide:self.currentDivide letter:letter];
+        [[Recognizer shared] addMensurationForDivide:self.currentDivide letter:letter image:self.divideView.image];
         [self.divideView setDivide:CGRectZero];
         self.letterTextField.text = @"";
         [self.letterTextField resignFirstResponder];
+        [self.tableView reloadData];
+        
     }
 }
 
@@ -115,12 +112,12 @@
     NSMutableString *string = [NSMutableString new];
     
     for (NSValue *value in divides) {
-//        if (!CGRectContainsRect(previousRect, CGRectZero)) {
-//            if ([value CGRectValue].origin.y > previousRect.origin.y + [value CGRectValue].size.height) {
-//                [string appendString:@"\n"];
-//            } else if (fabs(CGRectGetMaxX(previousRect) - CGRectGetMaxX([value CGRectValue])) > 50) {
-//                [string appendString:@"  "];
-//            }
+//        if (CGRectContainsRect([value CGRectValue], CGRectMake(86, 76, 7, 32))) {
+//            NSLog(@"");
+//        }
+//        
+//        if (CGRectContainsRect([value CGRectValue], CGRectMake(134, 19, 6, 27))) {
+//            NSLog(@"");
 //        }
         
         Mensuration *mensuration = [[Recognizer shared] recognizeDivide:[value CGRectValue]];
@@ -153,9 +150,35 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [Recognizer shared].mensurations.allKeys.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    NSString *key = [Recognizer shared].mensurations.allKeys[section];
+    NSArray *arr = [[Recognizer shared].mensurations valueForKey:key];
+    return arr.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [Recognizer shared].mensurations.allKeys[section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *key = [Recognizer shared].mensurations.allKeys[indexPath.section];
+    NSArray *arr = [[Recognizer shared].mensurations valueForKey:key];
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ident"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"ident"];
+    }
+    
+    cell.imageView.image = [arr[indexPath.row] image];
+    return cell;
 }
 
 #pragma mark -

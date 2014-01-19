@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-isEqual:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411841849.007499"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-recognizeButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843117.887111"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411841849.007499"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-recognizeButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -86,11 +86,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Recognizer.m"
-            timestampString = "411755314.622878"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Recognizer.m"
-            timestampString = "411755370.276239"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-isEqual:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411841849.007499"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-recognizeButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411841849.007499"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-addTextViewForDivide:withLetter:"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411841849.007499"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-addTextViewForDivide:withLetter:"
             landmarkType = "5">
          </BreakpointContent>
@@ -262,15 +262,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "-isEqual:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843629.140995"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/Domain/Recognizer/Mensuration/Mensuration.m"
-            timestampString = "411843887.958568"
+            timestampString = "411846343.369395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "+findMensurationsFromDivide:mensuration:pallete:blackIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -310,16 +310,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lr1_MM/Code/ViewControllers/TrainDividersViewController/TrainDividersViewController.m"
-            timestampString = "411844191.152864"
+            timestampString = "411847144.493739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-trainButtonTapped:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lr1_MM/Code/Views/PCXView/PCXDivideView.m"
+            timestampString = "411849277.381008"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

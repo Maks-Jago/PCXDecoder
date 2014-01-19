@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Mensuration : NSObject //<NSCoding>
+@interface Mensuration : NSObject
 
 @property (nonatomic, copy) NSArray *vertical;
 @property (nonatomic, copy) NSArray *horizontal;
@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *letter;
 @property (nonatomic, strong) NSArray *pallete;
 @property (nonatomic, assign) NSUInteger blackIndex;
+@property (nonatomic, strong) UIImage *image;
 
 + (Mensuration *)mensurationFromDivide:(CGRect)divide
                            withPallete:(NSArray *)pallete
